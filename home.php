@@ -8,6 +8,9 @@
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
+    <div class="containerPrincipal">
+        <?php require_once("formulaire.php") ?>
+    </div>
    
 <?php require_once('footer.php'); ?>
 </body>
