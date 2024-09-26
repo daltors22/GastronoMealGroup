@@ -20,8 +20,6 @@
                 <button href="#">Inscription</button>
             </div>
         </div>
-        
-
     </nav>
 </header>
 </body>
