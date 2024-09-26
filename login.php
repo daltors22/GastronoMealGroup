@@ -10,7 +10,10 @@
 </head>
 <body>
     <div class="containerPrincipal">
-       
+        <div class="content_login">
+            <button></button>
+            <button></button>
+        </div>
     </div>
    
 <?php require_once('footer.php'); ?>
