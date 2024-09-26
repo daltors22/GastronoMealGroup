@@ -1,0 +1,51 @@
+.content_login {
+    top: 25%;
+    left: 37%; /* revoir la poistion */
+    position: fixed;
+    width: 25%;
+    height: 45%;
+    /*display:flex; /* Caché par défaut */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.content_login button {
+    display: block;
+    margin-left: 35%;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    width: 30%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content_login h2 {
+    flex: 0;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content_login p {
+    flex: 1;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+ 
+form{
+    border-radius: 10px;
+    margin-left: 30%;
+    padding-bottom: 20px;
+}
+
+form p {
+    margin-left: -100px;
+    text-align: center;
+}
