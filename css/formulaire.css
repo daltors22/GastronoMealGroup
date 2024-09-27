@@ -39,9 +39,7 @@
     display: none;
 }
 
-.popup-visible {
-    display: flex;
-}
+
 
 .popup-content a {
     text-decoration: none;
