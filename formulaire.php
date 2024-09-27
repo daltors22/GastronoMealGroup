@@ -10,6 +10,7 @@
 <!-- Popup -->
 <div id="popup" class="popup-hidden">
     <div class="popup-content">
+    <a href="index.php" class="close_btn">&times;</a>
         <h2>Bienvenue</h2>
         <p>Souhaitez-vous vous connecter ou vous inscrire ?</p>
         <a href="login.php"><button class="popup-btn" id="loginBtn">Se connecter</button></a>
