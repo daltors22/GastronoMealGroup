@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
+    <link rel="stylesheet" href="css/nav.css"/>
 </head>
 <body>
+    <?php require_once("header.php"); ?>
     <div class="containerPrincipal">
         <?php require_once("formulaire.php") ?>
     </div>

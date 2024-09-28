@@ -1,3 +1,42 @@
 nav{
+    background-color: white;
+}
+.tp{
     display: flex;
+    justify-content: space-between;
+}
+
+.lien{
+    justify-content: space-between;
+}
+
+.lienNav{
+    display: flex;
+}
+
+.lien a {
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.lien{  
+    margin-top: 4%;
+}
+
+.buttonNav button {
+    margin-left: 10px;
+}
+
+.buttonNav{
+    margin-top: 2%;
+}
+
+.btnBlack{
+    background-color: #494949;
+    color:white;
+}
+
+button{
+    border-radius: 20%;
+    height: 40%;
 }
