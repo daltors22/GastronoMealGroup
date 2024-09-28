@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.2">
     <link rel="stylesheet" href="css/home.css?v=1.0">
+    <link rel="stylesheet" href="css/index.css?v=1.1">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
     <div class="containerPrincipal">
         <div class="container_1">
-
+            <h1>Bienvenue</h1>
+            <h3>sur le site</h3>
+            <button>Connexion</button>
+            <button>inscription</button>
         </div>
         <div class="container_2">
-            
+           
         </div>
     </div>
    
