@@ -6,7 +6,7 @@
     <meta name="description" content="A brief description of your page.">
     <link rel="stylesheet" href="css/styles.css?v=1.2">
     <link rel="stylesheet" href="css/home.css?v=1.0">
-    <link rel="stylesheet" href="css/index.css?v=1.1">
+    <link rel="stylesheet" href="css/index.css?v=1.3">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -14,8 +14,10 @@
         <div class="container_1">
             <h1>Bienvenue</h1>
             <h3>sur le site</h3>
-            <button>Connexion</button>
-            <button>inscription</button>
+            <div class="button_container">
+            <a href="login.php"><button class="button_connexion">Connexion</button></a>
+            <a href="register.php"><button class="button_inscription">inscription</button></a>
+            </div>
         </div>
         <div class="container_2">
            
