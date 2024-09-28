@@ -1,6 +1,7 @@
 nav{
     background-color: white;
 }
+
 .tp{
     display: flex;
     justify-content: space-between;
@@ -17,10 +18,11 @@ nav{
 .lien a {
     margin-right: 15px;
     text-decoration: none;
+    color: black;
 }
 
 .lien{  
-    margin-top: 4%;
+    margin-top: 35px;
 }
 
 .buttonNav button {
@@ -28,7 +30,7 @@ nav{
 }
 
 .buttonNav{
-    margin-top: 2%;
+    margin-top: 30px;
 }
 
 .btnBlack{
@@ -36,7 +38,7 @@ nav{
     color:white;
 }
 
-button{
+.buttonNavig{
     border-radius: 20%;
-    height: 40%;
+    height: 30px;
 }

@@ -10,8 +10,8 @@
                 <a href="#">Contact</a>
             </div>
             <div class="buttonNav">
-                <button class="btnWhite" href="#">Connexion</button>
-                <button class="btnBlack" href="#">Inscription</button>
+                <button class="btnWhite buttonNavig" href="#">Connexion</button>
+                <button class="btnBlack buttonNavig" href="#">Inscription</button>
             </div>
         </div>
         
