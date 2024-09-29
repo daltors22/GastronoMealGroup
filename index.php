@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="stylesheet" href="css/index.css?v=1.3">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
+    <link rel="stylesheet" href="css/nav.css"/>
 </head>
 <body>
+    <?php require_once("header.php"); ?>
     <div class="containerPrincipal">
         <div class="container_1">
             <h1>Bienvenue</h1>
