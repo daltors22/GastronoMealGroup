@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
+    <link rel="stylesheet" href="css/nav.css"/>
 </head>
 <body>
+    <?php require_once('header.php') ?>
     <div class="containerPrincipal">
     <div class="content_full">  
         <div class="content_register">
+        <a href="index.php" class="close_btn">&times;</a>
             <h2>Inscrivez-vous</h2>
             <p>Entrez une adresse mail</p>
             <form>
