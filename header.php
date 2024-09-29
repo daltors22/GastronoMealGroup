@@ -6,7 +6,7 @@
         </div>
         <div class="lienNav">
             <div class="lien">
-                <a href="#">Menu</a>
+                <a href="index.php">Menu</a>
                 <a href="#">Contact</a>
             </div>
             <div class="buttonNav">
