@@ -10,10 +10,10 @@
                 <a href="#">Contact</a>
             </div>
             <div class="buttonNav">
-                <button class="btnWhite buttonNavig" href="#">Connexion</button>
-                <button class="btnBlack buttonNavig" href="#">Inscription</button>
+                <a href="login.php"> <button class="btnWhite buttonNavig">Connexion</button></a>
+                <a href="register.php"> <button class="btnBlack buttonNavig">Inscription</button></a>
             </div>
         </div>
-        
+
     </nav>
 </header>
