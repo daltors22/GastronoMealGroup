@@ -5,16 +5,16 @@
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/login.css?v=1.6">
+    <link rel="stylesheet" href="css/login.css?v=1.7">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/nav.css"/>
 </head>
 <body>
     <?php require_once('header.php') ?>
- 
-    <div class="containerPrincipal">
-      <div id="app" class="content_full">  
-        <div class="content_login" :class="{ close: isContentLoginVisible }">
+<!-- Container principal + formulaire --> 
+    <div id="app" class="containerPrincipal">
+      <div class="content_full">  
+        <div class="content_login" :class="{ close: !isContentLoginVisible }">
         <a href="index.php" class="close_btn">&times;</a>
             <h2>Connectez-vous</h2>
             <p>Entrez votre adresse mail</p>
@@ -34,8 +34,8 @@
             <div class="modal_content">
                 <h2>Rénitialiser le mot de passe</h2>
                 <input type="email" placeholder="Entrez votre email"><br>
-                <button>Envoyer</button>
-                <button @click="closeForgotPassword">Fermer</button>
+                <button class="envoyerForgot">Envoyer</button>
+                <button class="fermerForgot" @click="closeForgotPassword">Fermer</button>
             </div>
         </div>
       </div>
@@ -56,10 +56,11 @@
             methods:{
                 showForgotPassword(){
                     this.isForgotPasswordVisible = true ;
-                // à finir pour cacher div content_login    this.isContentLoginVisible = false ;
+                    this.isContentLoginVisible = false ;
                 },
                 closeForgotPassword(){
                     this.isForgotPasswordVisible = false ;
+                    this.isContentLoginVisible = true;
                 },
                 
             },
