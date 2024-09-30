@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: gray;
+    min-height: 100vh;
 }
 
 /* LE FOOTER */
@@ -19,7 +20,7 @@ footer {
     width: 100%;
     height: 15%;
     background-color: white;
-    
+    position: relative;
 }
 /* police du footer */
 footer p {
