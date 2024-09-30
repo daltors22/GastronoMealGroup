@@ -26,6 +26,8 @@
         </div>
     </div>
    
-<?php require_once('footer.php'); ?>
+    <?php require_once('footer.php'); ?>
+    <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 </body>
 </html>
