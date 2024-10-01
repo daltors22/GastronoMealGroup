@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
-    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="css/nav.css?v=1.1"/>
 </head>
 <body>
     <?php require_once("header.php"); ?>
