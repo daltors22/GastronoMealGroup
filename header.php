@@ -2,7 +2,7 @@
 <header>
     <nav class="tp">
         <div class="imgLogoNav">
-            <img src="images/logoOrigine.png" alt="logo" href="home.html"/>
+            <img src="images/G-meal-3.png" alt="logo" href="home.html"/>
         </div>
         <div class="lienNav">
             <div class="lien">
