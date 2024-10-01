@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-    <link rel="stylesheet" href="css/login.css?v=1.8">
+    <link rel="stylesheet" href="css/styles.css?v=1.3">
+    <link rel="stylesheet" href="css/login.css?v=1.9">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/nav.css?v=1.1"/>
 </head>
@@ -28,7 +28,7 @@
                 <input type="password" id="passwd" name="passwd"><br>
                 <a href="#" @click.prevent="showForgotPassword"><p>mot de passe oublié ?</p></a>
             </form>
-            <a href="isLogin.php"><button>Connexion</button></a>
+        <a href="isLogin.php"><button>Connexion</button></a>
         </div>
        <div class="modal" :class="{ show: isForgotPasswordVisible }">
             <div class="modal_content">
@@ -64,7 +64,7 @@
                 },
                 
             },
-        });    
+        }); 
     </script>
 </body>
 </html>
