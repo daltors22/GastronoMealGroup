@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.3">
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/nav.css?v=1.1"/>
@@ -16,5 +16,6 @@
     </div>
    
 <?php require_once('footer.php'); ?>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 </body>
 </html>
