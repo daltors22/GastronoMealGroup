@@ -47,3 +47,14 @@ nav{
     border-style: none;
     cursor: pointer;
 }
+
+.imgLogoNav {
+    width: 300px; /* ou toute autre valeur comme 300px */
+    height: auto;
+}
+
+.imgLogoNav img {
+    padding: 10px;
+    width: 100%; /* ou toute autre valeur comme 300px */
+    height: auto;
+}
