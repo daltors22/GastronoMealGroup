@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.2">
+    <link rel="stylesheet" href="css/styles.css?v=1.3">
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="stylesheet" href="css/index.css?v=1.3">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
