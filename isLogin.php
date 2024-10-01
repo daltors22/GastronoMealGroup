@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css?v=1.2">
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
-    <link rel="stylesheet" href="css/nav.css?v=1.0"/>
+    <link rel="stylesheet" href="css/nav.css?v=1.1"/>
     <link rel="stylesheet" href="css/isLogin.css?v=1.0"/>
 </head>
 <body>
