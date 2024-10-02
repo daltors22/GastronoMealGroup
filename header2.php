@@ -12,7 +12,7 @@
                 <a href="index.php"><button class="btnBlack buttonNavig">Déconnexion</button></a>
             </div>
             <div class="userAvatar">    
-                <a href="#"><img src="images/Pf-3.png" alt="Avatar utilisateur"></a>
+                <a href="profilClient.php"><img src="images/Pf-3.png" alt="Avatar utilisateur"></a>
             </div>
         </div>
 
