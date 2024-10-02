@@ -1,0 +1,115 @@
+.registrePlat{
+    background-color: white;
+
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+.imgCreat{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.typePlat{
+    display: flex;
+}
+
+.txtcreation{
+    margin-left: 10px;
+}
+
+.nbPlat{
+    color: #828282;
+}
+
+.nbPlat{
+    margin-top:10px;
+}
+
+.poids{
+    background-color: white;
+    margin-bottom: 1px;
+
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.nbpoids{
+    padding-top:25px;
+    color: #828282;
+}
+
+.Destination{
+    background-color: white;
+    margin-bottom: 1px;
+
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.changerAdresse{
+    display: flex;
+}
+
+.lvAd{
+    margin-left: 10px;
+}
+
+.btnAd{
+    margin-left: 10px;
+    background-color: black;
+    color:white;
+
+    width: 150px;
+    border-radius: 5px;
+}
+
+.txtAdd{
+    display: flex;
+}
+
+.txtAdd{
+    padding-top: 35px;
+}
+
+.txtAdd a{
+    padding-left: 20px;
+    text-decoration: none;
+}
+
+.btnAutrPg{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.btnPgWhite{
+    width: 50%;
+    height: 45px;
+    background-color: white;
+    border-radius: 5px;
+    border-radius: 10px;
+}
+
+.btnPgBlack{
+    width: 50%;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.footer{
+    background-color: white;
+    padding-bottom: 24px;
+}
