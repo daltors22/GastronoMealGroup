@@ -16,9 +16,6 @@
         <div class="container_1">
             
         </div>
-        <div class="container_2">
-           
-        </div>
     </div>
    
     <?php require_once('footer.php'); ?>
