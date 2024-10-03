@@ -21,6 +21,10 @@ footer {
     height: 15%;
     background-color: white;
     position: relative;
+    border-left: 0;
+    border-top: 0.5px outset grey;
+    border-right: 0;
+    border-bottom: 0;
 }
 /* police du footer */
 footer p {
