@@ -1,0 +1,109 @@
+.bodyChangerAdress {
+    background-color: #F2F2F2;
+    display: flex;
+}
+
+.changerAdress{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 35%;
+}
+
+.formChangerAdress{
+    background-color: white;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.h1{
+    margin-left: 10%;
+    padding-bottom: 10px;
+}
+
+.formChangerAdress input, button, label{
+    width: 50%;
+    height: 10%;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.formChangerAdress input,  label{
+    border-radius: 5px;
+}
+
+.formChangerAdress button{
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 2%;
+}
+
+.btnRetour{
+    margin-left: -12%;
+    width:500px;
+    
+}
+
+.btnRetour button{
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+
+.sepp
+{
+    width: 90%;
+    height: 1px;
+    background-color: grey;
+    margin-left: 3%;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.listAdd{
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    margin-left: 100px;
+}
+
+.listAdd *{
+    margin-top: 10px;
+}
+
+.partListAdd{
+    display: flex
+}
+
+.partListAdd image{
+    height: 150px;
+    width: 150px;
+}
+
+
+.btnModifAdd{
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    width: 100px;
+    background-color: white;
+    padding: 5px;
+}
+
+.btnSupprimerAdd{
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    width: 100px;
+    color: white;
+    background-color: black;
+    padding: 5px;
+}
