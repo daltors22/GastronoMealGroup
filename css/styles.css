@@ -11,7 +11,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: white;
     min-height: 100vh;
 }
 
@@ -672,14 +672,21 @@ nav{
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    margin-right: 10px;
 }
 
 .btnBlack{
     background-color: black;
     color:white;
-    width: 100px;
-    height: 100px;
+    width: 80px !important;
+    height: auto;
+}
+
+.btnWhite{
+    background-color: #FF7828;
+    color: black;
+    width: 80px !important;
+    height: auto;
 }
 
 .buttonNavig{
