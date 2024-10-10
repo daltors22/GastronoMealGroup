@@ -39,7 +39,7 @@
 
             <!-- Bouton pour retourner à l'écran précédent -->
             <div class="btnRetour">
-                <button>Retour</button>
+                <button class="btnRetourAdd">Retour</button>
             </div>
         </div>
 
@@ -50,19 +50,18 @@
 
             <!-- Bloc d'adresse avec des options pour modifier ou supprimer -->
             <div class="partListAdd">
-                <img src="#" alt="etoile"/>
-                <h4>Adresse</h4>
+                <img src="images/etoile.png" alt="etoile"/>
+                <h4>Adresse : </h4>
                 <p>Adresse client</p>
                 <button href="#" class="btnModifAdd">Modifier</button>  
                 <button href="#" class="btnSupprimerAdd">Supprimer</button>  
             </div>
-
             <div class="sepp"></div>
 
             <!-- Deuxième bloc d'adresse similaire au premier -->
             <div class="partListAdd">
                 <img src="images/etoile.png" alt="etoile"/>
-                <h4>Adresse</h4>
+                <h4>Adresse : </h4>
                 <p>Adresse client</p>
                 <button href="#" class="btnModifAdd">Modifier</button>  
                 <button href="#" class="btnSupprimerAdd">Supprimer</button>  
