@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.7">
+    <link rel="stylesheet" href="css/styles.css?v=1.5">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
-    <link rel="stylesheet" href="css/header2.css?v=1.3"/>
+    <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
 <body>
     <?php require_once("header2.php"); ?>
