@@ -51,13 +51,13 @@ footer a {
 .container_1 {
     flex: 1;
     width: 100%;
-    background-color: rgb(241, 238, 238);
+    background-color: #FFFFFF;
 }
 
 .container_2 {
     flex: 1;
     width: 100%;
-    background-color: rgb(140, 141, 141);
+    background-color: #FFFFFF;
 }
 
 /* /////////// isLogin ///////////// */
@@ -451,7 +451,7 @@ a {
 }
 
 .container_1 .button_connexion {
-    background-color: rgb(213, 212, 212);
+    background-color: #FF7828;
     color: black;
 }
 
