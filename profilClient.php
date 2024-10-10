@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/isLogin.css?v=1.0"/>
-    <link rel="stylesheet" href="css/header2.css?v=1.2"/>
+    <link rel="stylesheet" href="css/header2.css?v=1.3"/>
     <link rel="stylesheet" href="css/profilClient.css?v=1.4"/>
 </head>
 <body>
