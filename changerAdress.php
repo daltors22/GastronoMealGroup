@@ -6,7 +6,6 @@
     <!-- Liens vers les fichiers CSS et l'icône de la page -->
     <link rel="stylesheet" href="css/styles.css?v=1.5">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
-    <link rel="stylesheet" href="css/header2.css?v=1.1"/>
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -16,15 +15,23 @@
 <div class="flex">
     <div>
         <h1 class="text-4xl font-bold text-center text-black-600">Changer adresse</h1>
-        <div class="">
+        <div class="bg-white shadow-xl flex flex-col w-96 h-96">
             <!-- Champs de formulaire pour changer l'adresse -->
-            <label>Adresse : </label>
-            <input type="text">
+            <div class="flex flex-row">
+                <label>Adresse</label>
+                <input type="text">
+            </div>
+            
+            <div class="flex flex-row">
+                <label>Ville</label>
+                <input type="text"> 
+            </div>
 
-            <label>Ville : </label>
-            <input type="text">
-            <input type="checkbox">
-            <label class="checkBoxChangerAdd">Enregistré l’adresse par default</label>
+            <div class="flex flex-row">
+                <input type="checkbox">
+                <label class="checkBoxChangerAdd">Enregistré l’adresse par default</label>
+            </div>
+            
             <!-- Bouton pour ajouter une nouvelle adresse -->
             <button>Nouvelle adresse</button>
         </div>
