@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="css/styles.css?v=1.4">
 =======
     <link rel="stylesheet" href="css/styles.css?v=1.5">
+<<<<<<< HEAD
 >>>>>>> featureHomePage
     <link rel="stylesheet" href="css/home.css?v=1.0">
     <link rel="stylesheet" href="css/index.css?v=1.4">
+=======
+>>>>>>> featureHomePage
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
-    <link rel="stylesheet" href="css/nav.css?v=1.3"/>
 </head>
 <body>
     <?php require_once("header.php"); ?>

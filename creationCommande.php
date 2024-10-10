@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/creationCommande.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/nav.css"/>
 </head>
 <body>
     <?php require_once("header.php");?>
