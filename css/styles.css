@@ -113,6 +113,22 @@ footer a {
     border-radius: 10px;
 }
 
+.eye-open {
+    display: flex;
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
+.passwordAndEye {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    gap: 5px;
+}
+
 .content_login button {
     display: block;
     border-radius: 10px;
