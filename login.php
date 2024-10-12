@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.9">
+    <link rel="stylesheet" href="css/styles.css?v=2.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -22,10 +22,12 @@
             </form>
             <form>
                 <p>Entrez votre mot de passe</p>
-                <div class="passwordAndEye"><label for="mot_de_passe"></label>
-                <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
-                <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png' " @click="togglePasswordVisibility" alt="Afficher les mot de passe" class="eye-open" id="togglePassword">
-                </div><a href="#" @click.prevent="showForgotPassword"><p>mot de passe oublié ?</p></a>
+                <div class="passwordAndEye">
+                    <label for="mot_de_passe"></label>
+                    <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
+                    <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png' " @click="togglePasswordVisibility" alt="Afficher les mot de passe" class="eye-open" id="togglePassword">
+                </div>
+                <a href="#" @click.prevent="showForgotPassword"><p>mot de passe oublié ?</p></a>
             </form>
         <a href="isLogin.php"><button>Connexion</button></a>
         </div>

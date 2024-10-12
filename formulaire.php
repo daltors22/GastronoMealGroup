@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=2.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <!-- Popup -->
