@@ -46,19 +46,62 @@ footer a {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    
+}
+
+.containerSecondaire {
+    width: 100%;
+    /* background-color: darkgrey; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .container_1 {
     flex: 1;
+    display: flex;
     width: 100%;
     background-color: #FFFFFF;
 }
 
 .container_2 {
     flex: 1;
+    position: relative;
+    display: flex;
+}
+
+.imgRestaurantIndex {
     width: 100%;
-    background-color: #FFFFFF;
+    height: auto;
+}
+
+.superpoImage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.foundAdress {
+    flex: 1;
+    background-color: #FF7828;
+}
+
+.whenLivraison {
+    flex: 1;
+    background-color: black;
+}
+
+.foundRetaurantBtn {
+    position: absolute;
+    width: 300px;
+    max-width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 /* /////////// isLogin ///////////// */
