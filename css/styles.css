@@ -74,9 +74,11 @@ footer a {
 @media(max-width:750px) {
     .LivFoodPro {
         flex-direction: column;  
+        width: 80%;
     }
     .container_1 {
         height: auto;
+        margin-top: 20px;
     }
 }
 
@@ -139,6 +141,7 @@ footer a {
     }
     .container_2 {
         justify-content: center;
+       
     }
 }
 
