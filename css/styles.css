@@ -71,6 +71,15 @@ footer a {
     gap: 50px;
 }
 
+@media(max-width:750px) {
+    .LivFoodPro {
+        flex-direction: column;  
+    }
+    .container_1 {
+        height: auto;
+    }
+}
+
 .foodpro {
     display: flex;
     flex-direction: column;
@@ -112,6 +121,25 @@ footer a {
     position: relative;
     margin-left: 20px;
     gap: 10px;
+}
+
+@media(max-width: 750px) {
+
+    .whenLivraison {
+        width: 300px !important;
+    }
+    .foundRetaurantBtn {
+        width: 300px !important;
+    }
+    .superpoImage {
+        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container_2 {
+        justify-content: center;
+    }
 }
 
 .foundAdress {
@@ -738,12 +766,6 @@ h1{
     color: white;
     border-radius: 10px;
 }
-
-.footer{
-    background-color: white;
-    padding-bottom: 24px;
-}
-
 /* /////////// NAV - HEADER ///////////// */
 
 nav{
