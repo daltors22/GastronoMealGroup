@@ -7,6 +7,7 @@
             <div class="lien2">
                 <a href="index.php">Menu</a>
                 <a href="#">Contact</a>
+                <a href="messagerie.php">Messagerie</a>
             </div>
             <div class="buttonNav2">
                 <a href="index.php"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>

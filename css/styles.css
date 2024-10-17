@@ -64,11 +64,21 @@ footer a {
     background-color: #FFFFFF;
 }
 
+.container_1 h3 {
+    text-align: left !important; 
+}
+
+.container_1 a {
+    text-decoration: underline;
+}
+
 .LivFoodPro {
     display: flex;
+    width: 90%;
     flex-direction: row;
     flex: 0;
     gap: 50px;
+    text-align: left;
 }
 
 @media(max-width:750px) {
@@ -141,7 +151,6 @@ footer a {
     }
     .container_2 {
         justify-content: center;
-       
     }
 }
 
@@ -170,7 +179,6 @@ footer a {
     font-size: 16px;
     display: flex;
     flex-direction: row;
-    
 }
 
 .foundAdress input:focus {
@@ -262,6 +270,49 @@ footer a {
     background-color: rgb(49, 46, 46);
 }
 
+.container3 {
+    
+    /* A REMPLIR MAIS EFFACE LA MAP ( qui elle meme est à changer par une carte France+button+link) */
+}
+
+#map {
+    height: 400px;
+}
+
+.foundCity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    font-size: 18px;
+    
+}
+
+@media(max-width: 750px) {
+    .foundCity {
+        width: 60%;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column;
+        font-size: 16px;
+    }
+    .foundCity table tbody {
+        gap: 0px !important;
+        
+    }
+}
+
+.foundCity table tbody {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.foundCity tr {
+    display: flex;
+    flex-direction: column;
+}
 /* /////////// isLogin ///////////// */
 
 .container_1 {
