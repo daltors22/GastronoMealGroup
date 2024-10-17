@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-gray-100 h-screen flex flex-col items-center p-8 space-y-8">
-<?php require_once("header.php"); ?>
+<?php require_once("header2.php"); ?>
     <!-- Titre de la page -->
     <div class="w-full text-center mb-8">
         <h1 class="text-5xl font-bold">Messagerie</h1>
