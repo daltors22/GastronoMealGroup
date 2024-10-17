@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messagerie</title>
-    <link rel="stylesheet" href="css/header2.css" />
+    <link rel="stylesheet" href="css/header2.css?v=3.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>

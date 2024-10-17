@@ -99,6 +99,43 @@
                 </table>
             </div>
         </div>
+        <div id="carousel" class="carousel">
+  <div class="carousel-indicators">
+    <button type="button" class="active" ></button>
+    <button type="button" class="active" ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="#" class="d-block" alt="...">
+      <div class="carousel-caption">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="#" class="d-block" alt="...">
+      <div class="carousel-caption">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="#" class="d-block" alt="...">
+      <div class="carousel-caption">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="carousel-control-next" type="button">
+    <span class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
     <?php require_once('footer.php'); ?>
     <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
