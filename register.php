@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2.5">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
     <?php require_once('header.php') ?>
-    <div class="containerPrincipal">
+    <div id="app" class="containerPrincipal">
     <div class="content_full">  
         <div class="content_register">
         <a href="index.php" class="close_btn">&times;</a>
@@ -26,14 +26,40 @@
             </form>
             <form>
                 <p>Entrez un mot de passe</p>
-                <label for="mot_de_passe"></label>
-                <input type="text" id="passwd" name="passwd">
+                <div class="passwordAndEye">
+                    <label for="mot_de_passe"></label>
+                    <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
+                    <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png' " @click="togglePasswordVisibility" alt="Afficher les mot de passe" class="eye-open" id="togglePassword">
+                </div>
             </form>
+            <div class="registerCGU">
+                <input type="checkbox" id="toggle" class="toggleButton">
+                <label for="toggle" class="toggle-label"></label>
+                Lu et accepté <br>
+                <a href="#">Termes et Conditions</a>
+            </div>
             <button>S'inscrire</button>   
         </div>
       </div>
     </div>
    
 <?php require_once('footer.php'); ?>
+ <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            
+            data: {
+                isPasswordVisible: true,
+            },
+
+            methods:{
+                togglePasswordVisibility(){
+                    this.isPasswordVisible = !this.isPasswordVisible;
+                },
+            },
+        }); 
+    </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
     margin: 0; /* Réinitialise toutes les marges */
     padding: 0; /* Réinitialise tous les paddings */
     box-sizing: border-box; /* Inclut le padding et la bordure dans les dimensions */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html, body {
@@ -37,7 +38,7 @@ footer a {
     color: black;
     text-decoration: none;
 }
-
+/* //////////////////////  PAGE PRINCIPAL  ///////////////////////// */
 /* Container principal de la page web */
 .containerPrincipal {
     width: 100%;
@@ -45,19 +46,114 @@ footer a {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+}
+
+.containerSecondaire {
+    width: 100%;
+    /* background-color: darkgrey; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .container_1 {
-    flex: 1;
+    display: flex;
+    height: 500px;
     width: 100%;
-    background-color: rgb(241, 238, 238);
+    background-color: #FFFFFF;
+}
+
+.LivFoodPro {
+    display: flex;
+    flex-direction: row;
+    flex: 0;
+    gap: 50px;
+}
+
+.foodpro {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.platliv {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.livreur {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.container_1 img {
+    width: 100%;
+    height: 100%;
 }
 
 .container_2 {
-    flex: 1;
     width: 100%;
-    background-color: rgb(140, 141, 141);
+    height: 600px;
+    position: relative;
+    display: flex;
+    background-image: url(../images/foodAlex.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.superpoImage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    gap: 10px;
+}
+
+.foundAdress {
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    border: none;
+}
+
+.foundAdress input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.foundAdress input:focus {
+    outline: none;
+    border-color: #FF7828;
+}
+
+.whenLivraison {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: white;
+}
+
+.foundRetaurantBtn {
+    font-size: 18px;
+    width: 200px;
+    max-width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 /* /////////// isLogin ///////////// */
@@ -113,11 +209,27 @@ footer a {
     border-radius: 10px;
 }
 
+.eye-open {
+    display: flex;
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
+.passwordAndEye {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    gap: 5px;
+}
+
 .content_login button {
     display: block;
     border-radius: 10px;
     border: none;
-    background-color: black;
+    background-color: #FF7828;
     color: white;
     width: 100%;
     padding: 10px;
@@ -213,7 +325,8 @@ form p {
 }
 
 .content_register {
-    
+    display: flex;
+    flex-direction: column;
     width: 300px;
     padding: 30px;
    /* flex: 1; /* Caché par défaut */
@@ -226,7 +339,7 @@ form p {
     display: block;
     border-radius: 10px;
     border: none;
-    background-color: black;
+    background-color: #FF7828;
     color: white;
     width: 100%;
     padding: 10px;
@@ -260,6 +373,10 @@ form{
 
 form p { 
     text-align: center;
+}
+
+.registerCGU {
+    padding: 20px;
 }
 
 /* /////////// profilClient ///////////// */
@@ -451,8 +568,8 @@ a {
 }
 
 .container_1 .button_connexion {
-    background-color: rgb(213, 212, 212);
-    color: black;
+    background-color: #FF7828;
+    color: white;
 }
 
 .container_1 .button_inscription {
@@ -684,7 +801,7 @@ nav{
 
 .btnWhite{
     background-color: #FF7828;
-    color: black;
+    color: white;
     width: 80px !important;
     height: auto;
 }
