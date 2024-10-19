@@ -545,11 +545,11 @@ form p {
     left: 0;
     background-color: white;
     flex-direction: column;
+    justify-content: center !important;
+    align-items: flex-start;
 }
 
 .container_1_profilClient h3 {
-    margin-left: 30px;
-    margin-top: 30px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -560,8 +560,6 @@ form p {
     top: 0;
     left: 0;
     flex: 1;
-    align-items: flex-start;
-    justify-content: flex-start;
     width: 100%;
     height: 100px;
     background-color: white;
@@ -570,23 +568,20 @@ form p {
 }
 
 .containerProfil h3 {
-    margin-left: 30px;
-    margin-top: 30px;
+    
 }
 
 .containerProfil p {
-    
-    margin-left: 30px;
-   
     color: grey;
 }
+
+
 /* ///////////////////////////////////////////////////////////////// */
 .containerAdresse {
    /* width: 100%; */
     flex: 1;
     height: 100px;
     background-color: white;
-   
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -663,28 +658,48 @@ form p {
     flex-direction: row;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: white;
+    gap: 20px;
 }
 
 .mesAchats{
-    
     height: 25px;
 }
 
+.mesAchatsDiv {
+    display: none;
+    background-color: #FF7828;
+}
+
+.mesAchatsDiv.active {
+    display: flex !important;
+    background-color: #FF7828;
+    width: 50px;
+    height: 50px;
+}
+
 .mesPref{
-   
     height: 25px;
+}
+
+.mesPrefDiv {
+    display: none;
+}
+
+.mesPrefDiv.active {
+    display: flex !important;
+    background-color: #FF7828;
+    width: 50px;
+    height: 50px;
 }
 
 .mesAchats:hover{
     background-color: rgb(214, 214, 214);
-    height: 25px;
     border: none;
     border-radius: 5px;
 }
 
 .mesPref:hover{
     background-color: rgb(214, 214, 214);
-    height: 25px;
     border: none;
     border-radius: 5px;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.5">
+    <link rel="stylesheet" href="css/styles.css?v=4.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
@@ -30,17 +30,36 @@
                     <button class="btnAdresse">Modifier</button>
                 </div>
             </div> 
-            <div class="HabitudeClient">
-            <a href="#"><h3 class="mesAchats">Mes achats</h3></a>
-            
-            <a href="#"><h3 class="mesPref">Mes préférences</h3></a>
-        </div>
+            <div class="HabitudeClient">  
+                <a @click="showMesAchats" href="#" class="mesAchats">Mes achats</a>
+                <div :class="{ active: isMesAchatsVisible }" class="mesAchatsDiv"></div>
+                <a @click="showMesPrefs" href="#" class="mesPref">Mes préférences</a>
+                <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv"></div>
+            </div>
         </div>
         
     </div>
    
     <?php require_once('footer.php'); ?>
-    
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        new vue ({
+            el: '#app',
+
+            data: {
+                isMesAchatsVisible: false,
+                isMesPrefVisible: false,
+            },
+
+            methods: {
+                showMesAchats() {
+                    this.isMesAchatsVisible = true;
+                },
+                showMesPrefs() {
+                    this.isMesPrefVisible = true;
+                },
+            },
+        })
+    </script>
 </body>
 </html>

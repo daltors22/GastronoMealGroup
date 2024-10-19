@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=3.6">
+    <link rel="stylesheet" href="css/styles.css?v=3.7">
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
