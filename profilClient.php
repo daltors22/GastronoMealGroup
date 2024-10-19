@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.0">
+    <link rel="stylesheet" href="css/styles.css?v=4.3">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
 <body>
     <?php require_once("header2.php"); ?>
-    <div class="containerPrincipal">
+    <div id="app" class="containerPrincipal">
         <div class="container_1_profilClient">
             <h3>Mon profil</h3>
         <br>
@@ -31,19 +31,100 @@
                 </div>
             </div> 
             <div class="HabitudeClient">  
-                <a @click="showMesAchats" href="#" class="mesAchats">Mes achats</a>
-                <div :class="{ active: isMesAchatsVisible }" class="mesAchatsDiv"></div>
-                <a @click="showMesPrefs" href="#" class="mesPref">Mes préférences</a>
-                <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv"></div>
+                <a @click="showMesAchats" href="#" class="mesAchats" :class="{ active: isMesAchatsVisible }"><h3>Mes achats</h3></a>
+                <a @click="showMesPrefs" href="#" class="mesPref" :class="{ active: isMesPrefVisible }"><h3>Mes préférences</h3></a>
             </div>
+            <div class="deroulerAchatPrefs">
+                <div :class="{ active: isMesAchatsVisible }" class="mesAchatsDiv">
+                    <div class="mesAchats1">
+                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
+                      <div class="textMesAchats">  
+                        <h3>Nom restaurant</h3>
+                        <p>- nb article - 0.00eur</p>
+                        <button class="buttonMesachats">Voir</button>
+                      </div>  
+                    </div>
+                    <div class="mesAchats2">
+                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
+                      <div class="textMesAchats">  
+                        <h3>Nom restaurant</h3>
+                        <p>- nb article - 0.00eur</p>
+                        <button class="buttonMesachats">Voir</button>
+                      </div>  
+                    </div>
+                    <div class="mesAchats3">
+                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
+                      <div class="textMesAchats">  
+                        <h3>Nom restaurant</h3>
+                        <p>- nb article - 0.00eur</p>
+                        <button class="buttonMesachats">Voir</button>
+                      </div>  
+                    </div>  
+                </div>
+            </div>
+            <div class="deroulerMesPref">
+                <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv"> 
+                    <div class="mesPref1">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div> 
+                    <div class="mesPref2">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div> 
+                    <div class="mesPref3">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div>
+                </div>
+                <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv">
+                    <div class="mesPref1">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div> 
+                    <div class="mesPref2">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div> 
+                    <div class="mesPref3">
+                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
+                        <div class="textMesPref">  
+                          <h3>Nom restaurant</h3>
+                          <p>- nb article - 0.00eur</p>
+                        <img src="#" alt="">
+                      </div>  
+                    </div>
+                </div>
+              </div>
         </div>
+    </div>
         
     </div>
    
     <?php require_once('footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
-        new vue ({
+        new Vue ({
             el: '#app',
 
             data: {
@@ -54,9 +135,11 @@
             methods: {
                 showMesAchats() {
                     this.isMesAchatsVisible = true;
+                    this.isMesPrefVisible = false;
                 },
                 showMesPrefs() {
                     this.isMesPrefVisible = true;
+                    this.isMesAchatsVisible = false;
                 },
             },
         })

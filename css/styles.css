@@ -313,6 +313,7 @@ footer a {
     display: flex;
     flex-direction: column;
 }
+
 /* /////////// isLogin ///////////// */
 
 .container_1 {
@@ -539,7 +540,8 @@ form p {
 /* /////////// profilClient ///////////// */
 
 .container_1_profilClient {
-    flex: 1;
+    width: 100%;
+    height:auto;
     display:flex;
     top: 0;
     left: 0;
@@ -559,11 +561,9 @@ form p {
     display: flex;
     top: 0;
     left: 0;
-    flex: 1;
     width: 100%;
-    height: 100px;
+    height: 200px;
     background-color: white;
-    z-index: 3;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -652,8 +652,9 @@ form p {
 /* ///////////////////////////////////////////////////////////////// */
 
 .HabitudeClient {
-    height: auto;
-    flex: 1.5;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -661,47 +662,125 @@ form p {
     gap: 20px;
 }
 
-.mesAchats{
-    height: 25px;
+.deroulerAchatPrefs {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.deroulerMesPref {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mesAchats, .mesPref{
+    height: 25px;
+}
 .mesAchatsDiv {
     display: none;
     background-color: #FF7828;
+    
 }
 
-.mesAchatsDiv.active {
+.mesAchats1, .mesAchats2, .mesAchats3 {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+    border: 0.5px solid rgb(194, 186, 186);
+    border-radius: 5px;
+    gap: 10px;
+    align-items: center;
+}
+
+.imgMesAchats, .imgMesPref {
+    margin-left: 15px;
+}
+
+.buttonMesachats {
+    background-color: #ccc;
+    color: black;
+    width: 50px !important;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.textMesAchats {
+    display: flex;
+    flex-direction: column;
+}
+
+.mesAchatsDiv.active, .mesPrefDiv.active {
     display: flex !important;
-    background-color: #FF7828;
-    width: 50px;
-    height: 50px;
+    flex-direction: column;
+    background-color: #FFFFFF; /* Mettre color si besoin de visu en dev */
+    width: 90%;
+    height: auto; /* mettre auto pour import BDD */
+    justify-content:  center !important;
+    gap: 30px;
 }
 
-.mesPref{
-    height: 25px;
+.mesPrefDiv.active {
+    flex-direction: row !important;
+    height: 300px !important;
+    align-items: center;
+}
+
+@media(max-width: 750px) {
+    .mesPrefDiv.active{
+        flex-direction: column !important;
+        width: 60%;
+        height: auto;
+        gap: 5px;
+    }
+    .deroulerMesPref {
+        gap: 50px;
+        margin-top: 50px;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .imgMesPref {
+        margin-left: 0;
+        border: none;
+        border-radius: 5px;
+    }
+    
+}
+
+.mesAchats.active, .mesPref.active {
+    text-decoration: underline;
 }
 
 .mesPrefDiv {
     display: none;
 }
 
-.mesPrefDiv.active {
-    display: flex !important;
-    background-color: #FF7828;
-    width: 50px;
-    height: 50px;
+.mesPref1, .mesPref2, .mesPref3 {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+    border: 0.5px solid rgb(194, 186, 186);
+    border-radius: 5px;
+    gap: 10px;
+    align-items: center;
 }
 
-.mesAchats:hover{
-    background-color: rgb(214, 214, 214);
+.mesPref:hover, .mesAchats:hover{
+    background-color: rgb(246, 241, 241);
     border: none;
     border-radius: 5px;
-}
-
-.mesPref:hover{
-    background-color: rgb(214, 214, 214);
-    border: none;
-    border-radius: 5px;
+    font-size: 18px;
 }
 
 a {
