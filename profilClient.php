@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.3">
+    <link rel="stylesheet" href="css/styles.css?v=4.8">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
@@ -17,18 +17,35 @@
             <div class="containerProfil">
                 <div class="containerAdresse">
                     <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse</h3>
-                <br>
-                    <p>0123 rue exemple 01234 Ville</p>
-                <br>
-                    <button class="btnAdresse">Modifier</button>
+                    <p> {{ textStreet }}</p>
+                    <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
                 <div class="containerTel">
                     <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre numéro de téléphone</h3>
-                <br>
-                    <p>0123456789</p>
-                <br>
-                    <button class="btnAdresse">Modifier</button>
+                    <p> {{ textNum }}</p>
+                    <button class="btnAdresse" @click="modifyTextNum">Modifier</button>
                 </div>
+              <div class="notifProfilClientButton"> 
+                <div class="notifProfilClient">
+                    <h4>Notifications</h4>
+                    <p>Souhaitez vous reçevoir des notifications</p>
+                </div>
+                <div class="buttonNotifProfilClient">
+                    <input type="checkbox" class="btnNotifPC">
+                </div>
+              </div> 
+              <div class="showModificationsProfil" :class="{ active: showProfilClient }">
+                  <div class="numberPhonePF" :class="{ active: istextButtonModifyNum }">
+                    <input type="text" name="inputNumberPhone" id="">
+                    <button>Entrer</button>
+                    <button>Annuler</button>
+                  </div>
+                  <div class="streetPF" :class="{ active: istextButtonModifyStreet }">
+                    <input type="text" name="inputStreet" id="">
+                    <button>Entrer</button>
+                    <button>Annuler</button>
+                  </div>
+              </div> 
             </div> 
             <div class="HabitudeClient">  
                 <a @click="showMesAchats" href="#" class="mesAchats" :class="{ active: isMesAchatsVisible }"><h3>Mes achats</h3></a>
@@ -130,9 +147,28 @@
             data: {
                 isMesAchatsVisible: false,
                 isMesPrefVisible: false,
+                textStreet: 'Votre adresse postale',
+                textNum: 'votre numéro de téléphone', 
+                istextButtonModifyNum: false,
+                istextButtonModifyStreet: false,
+                showProfilClient: false,
             },
 
             methods: {
+                modifyTextNum() {
+                    this.modifyTextNum = true;
+                    this.showProfilClient = true;
+                    this.modifyTextStreet = false;
+                    this.istextButtonModifyNum = true;
+                    this.istextButtonModifyStreet = false;
+                },
+                modifyTextStreet() {
+                   this.modifyTextStreet = true;
+                   this.showProfilClient = true;
+                   this.modifyTextNum = false;
+                   this.istextButtonModifyNum = false;
+                   this.istextButtonModifyStreet = true;
+                },
                 showMesAchats() {
                     this.isMesAchatsVisible = true;
                     this.isMesPrefVisible = false;
