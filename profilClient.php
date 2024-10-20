@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.8">
+    <link rel="stylesheet" href="css/styles.css?v=5.1">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
@@ -36,14 +36,16 @@
               </div> 
               <div class="showModificationsProfil" :class="{ active: showProfilClient }">
                   <div class="numberPhonePF" :class="{ active: istextButtonModifyNum }">
-                    <input type="text" name="inputNumberPhone" id="">
-                    <button>Entrer</button>
-                    <button>Annuler</button>
+                    <h3>Entrez votre numéro de téléphone</h3>
+                    <input v-model="textNum" @keyup.enter="updateNum" type="text" name="inputNumberPhone" id="">
+                    <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
+                    <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
                   </div>
                   <div class="streetPF" :class="{ active: istextButtonModifyStreet }">
-                    <input type="text" name="inputStreet" id="">
-                    <button>Entrer</button>
-                    <button>Annuler</button>
+                    <h3>Entrez votre adresse</h3>
+                    <input v-model="textStreet" @keyup.enter="updateStreet" type="text" name="inputStreet" id="">
+                    <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
+                    <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
                   </div>
               </div> 
             </div> 
@@ -148,26 +150,38 @@
                 isMesAchatsVisible: false,
                 isMesPrefVisible: false,
                 textStreet: 'Votre adresse postale',
-                textNum: 'votre numéro de téléphone', 
+                textNum: '0123456789', 
                 istextButtonModifyNum: false,
                 istextButtonModifyStreet: false,
                 showProfilClient: false,
             },
 
             methods: {
+                updateStreet() {
+                    event.preventDefault();
+                },
+                hideModifierAvecNewText() {
+                    this.istextButtonModifyNum = false;
+                    this.istextButtonModifyStreet = false;
+                    this.showProfilClient = false;
+                },
+                hideModifier() {
+                    this.textStreet = 'Votre adresse postale';
+                    this.textNum = '0123456789';
+                    this.istextButtonModifyNum = false;
+                    this.istextButtonModifyStreet = false;
+                    this.showProfilClient = false;
+                },
                 modifyTextNum() {
-                    this.modifyTextNum = true;
-                    this.showProfilClient = true;
-                    this.modifyTextStreet = false;
                     this.istextButtonModifyNum = true;
                     this.istextButtonModifyStreet = false;
+                    this.showProfilClient = true;
+
                 },
                 modifyTextStreet() {
-                   this.modifyTextStreet = true;
-                   this.showProfilClient = true;
-                   this.modifyTextNum = false;
-                   this.istextButtonModifyNum = false;
-                   this.istextButtonModifyStreet = true;
+                    this.istextButtonModifyStreet = true;
+                    this.istextButtonModifyNum = false;
+                    this.showProfilClient = true;
                 },
                 showMesAchats() {
                     this.isMesAchatsVisible = true;
