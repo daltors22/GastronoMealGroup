@@ -7,12 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center relative">
-    <!-- Icône en haut à droite -->
-    <div class="absolute top-4 right-4">
-        <div class="w-12 h-12 bg-purple-700 text-white rounded-full flex items-center justify-center shadow-lg">
-            <span class="text-xl">a</span>
-        </div>
-    </div>
     <!-- Contenu de la page -->
     <div class="text-center">
         <h1 class="text-4xl font-bold mb-6">Erreur commande Introuvable</h1>
