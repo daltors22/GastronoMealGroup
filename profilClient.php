@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=5.1">
+    <link rel="stylesheet" href="css/styles.css?v=5.2">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
@@ -12,8 +12,7 @@
     <?php require_once("header2.php"); ?>
     <div id="app" class="containerPrincipal">
         <div class="container_1_profilClient">
-            <h3>Mon profil</h3>
-        <br>
+        <!-- <h3>Mon profil</h3> -->
             <div class="containerProfil">
                 <div class="containerAdresse">
                     <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse</h3>
