@@ -528,6 +528,50 @@ form p {
     border-radius: 10px;
 }
 
+.content_register.close {
+    display: none;
+}
+
+.content_register_after_check {
+    display: none;
+}
+
+.content_register_after_check.active {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    flex-direction: column;
+    width: 300px;
+    padding: 30px;
+    z-index: 1000;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.confirmByTelMail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.hideConfirmMailAndTel {
+    display: flex;
+    gap: 10px;
+}
+
+.confirmByTel, .confirmByMail, .hideConfirmMailAndTel.close {
+    display: none;
+}
+
+.confirmByTel.active, .confirmByTelMail.active {
+    display: flex;
+}
+
 .content_register button {
     display: block;
     border-radius: 10px;
