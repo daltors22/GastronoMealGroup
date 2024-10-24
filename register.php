@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=2.6">
+    <link rel="stylesheet" href="css/styles.css?v=2.9">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -33,12 +33,12 @@
                 </div>
             </form>
             <div class="registerCGU">
-                <input type="checkbox" id="toggle" class="toggleButton">
+                <input type="checkbox" id="toggle" class="toggleButton" v-model="isChecked" :class="{ active: conditionsAcceptedLock }"@click="conditionsAcceptedUnlock">
                 <label for="toggle" class="toggle-label"></label>
                 Lu et accepté <br>
                 <a href="#">Termes et Conditions</a>
             </div>
-           <button @click.prevent="showConfirmEmail">S'inscrire</button>   
+           <button @click.prevent="showConfirmEmail" class="hideInscriptionbutton" :class="{ active: showInscriptionButton }">S'inscrire</button>   
         </div>
         <div class="content_register_after_check" :class="{ active: ShowCheckMail }">
         <a href="register.php" class="close_btn">&times;</a>
@@ -48,19 +48,35 @@
                 <button class="btnWhite buttonNavig" @click="showOnlySMS">Par SMS</button>
                 <button class="btnWhite buttonNavig" @click="showOnlyMAIL">Par Email</button>
               </div>  
-                <div class="confirmByTel" :class="{ active: showConfirmByTel }">
+              <div class="confirmByTel" :class="{ active: showConfirmByTel }">
                     Par sms :
                     <input type="int" placeholder="ex:0123456789">
-                    <button class="btnWhite buttonNavig">envoyer</button>
-                </div>
-                <div class="confirmByMail" :class="{ active: showConfirmByMail }">
+                    <button class="btnWhite buttonNavig" @click="showContentVerifCodeRecuTel">envoyer</button>
+              </div>
+              <div class="confirmByMail" :class="{ active: showConfirmByMail }">
                    Par email :
                    <input type="mail" name="confirmByMail" placeholder="ex:exemple@expl.com">
-                   <button class="btnWhite buttonNavig">envoyer</button>
-                </div>
-                <button class="btnBlack buttonNavig">annuler</button> 
+                   <button class="btnWhite buttonNavig" @click="showContentVerifCodeRecuMail">envoyer</button>
+              </div>
+                <button class="btnBlack buttonNavig"><a href="register.php">annuler</a></button> 
             </div>
-        </div> 
+        </div>
+        <div class="contentVerifCodeRecu" :class="{ active: showDivForCodeMailSms }">
+                <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
+                    <h3>Entrez le code reçu par sms</h3>
+                    <input type="text">
+                    <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                    <p>vous n'avez pas reçu de code ?</p>
+                    <button>renvoyer un code de confirmation</button>
+                </div>
+                <div class="contentVerifCodeRecuMail" :class="{ active: isContentVerifCodeRecuMailShow }">
+                    <h3>Entrez le code reçu par mail</h3>
+                    <input type="text">
+                    <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                    <p>vous n'avez pas reçu de code ?</p>
+                    <button>renvoyer un code de confirmation</button>
+                </div>
+            </div>
       </div> 
     </div>
    
@@ -78,9 +94,29 @@
                 showConfirmByTel: false,
                 showConfirmByMail: false,
                 hideConfirmMailAndTel: false,
+                conditionsAcceptedLock: true,
+                showInscriptionButton: false,
+                isChecked: false,
+                isContentVerifCodeRecuTelShow: false,
+                isContentVerifCodeRecuMailShow: false,
+                showDivForCodeMailSms: false,
             },
 
             methods:{
+                showContentVerifCodeRecuTel() {
+                    this.isContentVerifCodeRecuTelShow = true;
+                    this.showConfirmByTel = false;
+                    this.hideConfirmMailAndTel = true;
+                    this.showDivForCodeMailSms = true;
+                    this.ShowCheckMail = false;
+                },
+                showContentVerifCodeRecuMail() {
+                    this.isContentVerifCodeRecuMailShow = true;
+                    this.showConfirmByTel = false;
+                    this.hideConfirmMailAndTel = true;
+                    this.showDivForCodeMailSms = true;
+                    this.ShowCheckMail = false;
+                },
                 showOnlySMS() {
                     this.showConfirmByTel = true;
                     this.hideConfirmMailAndTel = true;
@@ -88,6 +124,16 @@
                 showOnlyMAIL() {
                     this.showConfirmByMail = true;
                     this.hideConfirmMailAndTel = true;
+                },
+                
+                conditionsAcceptedUnlock() {
+                    if (this.isChecked == true) {
+                        this.conditionsAcceptedLock = true;
+                        this.showInscriptionButton = false;
+                    } else {
+                        this.conditionsAcceptedLock = false;
+                        this.showInscriptionButton = true;
+                    }
                 },
                 showConfirmEmail() {
                     this.hideContentRegister = true;
