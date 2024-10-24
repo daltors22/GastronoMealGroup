@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.2">
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="css/styles.css?v=4.5">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon" >
 </head>
 <body>
@@ -55,7 +55,9 @@
            </div> 
         </div>
         <div class="container3">
-            <div id="map"></div>
+            <div id="map">
+            <script src="./js/scripts.js"></script>
+            </div>
             <div class="foundCity">
                 <table>
                    <tbody>
@@ -101,7 +103,6 @@
     <?php require_once('footer.php'); ?>
     <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
-    <script src="./js/scripts.js"></script>
     <script>
         new Vue({
             el: '#app',
@@ -137,6 +138,22 @@
             beforeDestroy() {
                 document.removeEventListener('click', this.handleClickOutside);
             }
+        });
+    </script>
+    <script>
+        new Vue({
+            el: '#headerMobile',
+        
+            data: {
+                showTheMenuMobile: false,
+            },
+
+            methods:{
+                isMenuMobileShow() {
+                    this.showTheMenuMobile = true;
+                },
+            },
+            
         });
     </script>
 </body>

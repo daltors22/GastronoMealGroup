@@ -1,43 +1,21 @@
-// CODE J.S //
+  // Initialiser la carte et définir sa vue sur Lannion
+  var map = L.map('map').setView([48.7350, -3.4680], 12); // Lannion
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+  // Ajouter une couche de tuiles avec OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+  // Liste des restaurants avec leur position (longitude, latitude)
+  var restaurants = [
+      { name: "Restaurant Le Pont de l'Isle", coordinates: [48.7352, -3.4654] }, // Coordonnées à Lannion
+      { name: "Restaurant L'Atelier", coordinates: [48.7344, -3.4693] },
+      { name: "Le Moulin de la Mer", coordinates: [48.7247, -3.4820] }
+  ];
 
-L.marker([51.5, -0.09]).addTo(map)
-.bindPopup('A pretty CSS popup.<br> Easily customizable.')
-.openPopup();
-
-const options = {
-enableHighAccuracy: true, 
-// Get high accuracy reading, if available (default false)
-timeout: 5000, 
-// Time to return a position successfully before error (default infinity)
-maximumAge: 2000, 
-// Milliseconds for which it is acceptable to use cached position (default 0)
-};
-
-navigator.geolocation.watchPosition(success, error, options);
-// Fires success function immediately and when user position changes
-
-function success(pos) {
-
-const lat = pos.coords.latitude;
-const lng = pos.coords.longitude;
-const accuracy = pos.coords.accuracy; // Accuracy in metres
-
-}
-
-function error(err) {
-
-if (err.code === 1) {
-alert("Please allow geolocation access");
-// Runs if user refuses access
-} else {
-alert("Cannot get current location");
-// Runs if there was a technical problem.
-}
-
-}
+  // Ajouter un marqueur pour chaque restaurant
+  restaurants.forEach(function(restaurant) {
+      L.marker(restaurant.coordinates)
+          .addTo(map)
+          .bindPopup(restaurant.name); // Afficher le nom du restaurant dans un popup
+  });

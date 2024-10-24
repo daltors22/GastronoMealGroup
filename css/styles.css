@@ -74,6 +74,7 @@ footer ul {
     height: auto;
 }
 /* //////////////////////  PAGE PRINCIPAL  ///////////////////////// */
+#map { height: 100vh; } /* La carte prend toute la hauteur de l'écran */
 /* Container principal de la page web */
 .containerPrincipal {
     width: 100%;
@@ -1277,5 +1278,35 @@ nav{
     width: 100%; 
     height: auto;
 }
+/* Nav Mobile */
 
-/* ///////////   ///////////// */
+.iconeMenuMobile {
+    display: none;
+    cursor: pointer;
+}
+
+.imgIconeMenuMobile {
+    width: 40px;
+    height: auto;
+}
+
+@media(max-width: 750px) {
+    .lien,.buttonNav {
+        display: none;
+    }
+    .iconeMenuMobile {
+        display: flex;
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+    }
+    .lienNav {
+        flex-direction: row !important;
+    }
+    .contentMenuMobile {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ///////////    ///////////// */
