@@ -6,7 +6,7 @@
         <div class="lienNav">
             <div class="lien">
                 <a href="index.php">Menu</a>
-                <a href="#">Contact</a>
+                <a href="contact.php">Contact</a>
             </div>
             <div class="buttonNav">
                 <a href="login.php"> <button class="btnWhite buttonNavig">Connexion</button></a>
@@ -21,7 +21,7 @@
                 <a href="register.php"> <button class="btnBlack buttonNavig">Inscription</button></a>
                 </div>
                 <div class="Menu2Mobile"><a href="index.php">Menu</a></div>
-                <div class="Menu3Mobile"><a href="#">Contact</a></div>
+                <div class="Menu3Mobile"><a href="contact.php">Contact</a></div>
             </div>
         </div>
     </nav> 

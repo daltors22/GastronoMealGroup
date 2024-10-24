@@ -1207,6 +1207,10 @@ nav{
     justify-content: space-between;
 }
 
+.lien a:hover {
+    text-shadow: 0 0 15px rgba(81, 51, 2, 0.7);
+}
+
 .lienNav{
     display: flex;
     align-items: center;
@@ -1351,3 +1355,67 @@ nav{
 }
 
 /* ///////////    ///////////// */
+
+/* Conteneur du formulaire */
+.container_mail {
+    max-width: 600px; 
+    margin: 50px auto; /* Centrer le formulaire verticalement et horizontalement */
+    padding: 20px;
+    background: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.container_mail h1 {
+    text-align: center; 
+    color: #FF7828;
+    margin-bottom: 30px; 
+}
+
+.form-label {
+    font-weight: bold; 
+    margin-bottom: 8px;
+    display: block; 
+}
+
+.form-control {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    transition: border-color 0.3s; 
+}
+
+.form-control:focus {
+    border-color: #FF7828;
+    outline: none; 
+}
+
+textarea.form-control {
+    min-height: 100px; 
+    resize: vertical; /* Permettre le redimensionnement vertical */
+}
+
+.btn {
+    background-color: #FF7828; 
+    color: white; 
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.btn:hover {
+    background-color: #94461a; 
+    transform: translateY(-2px); /* Léger effet de déplacement */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container_mail {
+        padding: 15px; /* Réduire l'espacement interne sur les petits écrans */
+    }
+}
