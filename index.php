@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.5">
+    <link rel="stylesheet" href="css/styles.css?v=4.8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon" >
@@ -138,22 +138,6 @@
             beforeDestroy() {
                 document.removeEventListener('click', this.handleClickOutside);
             }
-        });
-    </script>
-    <script>
-        new Vue({
-            el: '#headerMobile',
-        
-            data: {
-                showTheMenuMobile: false,
-            },
-
-            methods:{
-                isMenuMobileShow() {
-                    this.showTheMenuMobile = true;
-                },
-            },
-            
         });
     </script>
 </body>

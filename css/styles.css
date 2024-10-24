@@ -306,11 +306,6 @@ footer ul {
     background-color: rgb(49, 46, 46);
 }
 
-.container3 {
-    
-    /* A REMPLIR MAIS EFFACE LA MAP ( qui elle meme est à changer par une carte France+button+link) */
-}
-
 #map {
     height: 400px;
 }
@@ -332,10 +327,6 @@ footer ul {
         justify-content: center !important;
         flex-direction: column;
         font-size: 16px;
-    }
-    .foundCity table tbody {
-        
-        
     }
 }
 
@@ -707,10 +698,6 @@ form p {
     }
 }
 
-.containerProfil h3 {
-    /* none ? */
-}
-
 .containerProfil p {
     color: grey;
 }
@@ -986,7 +973,8 @@ input[type="checkbox"]:checked::after {
 }
 
 .mesPref:hover, .mesAchats:hover{
-    background-color: rgb(246, 241, 241);
+    box-shadow: 0 0 15px rgba(131, 63, 3, 0.3);
+    background-color: #FFFFFF;
     border: none;
     border-radius: 5px;
     font-size: 18px;
@@ -1253,11 +1241,20 @@ nav{
     height: auto;
 }
 
+.btnBlack:hover, .btnBlack a:hover {
+    background-color: rgb(46, 44, 44);
+}
+
 .btnWhite{
     background-color: #FF7828;
     color: white;
     width: 80px !important;
     height: auto;
+}
+
+.btnWhite:hover, .btnWhite a:hover {
+    background-color: #f7c6aa;
+    color: black;
 }
 
 .buttonNavig{
@@ -1290,6 +1287,53 @@ nav{
     height: auto;
 }
 
+.contentMenuMobile {
+    display: none;
+    flex-direction: column;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 9.6%;
+    background-color: #FFFFFF;
+    z-index: 1;
+    border: none;
+    
+}
+.contentMenuMobile.active {
+    display: flex !important;
+}
+
+.Menu2Mobile, .Menu3Mobile {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-bottom: 0.5px solid grey;
+    border-left: 0.5px solid grey;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Menu1Mobile {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-bottom: 0.5px solid grey;
+    border-left: 0.5px solid grey;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.Menu2Mobile:hover, .Menu3Mobile:hover, .Menu3Mobile a:hover, .Menu2Mobile a:hover {
+    background-color: #FF7828;
+    color: #FFFFFF;
+}
+
 @media(max-width: 750px) {
     .lien,.buttonNav {
         display: none;
@@ -1301,11 +1345,8 @@ nav{
         margin-right: 10px;
     }
     .lienNav {
-        flex-direction: row !important;
-    }
-    .contentMenuMobile {
-        display: flex;
-        flex-direction: column;
+        flex-direction: column !important;
+        justify-content: center;
     }
 }
 
