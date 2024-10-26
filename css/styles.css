@@ -225,7 +225,7 @@ footer ul {
 .whenLivraison {
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 200px;
+    width: 250px;
     height: 50px;
     background-color: white;
     display: flex;
@@ -236,7 +236,7 @@ footer ul {
     height: auto;
     box-sizing: border-box;
     display: flex; 
-    flex-direction: column;  
+    flex-direction: column;
 }
 
 .btn-dropdown {
@@ -262,9 +262,11 @@ footer ul {
     color: #FFFFFF;
 }
 
+
 .dropdown-menu {
     display: none;
 }
+
 
 .dropdown-menu.active {
     display: flex;
@@ -317,7 +319,6 @@ footer ul {
     width: 100%;
     height: 200px;
     font-size: 18px;
-    
 }
 
 @media(max-width: 750px) {
@@ -333,7 +334,7 @@ footer ul {
 .foundCity table tbody {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap:0;
 }
 
 .foundCity tr {

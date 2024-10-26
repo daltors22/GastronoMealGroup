@@ -1,30 +1,43 @@
-        // Initialiser la carte à Lannion sans le zoom par molette
-        var map = L.map('map', { scrollWheelZoom: false }).setView([48.7352, -3.4654], 12); // Lannion
 
-        // Ajouter une couche de tuiles avec OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+// Initialisation de Vue.js
+var app = new Vue({
+  el: '#map',
+  data: {
+    selectedRestaurant: null, // Pour stocker le restaurant sélectionné
+    
+  },
+});
 
-        // Liste des restaurants à Lannion avec leur position (latitude, longitude)
-        var restaurants = [
-            { name: "Le Pont de l'Isle", coordinates: [48.7352, -3.4654] },
-            { name: "L'Atelier", coordinates: [48.7344, -3.4693] },
-            { name: "Le Moulin de la Mer", coordinates: [48.7247, -3.4820] },
-            { name: "La Table de Poche", coordinates: [48.7350, -3.4680] }
-        ];
+// Initialisation de la carte Leaflet
+var map = L.map('map', { scrollWheelZoom: false }).setView([48.7352, -3.4654], 12);
 
-        // Ajouter un marqueur pour chaque restaurant
-        restaurants.forEach(function(restaurant) {
-            L.marker(restaurant.coordinates)
-                .addTo(map)
-                .bindPopup(restaurant.name); // Afficher le nom du restaurant dans un popup
-        });
+// Ajout de la couche OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+}).addTo(map);
 
-        // Gérer les événements tactiles pour le défilement
-        var container = map.getContainer();
-        container.addEventListener('touchmove', function(e) {
-            if (map.scrollWheelZoom.enabled()) {
-                map.scrollWheelZoom.disable();
-            }
-        });
+var restaurants = [
+  { name: "Le Pont de l'Isle", coordinates: [48.7352, -3.4654] },
+  { name: "L'Atelier", coordinates: [48.7344, -3.4693] },
+  { name: "Le Moulin de la Mer", coordinates: [48.7247, -3.4820] },
+  { name: "La Table de Poche", coordinates: [48.7350, -3.4680] },
+  { name: "King Kebab", coordinates: [48.7294179, -3.4520350] }
+];
+
+//les marqueurs 
+restaurants.forEach(function (restaurant) {
+  var marker = L.marker(restaurant.coordinates).addTo(map).bindPopup(restaurant.name);
+
+  // Gérer l'événement click sur le popup
+  marker.on('popupopen', function () {
+    app.selectedRestaurant = restaurant.name; // Mettre à jour le restaurant sélectionné dans Vue.js
+  });
+});
+
+// Désactiver le zoom à la molette
+var container = map.getContainer();
+container.addEventListener('touchmove', function (e) {
+  if (map.scrollWheelZoom.enabled()) {
+    map.scrollWheelZoom.disable();
+  }
+});
