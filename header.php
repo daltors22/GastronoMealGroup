@@ -40,9 +40,11 @@
                 },
                 handleClickOutside(event) {
                     const menuMobileClosed = this.$refs.menuMobileClosed;
-                    if (!menuMobileClosed && menuMobileClosed.contains(event.target)) {
+                    if ( !menuMobileClosed & !menuMobileClosed.contains(event.target)) {
                         this.isMenuMobileShow = false;
+                        console.log('ferme');
                     }
+                    console.log('ouvert');
                 },
             },
             mounted() {

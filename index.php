@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>GastronoMeal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=4.8">
+    <link rel="stylesheet" href="css/styles.css?v=5.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon" >
@@ -21,8 +22,8 @@
                 </div>
                 <div class="whenLivraison">
                   <div class="btn-group" role="group">
-                    <button @click="toggleMenu" type="button" class="btn-dropdown" :class="{ close: isButtonHide }">
-                        {{ buttonText }}
+                    <button @click="toggleMenu" type="button" class="btn-dropdown" :class="{ close: isButtonHide }">   
+                    <img src="images/temps.png" alt="time liv" width="35px" height="35px"> {{ buttonText }}
                     <img src="images/chevron-bas.png" alt="chevron bas" width="20px" height="20px">
                     </button>
                     <ul :class="{ active: isDropdownVisible }" class="dropdown-menu" ref="dropdownMenu">
@@ -57,45 +58,30 @@
         <div class="container3">
             <div id="map">
             <script src="./js/scripts.js"></script>
+
             </div>
             <div class="foundCity">
+                <div v-if="selectedRestaurant === King Kebab">
+                   {{ restaurant.name }}
+                </div>
                 <table>
                    <tbody>
-                    <tr>
-                     
-                            <td>Paris</td>
-                            <td>Marseille</td>
-                            <td>Lyon</td>
-                            <td>Toulouse</td>
-                            <td>Nice</td>
+                    
+                   <th>{{ texte }}</th>
+                    <tr> 
+                            <td></td>
+                            
                     </tr>
                     <tr>        
                             
-                            <td>Nantes</td>
-                            <td>Strasbourg</td>
-                            <td>Montpellier</td>
-                            <td>Bordeaux</td>
-                    </tr>
+                            <td>Numero</td>
+                        
                     <tr>
                              
-                            <td>Lille</td>
-                            <td>Rennes</td>
-                            <td>Reims</td>
-                            <td>Saint-Étienne</td>
+                            <td>adresse</td>
+                           
                     </tr>
-                    <tr>       
-                            <td>Toulon</td>
-                            <td>Grenoble</td>
-                            <td>Dijon</td>
-                            <td>Angers</td>
-                    </tr>
-                    <tr>
-                            
-                            <td>Nîmes</td>
-                            <td>Aix-en-Provence</td>
-                            <td>Clermont-Ferrand</td>
-                            <td>Saint-Denis</td>
-                    </tr>
+                    
                    </tbody>
                 </table>
             </div>
@@ -140,5 +126,6 @@
             }
         });
     </script>
+
 </body>
 </html>
