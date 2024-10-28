@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=2.2">
+    <link rel="stylesheet" href="css/styles.css?v=2.4">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -15,7 +15,7 @@
       <div class="content_full">  
         <div class="content_login" :class="{ close: !isContentLoginVisible }">
         <a href="index.php" class="close_btn">&times;</a>
-            <h2>Connectez-vous</h2>
+            <h2>Connectez-vous</h2><br>
             <p>Entrez votre adresse mail</p>
             <form>
                 <label for="mail"></label>
@@ -35,9 +35,9 @@
        <div class="modal" :class="{ show: isForgotPasswordVisible }">
             <div class="modal_content">
                 <h2>Rénitialiser le mot de passe</h2>
-                <input type="email" placeholder="Entrez votre email"><br>
-                <button class="envoyerForgot">Envoyer</button>
-                <button class="fermerForgot" @click="closeForgotPassword">Fermer</button>
+                <input class="inputEmailAjust" type="email" placeholder="Entrez votre email"><br>
+                <button class="btnWhite ButtonNav">Envoyer</button>
+                <button class="btnBlack ButtonNav" @click="closeForgotPassword">Fermer</button>
             </div>
         </div>
       </div>

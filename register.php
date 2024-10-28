@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=2.9">
+    <link rel="stylesheet" href="css/styles.css?v=3.1">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -48,18 +48,20 @@
               <div class="hideConfirmMailAndTel" :class="{ close: hideConfirmMailAndTel }"> 
                 <button class="btnWhite buttonNavig" @click="showOnlySMS">Par SMS</button>
                 <button class="btnWhite buttonNavig" @click="showOnlyMAIL">Par Email</button>
+                <button class="btnBlack buttonNavig"><a href="register.php">annuler</a></button>
               </div>  
               <div class="confirmByTel" :class="{ active: showConfirmByTel }">
                     Par sms :
                     <input type="int" placeholder="ex:0123456789">
                     <button class="btnWhite buttonNavig" @click="showContentVerifCodeRecuTel">envoyer</button>
+                    <button class="btnBlack buttonNavig"><a href="register.php">annuler</a></button>
               </div>
               <div class="confirmByMail" :class="{ active: showConfirmByMail }">
                    Par email :
                    <input type="mail" name="confirmByMail" placeholder="ex:exemple@expl.com">
                    <button class="btnWhite buttonNavig" @click="showContentVerifCodeRecuMail">envoyer</button>
+                   <button class="btnBlack buttonNavig"><a href="register.php">annuler</a></button>
               </div>
-                <button class="btnBlack buttonNavig"><a href="register.php">annuler</a></button> 
             </div>
         </div>
         <div class="contentVerifCodeRecu" :class="{ active: showDivForCodeMailSms }">
