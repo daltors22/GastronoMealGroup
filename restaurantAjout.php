@@ -45,7 +45,7 @@
 <!--############### Ajout ###############-->
 
 <!--############### 1 ###############-->
-<div class="flex justify-around">
+<div class="flex justify-around max-sm:flex-col max-sm:pl-24">
     
 <div class="shadow-md w-64 h-96" v-if="ajVisi">
     <div class="flex py-2 ml-3">
