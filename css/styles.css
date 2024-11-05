@@ -16,6 +16,19 @@ body {
     min-height: 100vh;
 }
 
+.close_btn {
+    border-radius: 30%;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close_btn:hover {
+    background-color: black;
+    color: white;
+}
+
 /* LE FOOTER */
 footer {
     display: flex;
@@ -41,6 +54,7 @@ footer {
 /* police du footer */
 footer p {
     padding: 5px;
+    text-align: left;
    /* text-align: center; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -53,6 +67,8 @@ footer a {
 .infosLegales {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .infosUtiles {
@@ -346,11 +362,52 @@ footer ul {
 
 /* /////////// isLogin ///////////// */
 
+#my-popover{
+     display: none;
+     width: 100%;
+     height: 100%;
+     position: fixed;
+}
+
+#my-popover:popover-open {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.popoverAdresse {
+    background-color: #FFFFFF;
+    width: 500px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    border-radius: 10px;
+}
+
+.optiPopover {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 40px;
+    gap: 10px;
+}
+/* Empêche le scroll de la page */
+html:has(#my-popover:popover-open) {
+    overflow: hidden;
+}
+
 .container_1 {
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
 
 .container_1 h1{
@@ -362,6 +419,13 @@ footer ul {
     color: gray;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* MODBILE isLogin.pjp */
+@media(max-width:750px) {
+    .popoverAdresse {
+        width: 400px;
+    }
 }
 
 /* /////////// LOGIN ///////////// */
@@ -752,6 +816,7 @@ form p {
 
 .containerProfil p {
     color: grey;
+    text-align: left;
 }
 
 .showModificationsProfil {

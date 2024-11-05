@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=1.8">
+    <link rel="stylesheet" href="css/styles.css?v=2.0">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.4"/>
 </head>
@@ -14,7 +14,30 @@
     <div id="app" class="containerPrincipal">
         <div class="container_1">
             <h1>Bienvenue</h1>
-            <h3>sur le site</h3>
+            <h3>Entrez votre adresse pour commencer à commander !</h3>
+            <button  popovertarget="my-popover" class="foundRetaurantBtn">Entrez une adresse</button>  
+            <div id="my-popover" popover>
+                <div class="popoverAdresse">
+                  <div class="optiPopover">
+                  <a href="index.php" class="close_btn">&times;</a>
+                  <h4>Entrez votre adresse</h4>
+                    Ville
+                    <input type="text">
+                    Code Postale
+                    <input type="text">
+                    Numéro, rue, autres
+                    <input type="text">
+                  <div class="buttonPopover">
+                    <a href="isLogin.php">
+                        <button class="btnWhite buttonNavig">Valider</button>
+                    </a>
+                    <a href="isLogin.php">
+                        <button class="btnBlack buttonNavig">Annuler</button>
+                    </a>
+                  </div> 
+                  </div>  
+                </div> 
+            </div> 
         </div>
         <div class="container_2">
             <div class="superpoImage">
