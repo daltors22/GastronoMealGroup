@@ -15,7 +15,7 @@
         <div class="container_1">
             <h1>Bienvenue</h1>
             <h3>sur le site</h3>
-        </div>
+        </>
         <div class="container_2">
             <div class="superpoImage">
                 <div class="foundAdress">
