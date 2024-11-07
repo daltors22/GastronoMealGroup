@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/header2.Css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
   <title>Tableau de bord avec Vue.js et Chart.js</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,6 +14,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100">
+
+<?php
+require_once("header2.php");
+?>
 
 <div id="app" class="min-h-screen p-6 bg-gray-100" v-cloak>
   <div class="flex">
@@ -142,6 +148,8 @@
     }
   });
 </script>
-
+<?php
+require_once("footer.php");
+?>
 </body>
 </html>
