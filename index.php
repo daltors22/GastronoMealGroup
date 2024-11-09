@@ -5,7 +5,7 @@
     <title>GastronoMeal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=5.2">
+    <link rel="stylesheet" href="css/styles.css?v=5.3">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon" >
