@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=3.1">
+    <link rel="stylesheet" href="css/styles.css?v=3.2">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -15,18 +15,21 @@
         <div class="content_register" :class="{ close: hideContentRegister }">
         <a href="index.php" class="close_btn">&times;</a>
             <h2>Inscrivez-vous</h2>
-            <p>Entrez une adresse mail</p>
+            <p>Entrez une adresse mail ou un numéro de téléphone</p>
             <form>
                 <label for="mail"></label>
                 <input type="text" id="mail" name="mail">
             </form>
-            <p>Confirmez votre adresse mail</p>
+            <p>Entrez un mot de passe</p>
             <form>
-                <label for="mail"></label>
-                <input type="text" id="mail" name="mail">
+            <div class="passwordAndEye">
+                    <label for="mot_de_passe"></label>
+                    <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
+                    <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png' " @click="togglePasswordVisibility" alt="Afficher les mot de passe" class="eye-open" id="togglePassword">
+                </div>
             </form>
             <form>
-                <p>Entrez un mot de passe</p>
+                <p>Confirmez votre mot de passe</p>
                 <div class="passwordAndEye">
                     <label for="mot_de_passe"></label>
                     <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
@@ -65,21 +68,21 @@
             </div>
         </div>
         <div class="contentVerifCodeRecu" :class="{ active: showDivForCodeMailSms }">
-                <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
-                    <h3>Entrez le code reçu par sms</h3>
-                    <input type="text">
-                    <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
-                    <p>vous n'avez pas reçu de code ?</p>
-                    <button>renvoyer un code de confirmation</button>
-                </div>
-                <div class="contentVerifCodeRecuMail" :class="{ active: isContentVerifCodeRecuMailShow }">
-                    <h3>Entrez le code reçu par mail</h3>
-                    <input type="text">
-                    <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
-                    <p>vous n'avez pas reçu de code ?</p>
-                    <button>renvoyer un code de confirmation</button>
-                </div>
+            <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
+                <h3>Entrez le code reçu par sms</h3>
+                <input type="text">
+                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                <p>vous n'avez pas reçu de code ?</p>
+                <button>renvoyer un code de confirmation</button>
             </div>
+            <div class="contentVerifCodeRecuMail" :class="{ active: isContentVerifCodeRecuMailShow }">
+                <h3>Entrez le code reçu par mail</h3>
+                <input type="text">
+                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                <p>vous n'avez pas reçu de code ?</p>
+                <button>renvoyer un code de confirmation</button>
+            </div>
+        </div>
       </div> 
     </div>
    

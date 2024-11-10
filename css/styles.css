@@ -196,15 +196,17 @@ footer ul {
         width: 300px !important;
     }
     .superpoImage {
-        
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0;
     }
     .container_2 {
         justify-content: center;
     }
     .foundAdress {
+        align-items: center;
         justify-content: flex-start !important;
         border-left: 1px solid #FF7828;
     }
@@ -619,6 +621,13 @@ input[type="text"], input[type="email"], input[type="password"] {
     .contentVerifCodeRecu.active, .content_register_after_check.active, .confirmByTelMail  {
         flex-direction: column !important;
     }
+    .confirmByTelMail {
+        width: 50% !important;
+        flex-direction: column !important;
+    }
+    .confirmByMail.active, .confirmByTel.active {
+        flex-direction: column !important;
+    }
 }
 
 .content_register.close {
@@ -811,6 +820,13 @@ form p {
     }
     .container_1_profilClient {
         gap: 20px;
+    }
+    .numberPhonePF, .streetPF {
+        flex-direction: column !important;
+        height: 300px !important;
+    }
+    .showModificationsProfil {
+        height: auto;
     }
 }
 
