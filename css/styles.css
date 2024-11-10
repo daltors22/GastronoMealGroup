@@ -213,6 +213,10 @@ footer ul {
     .foundAdress input {
         width: 100% !important;
     }
+
+    .foundAdress input[type="text"] {
+        border:none;
+    }
     
 }
 

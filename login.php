@@ -34,7 +34,9 @@
         </div>
        <div class="modal" :class="{ show: isForgotPasswordVisible }">
             <div class="modal_content">
+                <div style="text-align:center">
                 <h2>Rénitialiser le mot de passe</h2>
+                </div>
                 <input class="inputEmailAjust" type="email" placeholder="Entrez votre email"><br>
                 <button class="btnWhite ButtonNav">Envoyer</button>
                 <button class="btnBlack ButtonNav" @click="closeForgotPassword">Fermer</button>
