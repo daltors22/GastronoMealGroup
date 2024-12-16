@@ -25,7 +25,7 @@
 #
 #
 # ALEX - header.php / header2.php et footer.php ( sont disponibles pour vos pages ).
-#
+# ALEX - Import de Leaflet ( map ) en JS : dispo
 # 
 #
 #

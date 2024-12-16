@@ -4,148 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
-    <meta name="description" content="A brief description of your page.">
+    <meta name="description" content="GastronoMeal - Accédez et modifiez vos informations personnelles.">
     <link rel="stylesheet" href="css/styles.css?v=5.2">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.5"/>
 </head>
 <body>
     <?php require_once("header2.php"); ?>
+
     <div id="app" class="containerPrincipal">
         <div class="container_1_profilClient">
-        <!-- <h3>Mon profil</h3> -->
             <div class="containerProfil">
+                
+                <!-- Section Adresse -->
                 <div class="containerAdresse">
-                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse</h3>
-                    <p> {{ textStreet }}</p>
+                    <h3><img src="images/information.png" alt="icone informations">&nbsp;&nbsp;Votre adresse</h3>
+                    <p>{{ textStreet }}</p>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
+
+                <!-- Section Numéro de téléphone -->
                 <div class="containerTel">
-                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre numéro de téléphone</h3>
-                    <p> {{ textNum }}</p>
+                    <h3><img src="images/information.png" alt="icone informations">&nbsp;&nbsp;Votre numéro de téléphone</h3>
+                    <p>{{ textNum }}</p>
                     <button class="btnAdresse" @click="modifyTextNum">Modifier</button>
                 </div>
-              <div class="notifProfilClientButton"> 
-                <div class="notifProfilClient">
-                    <h4>Notifications</h4>
-                    <p>Souhaitez vous reçevoir des notifications</p>
+
+                <!-- Section Notifications -->
+                <div class="notifProfilClientButton"> 
+                    <div class="notifProfilClient">
+                        <h4>Notifications</h4>
+                        <p>Souhaitez-vous recevoir des notifications ?</p>
+                    </div>
+                    <div class="buttonNotifProfilClient">
+                        <input type="checkbox" class="btnNotifPC">
+                    </div>
                 </div>
-                <div class="buttonNotifProfilClient">
-                    <input type="checkbox" class="btnNotifPC">
+
+                <!-- Modal pour modifier adresse et téléphone -->
+                <div class="showModificationsProfil" :class="{ active: showProfilClient }">
+                    <!-- Modifier téléphone -->
+                    <div class="numberPhonePF" :class="{ active: istextButtonModifyNum }">
+                        <h3>Entrez votre numéro de téléphone</h3>
+                        <input v-model="textNum" @keyup.enter="updateNum" type="text" name="inputNumberPhone">
+                        <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
+                        <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
+                    </div>
+                    <!-- Modifier adresse -->
+                    <div class="streetPF" :class="{ active: istextButtonModifyStreet }">
+                        <h3>Entrez votre adresse</h3>
+                        <input v-model="textStreet" @keyup.enter="updateStreet" type="text" name="inputStreet">
+                        <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
+                        <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
+                    </div>
                 </div>
-              </div> 
-              <div class="showModificationsProfil" :class="{ active: showProfilClient }">
-                  <div class="numberPhonePF" :class="{ active: istextButtonModifyNum }">
-                    <h3>Entrez votre numéro de téléphone</h3>
-                    <input v-model="textNum" @keyup.enter="updateNum" type="text" name="inputNumberPhone" id="">
-                    <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
-                    <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
-                  </div>
-                  <div class="streetPF" :class="{ active: istextButtonModifyStreet }">
-                    <h3>Entrez votre adresse</h3>
-                    <input v-model="textStreet" @keyup.enter="updateStreet" type="text" name="inputStreet" id="">
-                    <button @click.prevent="hideModifierAvecNewText" class="btnWhite buttonNavig">Entrer</button>
-                    <button @click.prevent="hideModifier" class="btnBlack buttonNavig">Annuler</button>
-                  </div>
-              </div> 
-            </div> 
+
+            </div>
+
+            <!-- Section Mes Achats et Préférences -->
             <div class="HabitudeClient">  
                 <a @click="showMesAchats" href="#" class="mesAchats" :class="{ active: isMesAchatsVisible }"><h3>Mes achats</h3></a>
                 <a @click="showMesPrefs" href="#" class="mesPref" :class="{ active: isMesPrefVisible }"><h3>Mes préférences</h3></a>
             </div>
+
+            <!-- Liste des Achats -->
             <div class="deroulerAchatPrefs">
                 <div :class="{ active: isMesAchatsVisible }" class="mesAchatsDiv">
                     <div class="mesAchats1">
-                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
-                      <div class="textMesAchats">  
-                        <h3>Nom restaurant</h3>
-                        <p>- nb article - 0.00eur</p>
-                        <button class="buttonMesachats">Voir</button>
-                      </div>  
+                        <img class="imgMesAchats" src="#" alt="Restaurant 1" width="100" height="auto">
+                        <div class="textMesAchats">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                            <button class="buttonMesachats">Voir</button>
+                        </div>  
                     </div>
                     <div class="mesAchats2">
-                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
-                      <div class="textMesAchats">  
-                        <h3>Nom restaurant</h3>
-                        <p>- nb article - 0.00eur</p>
-                        <button class="buttonMesachats">Voir</button>
-                      </div>  
+                        <img class="imgMesAchats" src="#" alt="Restaurant 2" width="100" height="auto">
+                        <div class="textMesAchats">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                            <button class="buttonMesachats">Voir</button>
+                        </div>  
                     </div>
                     <div class="mesAchats3">
-                        <img class="imgMesAchats" src="#" alt="" width="100px" height="auto">
-                      <div class="textMesAchats">  
-                        <h3>Nom restaurant</h3>
-                        <p>- nb article - 0.00eur</p>
-                        <button class="buttonMesachats">Voir</button>
-                      </div>  
-                    </div>  
+                        <img class="imgMesAchats" src="#" alt="Restaurant 3" width="100" height="auto">
+                        <div class="textMesAchats">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                            <button class="buttonMesachats">Voir</button>
+                        </div>  
+                    </div>
                 </div>
             </div>
+
+            <!-- Liste des Préférences -->
             <div class="deroulerMesPref">
-                <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv"> 
-                    <div class="mesPref1">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
-                    </div> 
-                    <div class="mesPref2">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
-                    </div> 
-                    <div class="mesPref3">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
-                    </div>
-                </div>
                 <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv">
                     <div class="mesPref1">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
-                    </div> 
+                        <img class="imgMesPref" src="#" alt="Restaurant 1" width="100" height="auto">
+                        <div class="textMesPref">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                        </div>  
+                    </div>
                     <div class="mesPref2">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
-                    </div> 
+                        <img class="imgMesPref" src="#" alt="Restaurant 2" width="100" height="auto">
+                        <div class="textMesPref">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                        </div>  
+                    </div>
                     <div class="mesPref3">
-                        <img class="imgMesPref" src="#" alt="" width="100px" height="auto">
-                        <div class="textMesPref">  
-                          <h3>Nom restaurant</h3>
-                          <p>- nb article - 0.00eur</p>
-                        <img src="#" alt="">
-                      </div>  
+                        <img class="imgMesPref" src="#" alt="Restaurant 3" width="100" height="auto">
+                        <div class="textMesPref">
+                            <h3>Nom restaurant</h3>
+                            <p>- nb article - 0.00eur</p>
+                        </div>  
                     </div>
                 </div>
-              </div>
+            </div>
+
         </div>
     </div>
-        
-    </div>
-   
+
     <?php require_once('footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
-        new Vue ({
+        new Vue({
             el: '#app',
-
             data: {
                 isMesAchatsVisible: false,
                 isMesPrefVisible: false,
@@ -155,9 +141,9 @@
                 istextButtonModifyStreet: false,
                 showProfilClient: false,
             },
-
             methods: {
                 updateStreet() {
+                    // Action de mise à jour de l'adresse
                     event.preventDefault();
                 },
                 hideModifierAvecNewText() {
@@ -176,7 +162,6 @@
                     this.istextButtonModifyNum = true;
                     this.istextButtonModifyStreet = false;
                     this.showProfilClient = true;
-
                 },
                 modifyTextStreet() {
                     this.istextButtonModifyStreet = true;
@@ -192,7 +177,7 @@
                     this.isMesAchatsVisible = false;
                 },
             },
-        })
+        });
     </script>
 </body>
 </html>

@@ -4,75 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
-    <meta name="description" content="A brief description of your page.">
+    <meta name="description" content="GastronoMeal - Connectez-vous pour accéder à vos commandes et vos options de livraison.">
     <link rel="stylesheet" href="css/styles.css?v=2.4">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
-    <?php require_once('header.php') ?>
-<!-- Container principal + formulaire --> 
+    <?php require_once('header.php'); ?>
+
+    <!-- Container principal + formulaire -->
     <div id="app" class="containerPrincipal">
-      <div class="content_full">  
-        <div class="content_login" :class="{ close: !isContentLoginVisible }">
-        <a href="index.php" class="close_btn">&times;</a>
-            <h2>Connectez-vous</h2><br>
-            <p>Entrez votre adresse mail</p>
-            <form>
-                <label for="mail"></label>
-                <input type="text" id="mail" name="mail">
-            </form>
-            <form>
-                <p>Entrez votre mot de passe</p>
-                <div class="passwordAndEye">
-                    <label for="mot_de_passe"></label>
-                    <input :type="isPasswordVisible ? 'password' : 'text' " id="passwd" name="passwd"><br>
-                    <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png' " @click="togglePasswordVisibility" alt="Afficher les mot de passe" class="eye-open" id="togglePassword">
+        <div class="content_full">
+            <!-- Section Connexion -->
+            <div class="content_login" :class="{ close: !isContentLoginVisible }">
+                <a href="index.php" class="close_btn">&times;</a>
+                <h2>Connectez-vous</h2>
+                <p>Entrez votre adresse mail</p>
+                <form>
+                    <label for="mail">Adresse e-mail</label>
+                    <input type="email" id="mail" name="mail" placeholder="Entrez votre adresse e-mail" required>
+                </form>
+                <form>
+                    <p>Entrez votre mot de passe</p>
+                    <div class="passwordAndEye">
+                        <label for="mot_de_passe">Mot de passe</label>
+                        <input :type="isPasswordVisible ? 'password' : 'text'" id="passwd" name="passwd" placeholder="Entrez votre mot de passe" required>
+                        <img 
+                            :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png'" 
+                            @click="togglePasswordVisibility" 
+                            alt="Afficher le mot de passe" 
+                            class="eye-open" 
+                            id="togglePassword">
+                    </div>
+                    <a href="#" @click.prevent="showForgotPassword">
+                        <p>Mot de passe oublié ?</p>
+                    </a>
+                </form>
+                <a href="isLogin.php">
+                    <button>Connexion</button>
+                </a>
+            </div>
+
+            <!-- Section Réinitialisation de mot de passe -->
+            <div class="modal" :class="{ show: isForgotPasswordVisible }">
+                <div class="modal_content">
+                    <div style="text-align:center">
+                        <h2>Réinitialiser le mot de passe</h2>
+                    </div>
+                    <form>
+                        <label for="reset_email">Adresse e-mail</label>
+                        <input id="reset_email" class="inputEmailAjust" type="email" placeholder="Entrez votre adresse e-mail" required><br>
+                        <div class="modal_buttons">
+                            <button type="submit" class="btnWhite ButtonNav">Envoyer</button>
+                            <button type="button" class="btnBlack ButtonNav" @click="closeForgotPassword">Fermer</button>
+                        </div>
+                    </form>
                 </div>
-                <a href="#" @click.prevent="showForgotPassword"><p>mot de passe oublié ?</p></a>
-            </form>
-        <a href="isLogin.php"><button>Connexion</button></a>
-        </div>
-       <div class="modal" :class="{ show: isForgotPasswordVisible }">
-            <div class="modal_content">
-                <div style="text-align:center">
-                <h2>Rénitialiser le mot de passe</h2>
-                </div>
-                <input class="inputEmailAjust" type="email" placeholder="Entrez votre email"><br>
-                <button class="btnWhite ButtonNav">Envoyer</button>
-                <button class="btnBlack ButtonNav" @click="closeForgotPassword">Fermer</button>
             </div>
         </div>
-      </div>
     </div>
- 
+
     <?php require_once('footer.php'); ?>
-    <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
+
+    <!-- Inclusion de Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app',
-            
             data: {
-                isForgotPasswordVisible: false,
-                isContentLoginVisible: true,
-                isPasswordVisible: true,
+                isForgotPasswordVisible: false, // Contrôle la visibilité du modal de réinitialisation
+                isContentLoginVisible: true,   // Contrôle la visibilité du formulaire de connexion
+                isPasswordVisible: true       // Contrôle la visibilité du mot de passe
             },
-
-            methods:{
-                togglePasswordVisibility(){
+            methods: {
+                // Inverse la visibilité du champ mot de passe
+                togglePasswordVisibility() {
                     this.isPasswordVisible = !this.isPasswordVisible;
                 },
-                showForgotPassword(){
-                    this.isForgotPasswordVisible = true ;
-                    this.isContentLoginVisible = false ;
+                // Affiche le modal pour la réinitialisation du mot de passe
+                showForgotPassword() {
+                    this.isForgotPasswordVisible = true;
+                    this.isContentLoginVisible = false;
                 },
-                closeForgotPassword(){
-                    this.isForgotPasswordVisible = false ;
+                // Ferme le modal et revient au formulaire de connexion
+                closeForgotPassword() {
+                    this.isForgotPasswordVisible = false;
                     this.isContentLoginVisible = true;
-                },
-                
-            },
-        }); 
+                }
+            }
+        });
     </script>
 </body>
 </html>
