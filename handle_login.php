@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Vérifiez si l'utilisateur a accepté les cookies
-    if (isset($_COOKIE['cookies_accepted']) && $_COOKIE['cookies_accepted'] === 'true') {
+    if (isset($_COOKIE['cookies_accepted']) || $_COOKIE['cookies_accepted'] === 'false') {
         // Préparez les données pour envoyer au backend Spring Boot
         $data = json_encode([
             'email' => $email,
