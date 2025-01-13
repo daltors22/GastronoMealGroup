@@ -17,10 +17,6 @@
 <body>
     <!-- Inclusion du header avec PHP -->
     <?php require_once("header.php"); ?>
-<<<<<<< HEAD
-
-    <!-- Section principale de l'application -->
-=======
      <!-- Bandeau de cookies -->
      <?php if (!isset($_COOKIE['cookies_accepted'])): ?>
     <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; text-align: center; z-index: 1000;">
@@ -33,7 +29,6 @@
         </form>
     </div>
     <?php endif; ?>
->>>>>>> testBTSBLANC
     <div id="app" class="containerPrincipal">
         <!-- Container 2 : Formulaire pour trouver un restaurant -->
         <div class="container_2">
