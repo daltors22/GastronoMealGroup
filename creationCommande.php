@@ -25,11 +25,41 @@
     <div class="poids">
     <div>
             <h1>Poids</h1>
-        </div>
+    </div>
         <div class="typePlat">
             <img class="imgCreat" src="images/poids.jpg" alt="menu"/>
             <div class="txtcreation">
-                <p class="nbpoids">Poids : 10kg</p>
+                <p>Poids : </p>
+                <p class="nbpoids" id="poids">1</p>
+                <p>g</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="distance">
+    <div>
+            <h1>Distance</h1>
+    </div>
+        <div class="typePlat">
+            <img class="imgCreat" src="images/distance.jpg" alt="menu"/>
+            <div class="txtcreation">
+                <p>distance : </p>
+                <p class="nbpoids" id="distance">800</p>
+                <p>km</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="distance">
+    <div>
+            <h1>Distance</h1>
+    </div>
+        <div class="typePlat">
+            <img class="imgCreat" src="images/distance.jpg" alt="menu"/>
+            <div class="txtcreation">
+                <p>frais : </p>
+                <p class="nbpoids" id="frais">80</p>
+                   
             </div>
         </div>
     </div>
@@ -43,7 +73,6 @@
                     <button class="btnAd">Adresse du l'utilisateur</button>
         </div>
         <div class="typePlat">
-        
             <img class="imgCreat" src="images/profils.jpg" alt="menu"/>
             <div class="txtAdd">
                 <p>Livrer à cette adresse</p>
