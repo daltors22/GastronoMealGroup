@@ -14,13 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
-<<<<<<< HEAD
-    <meta name="description" content="GastronoMeal - Accédez et modifiez vos informations personnelles.">
-    <link rel="stylesheet" href="css/styles.css?v=5.2">
-=======
     <meta name="description" content="A brief description of your page.">
     <link rel="stylesheet" href="css/styles.css?v=5.3">
->>>>>>> testBTSBLANC
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.5"/>
 </head>
@@ -37,14 +32,6 @@
                     <p>{{ textStreet }}</p>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
-<<<<<<< HEAD
-
-                <!-- Section Numéro de téléphone -->
-                <div class="containerTel">
-                    <h3><img src="images/information.png" alt="icone informations">&nbsp;&nbsp;Votre numéro de téléphone</h3>
-                    <p>{{ textNum }}</p>
-                    <button class="btnAdresse" @click="modifyTextNum">Modifier</button>
-=======
                 <!--     NEW TASK      -->
                 <div class="containerAdresseTravail">
                     <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse de travail</h3>
@@ -73,7 +60,6 @@
                     <button class="btnAdresse" @click="isEditingNumber ? saveNewNumber() : modifyTextNum">
                         {{ isEditingNumber ? "Enregistrer" : "Modifier" }}
                     </button>
->>>>>>> testBTSBLANC
                 </div>
 
                 <!-- Section Notifications -->
@@ -299,11 +285,8 @@
                     this.istextButtonModifyNum = true;
                     this.istextButtonModifyStreet = false;
                     this.showProfilClient = true;
-<<<<<<< HEAD
-=======
                     this.isEditingNumber = true; 
 
->>>>>>> testBTSBLANC
                 },
                 modifyTextStreet() {
                     this.istextButtonModifyStreet = true;

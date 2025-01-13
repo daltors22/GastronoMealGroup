@@ -51,14 +51,8 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </nav> 
-
-    <!-- Intégration de Vue.js via CDN -->
-=======
     </nav>
 
->>>>>>> testBTSBLANC
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
