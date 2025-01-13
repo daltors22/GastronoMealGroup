@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-<<<<<<< HEAD
-    <!-- Lien vers le fichier CSS principal -->
-    <link rel="stylesheet" href="css/styles.css?v=3.2">
-    <!-- Icône de la page -->
-=======
     <link rel="stylesheet" href="css/styles.css?v=3.5">
->>>>>>> testBTSBLANC
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -123,8 +117,6 @@
                     <button>renvoyer un code de confirmation</button>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
         </div>
         <div class="contentVerifCodeRecu" :class="{ active: showDivForCodeMailSms }">
             <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
@@ -170,7 +162,6 @@
                </div>
               </div>
             </div>
->>>>>>> testBTSBLANC
         </div> 
     </div>
    
@@ -203,10 +194,6 @@
                 isContentTravail: false,
                 hideFirstContentDefaut: false,
             },
-<<<<<<< HEAD
-            methods: {
-                // Affichage du formulaire de confirmation SMS
-=======
 
             methods:{
                 afficherContentDomicile() {
@@ -225,7 +212,6 @@
                     this.showDivForCodeMailSms = false;
                     this.showContentDefaut = false;
                 },
->>>>>>> testBTSBLANC
                 showContentVerifCodeRecuTel() {
                     this.isContentVerifCodeRecuTelShow = true;
                     this.showConfirmByTel = false;
