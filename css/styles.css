@@ -196,20 +196,26 @@ footer ul {
         width: 300px !important;
     }
     .superpoImage {
-        
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0;
     }
     .container_2 {
         justify-content: center;
     }
     .foundAdress {
+        align-items: center;
         justify-content: flex-start !important;
         border-left: 1px solid #FF7828;
     }
     .foundAdress input {
         width: 100% !important;
+    }
+
+    .foundAdress input[type="text"] {
+        border:none;
     }
     
 }
@@ -619,6 +625,13 @@ input[type="text"], input[type="email"], input[type="password"] {
     .contentVerifCodeRecu.active, .content_register_after_check.active, .confirmByTelMail  {
         flex-direction: column !important;
     }
+    .confirmByTelMail {
+        width: 50% !important;
+        flex-direction: column !important;
+    }
+    .confirmByMail.active, .confirmByTel.active {
+        flex-direction: column !important;
+    }
 }
 
 .content_register.close {
@@ -812,6 +825,13 @@ form p {
     .container_1_profilClient {
         gap: 20px;
     }
+    .numberPhonePF, .streetPF {
+        flex-direction: column !important;
+        height: 300px !important;
+    }
+    .showModificationsProfil {
+        height: auto;
+    }
 }
 
 .containerProfil p {
@@ -864,7 +884,7 @@ form p {
     color: grey;
 }
 /* ///////////////////////////////////////////////////////////////// */
-.containerTel, .containerAdresse {
+.containerTel, .containerAdresse, .containerAdresseTravail, .containerAdresseDomicile{
     flex-direction: column;
     display: flex;
     gap: 10px;
@@ -874,7 +894,7 @@ form p {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.containerTel img, .containerAdresse img {
+.containerTel img, .containerAdresse img, .containerAdresseTravail img, .containerAdresseDomicile img{
     width: 20px;
     height: auto;
 }
@@ -1058,7 +1078,7 @@ input[type="checkbox"]:checked::after {
         border: none;
         border-radius: 5px;
     }
-    .containerAdresse, .containerTel {
+    .containerAdresse, .containerTel,.containerAdresseTravail, .containerAdresseDomicile {
         width: 100%;
         left: 0;
         text-align: left;
@@ -1429,6 +1449,7 @@ nav{
     display: flex;
     width: 100%;
     height: 40px;
+    border: none;
     border-bottom: 0.5px solid grey;
     border-left: 0.5px solid grey;
     cursor: pointer;
@@ -1535,4 +1556,91 @@ textarea.form-control {
     .container_mail {
         padding: 15px; /* Réduire l'espacement interne sur les petits écrans */
     }
+}
+/* ########################*/
+
+.containerAdressTravailDomicile {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    flex-direction: column;
+   
+}
+
+.containerAdressTravailDomicile.active {
+    display: flex;
+}
+
+.contentAdDomTaf {
+   display: flex;
+   justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    flex-direction: column;
+    cursor: pointer;
+    color: white;
+}
+
+.firstContentDefaut  {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    color: white;
+}
+
+.firstContentDefaut button a {
+    color: white;
+}
+
+.firstContentDefaut.close {
+    display: none;
+}
+
+.contentAdresseDefaut {
+    display: none;
+
+}
+
+.contentAdresseDefaut.active {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentDefautDomicile {
+    display: none;
+}
+
+.contentDefautDomicile.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentDefautTravail {
+ display: none;
+}
+
+.contentDefautTravail.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
