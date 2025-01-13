@@ -118,22 +118,7 @@
                 </div>
             </div>
         </div>
-        <div class="contentVerifCodeRecu" :class="{ active: showDivForCodeMailSms }">
-            <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
-                <h3>Entrez le code reçu par sms</h3>
-                <input type="text">
-                <button class="btnWhite buttonNavig" @click="showContentAdresseDefaut">Confirmer</button>
-                <p>vous n'avez pas reçu de code ?</p>
-                <button>renvoyer un code de confirmation</button>
-            </div>
-            <div class="contentVerifCodeRecuMail" :class="{ active: isContentVerifCodeRecuMailShow }">
-                <h3>Entrez le code reçu par mail</h3>
-                <input type="text">
-                <button class="btnWhite buttonNavig" @click="showContentAdresseDefaut">Confirmer</button>
-                <p>vous n'avez pas reçu de code ?</p>
-                <button>renvoyer un code de confirmation</button>
-            </div>
-        </div>
+        
         <!--   LOGIQUE ADRESS DEFAUT   -->
         <div class="containerAdressTravailDomicile" :class="{ active: containerAdressTravailDomicile }">
             <a href="register.php" class="close_btn">&times;</a>
@@ -149,14 +134,14 @@
               <div class="contentAdresseDefaut" :class="{ active: showContentDefaut }">
                <div class="contentDefautDomicile" :class="{ active: isContentDomicile }">
                 <h3 style="color:black">Entrez une adresse par défaut de Domicile</h3>
-                <p style="color grey">optionnel</p>
+                <p style="color: grey">optionnel</p>
                 <input type="text">
                 <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
                 
                </div>
                <div class="contentDefautTravail" :class="{ active: isContentTravail }">
                 <h3 style="color:black">Entrez une adresse par défaut de Travail</h3>
-                <p style="color grey">optionnel</p>
+                <p style="color: grey">optionnel</p>
                 <input type="text">
                 <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
                </div>
