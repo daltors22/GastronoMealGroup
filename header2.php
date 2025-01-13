@@ -18,9 +18,13 @@
 
             <!-- Bouton de déconnexion -->
             <div class="buttonNav2">
+<<<<<<< HEAD
                 <a href="index.php">
                     <button class="btnBlack2 buttonNavig2">Déconnexion</button>
                 </a>
+=======
+                <a href="logout.php"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>
+>>>>>>> testBTSBLANC
             </div>
 
             <!-- Avatar utilisateur avec lien vers le profil client -->

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,8 +22,20 @@
     <div id="app" class="containerPrincipal">
         <!-- Section pour l'accueil -->
         <div class="container_1">
+<<<<<<< HEAD
             <h1>Bienvenue</h1>
             <!-- Texte invitant l'utilisateur à entrer une adresse -->
+=======
+        <?php
+        if (!isset($_COOKIE['user_session'])) {
+            header("Location: login.php");
+            exit();
+        }
+
+        $user_email = $_COOKIE['user_email'];
+        echo "<h1>Bienvenue, $user_email</h1>";
+        ?>
+>>>>>>> testBTSBLANC
             <div style="display:flex; width:80%; justify-content:center; align-items:center; text-align:center">
                 <h3>Entrez votre adresse pour commencer à commander !</h3>
             </div>
