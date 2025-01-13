@@ -24,7 +24,8 @@
                 <div class="Menu3Mobile"><a href="contact.php">Contact</a></div>
             </div>
         </div>
-    </nav> 
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({

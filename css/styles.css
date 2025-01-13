@@ -884,7 +884,7 @@ form p {
     color: grey;
 }
 /* ///////////////////////////////////////////////////////////////// */
-.containerTel, .containerAdresse {
+.containerTel, .containerAdresse, .containerAdresseTravail, .containerAdresseDomicile{
     flex-direction: column;
     display: flex;
     gap: 10px;
@@ -894,7 +894,7 @@ form p {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.containerTel img, .containerAdresse img {
+.containerTel img, .containerAdresse img, .containerAdresseTravail img, .containerAdresseDomicile img{
     width: 20px;
     height: auto;
 }
@@ -1078,7 +1078,7 @@ input[type="checkbox"]:checked::after {
         border: none;
         border-radius: 5px;
     }
-    .containerAdresse, .containerTel {
+    .containerAdresse, .containerTel,.containerAdresseTravail, .containerAdresseDomicile {
         width: 100%;
         left: 0;
         text-align: left;
@@ -1556,4 +1556,91 @@ textarea.form-control {
     .container_mail {
         padding: 15px; /* Réduire l'espacement interne sur les petits écrans */
     }
+}
+/* ########################*/
+
+.containerAdressTravailDomicile {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    flex-direction: column;
+   
+}
+
+.containerAdressTravailDomicile.active {
+    display: flex;
+}
+
+.contentAdDomTaf {
+   display: flex;
+   justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    flex-direction: column;
+    cursor: pointer;
+    color: white;
+}
+
+.firstContentDefaut  {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    color: white;
+}
+
+.firstContentDefaut button a {
+    color: white;
+}
+
+.firstContentDefaut.close {
+    display: none;
+}
+
+.contentAdresseDefaut {
+    display: none;
+
+}
+
+.contentAdresseDefaut.active {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentDefautDomicile {
+    display: none;
+}
+
+.contentDefautDomicile.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contentDefautTravail {
+ display: none;
+}
+
+.contentDefautTravail.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

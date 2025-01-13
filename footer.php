@@ -16,6 +16,7 @@
         <ul>
             <li><a href="#"><p>Nous contacter</p></a></li>
             <li><a href="home.php"><p>HOME PAGE</p></a></li>
+            <li><a href="manage_cookies.php">Gérer les cookies</a></li>
         </ul>
       </div>
       <div class="logoReseaux">

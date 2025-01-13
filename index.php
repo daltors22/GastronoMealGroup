@@ -12,6 +12,18 @@
 </head>
 <body>
     <?php require_once("header.php"); ?>
+     <!-- Bandeau de cookies -->
+     <?php if (!isset($_COOKIE['cookies_accepted'])): ?>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; text-align: center; z-index: 1000;">
+        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez accepter ou refuser les cookies.</p>
+        <form method="POST" action="accept_cookies.php" style="display: inline;">
+            <button type="submit" name="accept" value="true" style="background: green; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Accepter</button>
+        </form>
+        <form method="POST" action="accept_cookies.php" style="display: inline;">
+            <button type="submit" name="accept" value="false" style="background: red; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Refuser</button>
+        </form>
+    </div>
+    <?php endif; ?>
     <div id="app" class="containerPrincipal">
         <div class="container_2">
             <div class="superpoImage">

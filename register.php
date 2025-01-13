@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=3.2">
+    <link rel="stylesheet" href="css/styles.css?v=3.5">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
@@ -71,19 +71,47 @@
             <div class="contentVerifCodeRecuTel" :class="{ active: isContentVerifCodeRecuTelShow }">
                 <h3>Entrez le code reçu par sms</h3>
                 <input type="text">
-                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                <button class="btnWhite buttonNavig" @click="showContentAdresseDefaut">Confirmer</button>
                 <p>vous n'avez pas reçu de code ?</p>
                 <button>renvoyer un code de confirmation</button>
             </div>
             <div class="contentVerifCodeRecuMail" :class="{ active: isContentVerifCodeRecuMailShow }">
                 <h3>Entrez le code reçu par mail</h3>
                 <input type="text">
-                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                <button class="btnWhite buttonNavig" @click="showContentAdresseDefaut">Confirmer</button>
                 <p>vous n'avez pas reçu de code ?</p>
                 <button>renvoyer un code de confirmation</button>
             </div>
         </div>
-      </div> 
+        <!--   LOGIQUE ADRESS DEFAUT   -->
+        <div class="containerAdressTravailDomicile" :class="{ active: containerAdressTravailDomicile }">
+            <a href="register.php" class="close_btn">&times;</a>
+
+            <div class="contentAdDomTaf">
+              <div class="firstContentDefaut" :class="{ close: hideFirstContentDefaut }"> 
+              <h3 style="color:black">Choissisez une adresse par défaut</h3>
+                <button class="btnWhite buttonNavig" @click="afficherContentDomicile">Domicile</button>
+                <button class="btnWhite buttonNavig" @click="afficherContentTravail">Travail</button>
+                <button class="btnBlack buttonNavig" style="color:white"><a href="register.php">annuler</a></button>
+              </div>  
+
+              <div class="contentAdresseDefaut" :class="{ active: showContentDefaut }">
+               <div class="contentDefautDomicile" :class="{ active: isContentDomicile }">
+                <h3 style="color:black">Entrez une adresse par défaut de Domicile</h3>
+                <p style="color grey">optionnel</p>
+                <input type="text">
+                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+                
+               </div>
+               <div class="contentDefautTravail" :class="{ active: isContentTravail }">
+                <h3 style="color:black">Entrez une adresse par défaut de Travail</h3>
+                <p style="color grey">optionnel</p>
+                <input type="text">
+                <button class="btnWhite buttonNavig"><a href="login.php">Confirmer</a></button>
+               </div>
+              </div>
+            </div>
+        </div> 
     </div>
    
 <?php require_once('footer.php'); ?>
@@ -106,9 +134,31 @@
                 isContentVerifCodeRecuTelShow: false,
                 isContentVerifCodeRecuMailShow: false,
                 showDivForCodeMailSms: false,
+
+                containerAdressTravailDomicile: false,
+                showContentDefaut: false,
+                isContentDomicile: false,
+                isContentTravail: false,
+                hideFirstContentDefaut: false,
             },
 
             methods:{
+                afficherContentDomicile() {
+                    this.isContentDomicile = true;
+                    this.hideFirstContentDefaut = true;
+                    this.showContentDefaut = true;
+                
+                },
+                afficherContentTravail() {
+                    this.isContentTravail = true;
+                    this.hideFirstContentDefaut = true;
+                    this.showContentDefaut = true;
+                },
+                showContentAdresseDefaut() {
+                    this.containerAdressTravailDomicile = true;
+                    this.showDivForCodeMailSms = false;
+                    this.showContentDefaut = false;
+                },
                 showContentVerifCodeRecuTel() {
                     this.isContentVerifCodeRecuTelShow = true;
                     this.showConfirmByTel = false;

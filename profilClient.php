@@ -1,3 +1,13 @@
+<?php session_start(); ?>
+<?php
+        if (!isset($_COOKIE['user_session'])) {
+            header("Location: login.php");
+            exit();
+        }
+
+        $user_email = $_COOKIE['user_email'];
+        
+        ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=5.2">
+    <link rel="stylesheet" href="css/styles.css?v=5.3">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.5"/>
 </head>
@@ -20,10 +30,34 @@
                     <p> {{ textStreet }}</p>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
+                <!--     NEW TASK      -->
+                <div class="containerAdresseTravail">
+                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse de travail</h3>
+                    <p> {{ textStreet }}</p>
+                    <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
+                </div>
+                <div class="containerAdresseDomicile">
+                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse par défaut</h3>
+                    <p> {{ textStreet }}</p>
+                    <p> {{ textStreet }}</p>
+                    <p> {{ villeId }}</p>
+                    <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
+                </div>
+                <!-- NEW TASK -->
                 <div class="containerTel">
-                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre numéro de téléphone</h3>
-                    <p> {{ textNum }}</p>
-                    <button class="btnAdresse" @click="modifyTextNum">Modifier</button>
+                    <h3>
+                        <img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre numéro de téléphone
+                    </h3>
+                    <p v-if="!isEditingNumber">{{ telephone }}</p>
+                    <input
+                        v-else
+                        type="text"
+                        v-model="telephone"
+                        placeholder="Entrez votre numéro de téléphone"
+                    />
+                    <button class="btnAdresse" @click="isEditingNumber ? saveNewNumber() : modifyTextNum">
+                        {{ isEditingNumber ? "Enregistrer" : "Modifier" }}
+                    </button>
                 </div>
               <div class="notifProfilClientButton"> 
                 <div class="notifProfilClient">
@@ -150,13 +184,104 @@
                 isMesAchatsVisible: false,
                 isMesPrefVisible: false,
                 textStreet: 'Votre adresse postale',
-                textNum: '0123456789', 
+                //textNum: '0123456789',
+                // AJOUT BACKEND //
+                villeId: '', 
+                rue: '', // numero
+                detail: '',
+                adresse: '', // nom rue
+                // FIN BACKEND //
                 istextButtonModifyNum: false,
                 istextButtonModifyStreet: false,
                 showProfilClient: false,
+                // INFO USER //
+                nom: '',
+                prenom: '',
+                telephone: '0123456789',
+                email: '',
+                isEditingNumber: false,
             },
 
             methods: {
+                envoyerDonnees() {
+                  fetch('://httplocalhost:8080/api/adresse/endpoint', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      villeId: this.villeId,
+                      rue: this.rue,
+                      detail: this.detail,
+                      adresse: this.adresse,
+                    }),
+                  })
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Erreur : ' + response.status);
+                      }
+                      return response.json();
+                    })
+                    .then(data => {
+                      console.log('Données envoyées avec succès :', data);
+                    })
+                    .catch(error => {
+                      console.error('Erreur lors de l\'envoi des données :', error);
+                    });
+                },
+                recevoirDonneesBackend() {
+                    fetch('http://localhost/GastronoMeal/get_user_data.php', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Erreur : ' + response.status);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Associer les données récupérées aux propriétés Vue.js
+                            this.nom = data.nom;
+                            this.prenom = data.prenom;
+                            this.telephone = data.telephone;
+                            this.email = data.email;
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de la récupération des données utilisateur :', error);
+                        });
+                },
+                saveNewNumber() {
+                    // Validation (exemple) : vérifier que le numéro est valide
+                    if (this.telephone.trim() === '' || !/^\d+$/.test(this.telephone)) {
+                        alert('Veuillez entrer un numéro valide.');
+                        return;
+                    }
+
+                    // Envoyer les données mises à jour au backend
+                    fetch('http://localhost/GastronoMeal/update_user_phone.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ telephone: this.telephone }),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error('Erreur lors de la mise à jour.');
+                            }
+                            return response.json();
+                        })
+                        .then((data) => {
+                            console.log('Mise à jour réussie :', data);
+                            this.isEditingNumber = false; // Quitte le mode édition
+                        })
+                        .catch((error) => {
+                            console.error('Erreur :', error);
+                        });
+                },
                 updateStreet() {
                     event.preventDefault();
                 },
@@ -176,6 +301,7 @@
                     this.istextButtonModifyNum = true;
                     this.istextButtonModifyStreet = false;
                     this.showProfilClient = true;
+                    this.isEditingNumber = true; 
 
                 },
                 modifyTextStreet() {

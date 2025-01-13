@@ -10,7 +10,7 @@
                 <a href="messagerie.php">Messagerie</a>
             </div>
             <div class="buttonNav2">
-                <a href="index.php"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>
+                <a href="logout.php"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>
             </div>
             <div class="userAvatar2">    
                 <a href="profilClient.php"><img src="images/Pf-3.png" alt="Avatar utilisateur"></a>
