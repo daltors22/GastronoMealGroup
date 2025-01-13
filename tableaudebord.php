@@ -149,7 +149,7 @@ require_once("header2.php");
   });
 </script>
 <?php
-require_once("footer.php");
+  require_once("footer.php");
 ?>
 </body>
 </html>
