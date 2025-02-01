@@ -50,3 +50,24 @@
 #
 #
 #
+async function getUserById(id) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/user/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}` // Inclut le token si nécessaire
+            }
+        });
+
+        if (response.ok) {
+            const user = await response.json();
+            console.log(user);
+            return user;
+        } else {
+            console.error(`Erreur lors de la récupération de l'utilisateur ${id}:`, response.status);
+        }
+    } catch (error) {
+        console.error('Erreur réseau:', error);
+    }
+}

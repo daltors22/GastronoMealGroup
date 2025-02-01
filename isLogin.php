@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,24 +12,20 @@
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <!-- Lien vers un autre fichier CSS spécifique pour le header -->
     <link rel="stylesheet" href="css/header2.css?v=1.5"/>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
 </head>
 <body>
+
     <!-- Inclusion du fichier de header via PHP -->
     <?php require_once("header2.php"); ?>
-
     <!-- Conteneur principal -->
     <div id="app" class="containerPrincipal">
         <!-- Section pour l'accueil -->
         <div class="container_1">
-        <?php
-        if (!isset($_COOKIE['user_session'])) {
-            header("Location: login.php");
-            exit();
-        }
-
-        $user_email = $_COOKIE['user_email'];
-        echo "<h1>Bienvenue, $user_email</h1>";
-        ?>
+        
+        <h1 id="prenomElement"></h1>
+        
             <div style="display:flex; width:80%; justify-content:center; align-items:center; text-align:center">
                 <h3>Entrez votre adresse pour commencer à commander !</h3>
             </div>
@@ -129,6 +124,7 @@
     <?php require_once('footer.php'); ?>
     
     <!-- Ajout de Vue.js -->
+    <script src="./js/validateToken.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
@@ -137,8 +133,11 @@
                 isDropdownVisible: false, // Indique si le menu déroulant est affiché
                 isButtonHide: false, // Gère l'état du bouton
                 buttonText: ('Livrer maintenant'), // Texte par défaut du bouton
+                isLoggedIn: true,
+                
             },
             methods: {
+                
                 // Change l'option sélectionnée dans le dropdown
                 setDeliveryOption(option) {
                     this.buttonText = option; // Change le texte du bouton
@@ -159,14 +158,17 @@
                 },
             },
             mounted() {
+                this.checkLoginStatus();
                 // Ajoute un gestionnaire d'événements pour détecter les clics externes
                 document.addEventListener('click', this.handleClickOutside);
+                
             },
             beforeDestroy() {
                 // Supprime le gestionnaire d'événements pour éviter les fuites de mémoire
                 document.removeEventListener('click', this.handleClickOutside);
-            }
+            },
         });
     </script>
+    <script src="./js/user.js"></script>
 </body>
 </html>

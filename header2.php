@@ -11,19 +11,19 @@
 
             <!-- Liens principaux : Menu, Contact et Messagerie -->
             <div class="lien2">
-                <a href="index.php">Menu</a>
+                <a href="islogin.php">Menu</a>
                 <a href="contact.php">Contact</a>
                 <a href="messagerie.php">Messagerie</a>
             </div>
-
+            <script src="./js/validateToken.js"></script>
             <!-- Bouton de déconnexion -->
             <div class="buttonNav2">
-                <a href="logout.php"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>
+                <a href="#" id="logout"><button class="btnBlack2 buttonNavig2">Déconnexion</button></a>
             </div>
 
             <!-- Avatar utilisateur avec lien vers le profil client -->
             <div class="userAvatar2">    
-                <a href="profilClient.php">
+                <a href="#" id="lienProfil">
                     <img src="images/Pf-3.png" alt="Avatar utilisateur">
                 </a>
             </div>
@@ -37,7 +37,7 @@
             <div class="contentMenuMobile" :class="{ active: isMenuMobileShow }" ref="menuMobileClosed">
                 <div class="Menu1Mobile">
                     <!-- Bouton de déconnexion pour la version mobile -->
-                    <a href="index.php">
+                    <a href="#" id="logout">
                         <button class="btnBlack2 buttonNavig2">Déconnexion</button>
                     </a>
                 </div>
@@ -58,6 +58,7 @@
     </nav>
 
     <!-- Intégration de Vue.js via CDN -->
+    
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
@@ -68,6 +69,7 @@
             },
 
             methods: {
+                
                 // Méthode pour afficher le menu mobile
                 showTheMenuMobile() {
                     this.isMenuMobileShow = true;

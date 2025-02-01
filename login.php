@@ -9,19 +9,7 @@
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
 </head>
 <body>
-    <?php require_once('header.php') ?>
-     <!-- Bandeau de cookies -->
-     <?php if (!isset($_COOKIE['cookies_accepted'])): ?>
-     <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; text-align: center; z-index: 1000;">
-        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez accepter ou refuser les cookies.</p>
-        <form method="POST" action="accept_cookies.php" style="display: inline;">
-            <button type="submit" name="accept" value="true" style="background: green; color: white; border: none; padding: 10px 20px; cursor: pointer;">Accepter</button>
-        </form>
-        <form method="POST" action="accept_cookies.php" style="display: inline;">
-            <button type="submit" name="accept" value="false" style="background: red; color: white; border: none; padding: 10px 20px; cursor: pointer;">Refuser</button>
-        </form>
-     </div>
-    <?php endif; ?>
+    <?php require_once("header.php") ?>
 <!-- Container principal + formulaire --> 
     <div id="app" class="containerPrincipal">
       <div class="content_full">  
@@ -45,20 +33,21 @@
             
         <a href="isLogin.php"><button>Connexion</button></a> -->
         <!-- ########################################################################## -->
-        <form method="POST" action="handle_login.php">
+        <form @submit.prevent="login">
             <p>Entrez votre adresse mail</p>
             <label for="mail"></label>
-            <input type="email" id="mail" name="email" placeholder="email" required>
+            <input type="email" id="email" name="email" placeholder="email" required v-model="email">
 
             <p>Entrez votre mot de passe</p>
             <div class="passwordAndEye">
                 <label for="mot_de_passe"></label>
-                <input :type="isPasswordVisible ? 'password' : 'text'" id="passwd" name="password" type="password" placeholder="mot de passe" required>
+                <input :type="isPasswordVisible ? 'password' : 'text'" id="motDePasse" name="motDePasse" type="password" placeholder="mot de passe" required v-model="motDePasse">
                 <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png'" @click="togglePasswordVisibility" alt="Afficher le mot de passe" class="eye-open" id="togglePassword">
             </div>
 
             <button type="submit" :disabled="isLoading">Connexion</button>
             <p v-if="isLoading">Connexion en cours...</p>
+            <p v-if="loginError" class="error">{{ loginError }}</p>
         </form>
         <!-- ########################################################################## -->
         </div>
@@ -74,9 +63,10 @@
         </div>
     </div>
 
-    <?php require_once('footer.php'); ?>
+    
 
     <!-- Inclusion de Vue.js -->
+    <script src="./js/validateToken.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
@@ -85,57 +75,17 @@
                 isForgotPasswordVisible: false,
                 isContentLoginVisible: true,
                 isPasswordVisible: true,
-                items: [], // LIE AU FETCH
+                //items: [], // LIE AU FETCH
+                isLoading: false,
+                loginError: null,
+                isLoggedIn: false,
                 email: '',
+               // password: '',
                 motDePasse: '',
-            },
-            mounted() {
-                fetch('http://localhost:8080/api/user/endpoint')
-                .then(response => {
-                    if (!response.ok) {
-                    throw new Error('Erreur : ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    this.items = data; // Stocke les données dans items
-                })
-                .catch(error => {
-                    console.error('Erreur lors de la récupération des données :', error);
-                });
+                
             },
             methods:{
-                async login() {
-                    console.log('Tentative de connexion avec :', this.email, this.motDePasse);
-                    try {
-                        const response = await fetch('http://localhost:8080/api/auth/login', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                email: this.email,
-                                motDePasse: this.motDePasse
-                            })
-                        });
-
-                        if (!response.ok) {
-                            // Si le backend renvoie une erreur, récupère le message
-                            const errorMessage = await response.text();
-                            console.error('Erreur lors de la connexion :', errorMessage);
-                            alert('Erreur : ' + errorMessage);
-                            return;
-                        }
-
-                        // Connexion réussie
-                        const message = await response.text();
-                        alert(message); // Affiche un message ou redirige vers une autre page
-                    } catch (error) {
-                        console.error('Erreur réseau :', error);
-                        alert('Erreur réseau, veuillez réessayer.');
-                    }
-                },
-
+                
                 togglePasswordVisibility(){
                     this.isPasswordVisible = !this.isPasswordVisible;
                 },
@@ -148,6 +98,62 @@
                 closeForgotPassword() {
                     this.isForgotPasswordVisible = false;
                     this.isContentLoginVisible = true;
+                },
+                async login() {
+                    this.isLoading = true;
+                    this.loginError = null;
+                    //console.log('Données envoyées:', { email: this.email, motDePasse: this.motDePasse });
+                    try {
+                        const response = await fetch('http://localhost:8080/api/auth/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: this.email, motDePasse: this.motDePasse })
+                        });
+                        //console.log('Réponse reçue:', response);
+                        if (!response.ok) {
+                            // Si le serveur renvoie un code d'erreur, on affiche un message
+                            if (response.status === 401) {
+                                this.loginError = 'Email ou mot de passe incorrect.';
+                            } else {
+                                this.loginError = `Erreur du serveur : ${response.statusText}`;
+                            }
+                        } else {
+                            const data = await response.json();
+                            //console.log('Réponse JSON:', data);
+                            // Traitement en cas de succès
+                            
+                            localStorage.setItem('token', data.token);
+                            this.isLoggedIn = true;
+                            window.location.href = 'isLogin.php'; 
+                        }
+                    } catch (error) {
+                        // Gestion des erreurs réseau
+                        this.loginError = 'Impossible de se connecter. Vérifiez votre connexion.';
+                        console.error('Erreur réseau :', error);
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
+                checkLoginStatus() {
+                    // Vérifier si le token est présent
+                    const token = localStorage.getItem('token');
+                    if (token) {
+                        this.isLoggedIn = true; // Peut être complété avec une vérification côté serveur
+                    } else {
+                        this.isLoggedIn = false;
+                    }
+                }
+            },
+            mounted() {
+                // Vérifier le statut de connexion dès que l'application est chargée
+                this.checkLoginStatus();
+                // Vérifier si le token est dans le localStorage dès que l'application est chargée
+                const token = localStorage.getItem('token');
+                if (token) {
+                    this.isLoggedIn = true;
+                    console.log("Utilisateur déjà connecté avec token:", token);
+                } else {
+                    this.isLoggedIn = false;
                 }
             }
         });

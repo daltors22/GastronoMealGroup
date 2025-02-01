@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>États de la Commande</title>
     <link rel="stylesheet" href="css/header2.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white h-screen flex flex-col items-center p-8 space-y-8">
 <?php
-        include_once("header.php");
+        include_once("header2.php");
     ?>
     <!-- Header avec le titre et le sous-titre -->
     <div class="w-full text-center mb-8">
