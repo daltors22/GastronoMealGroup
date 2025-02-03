@@ -41,3 +41,7 @@ alert("Cannot get current location");
 }
 
 }
+
+
+/////////// gestionRestaurant ///////////
+

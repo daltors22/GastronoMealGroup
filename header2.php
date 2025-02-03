@@ -1,11 +1,13 @@
 <header>
     <nav class="tp2">
         <div class="imgLogoNav2">
-            <img src="images/G-meal-3.png" alt="logo" href="home.html"/>
+            <a href="index.php">
+                <img src="images/G-meal-3.png" alt="logo" href="home.html"/>
+            </a>
         </div>
         <div class="lienNav2">
             <div class="lien2">
-                <a href="index.php">Menu</a>
+                <a href="gestionRestaurant.php">Menu</a>
                 <a href="#">Contact</a>
                 <a href="messagerie.php">Messagerie</a>
             </div>
