@@ -21,7 +21,7 @@ async function validateSession() {
             return true;
         } else {
             // Le token est invalide ou expiré
-            alert('token invalide');
+            //alert('token invalide');
             console.log('token invalide');
             window.location.href = './index.php';
             return false;
@@ -38,7 +38,7 @@ document.querySelector('#lienProfil').addEventListener('click', async function (
 
     const isValid = await validateSession();
     if (isValid) {
-        alert('TOKEN VALIDE');
+        //console.log('TOKEN VALIDE');
         // Si la session est valide, redirige vers la page profil
         window.location.href = 'profilClient.php';
         

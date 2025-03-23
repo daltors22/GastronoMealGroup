@@ -131,7 +131,7 @@ function getUserIdFromToken() {
 async function displayUser() {
     const userId = getUserIdFromToken(); // Récupérer l'ID utilisateur depuis le token
     if (!userId) {
-        alert("Utilisateur non authentifié");
+        console.log("Utilisateur non authentifié");
         return;
     }
 
