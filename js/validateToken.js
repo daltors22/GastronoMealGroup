@@ -40,7 +40,7 @@ document.querySelector('#lienProfil').addEventListener('click', async function (
     if (isValid) {
         alert('TOKEN VALIDE');
         // Si la session est valide, redirige vers la page profil
-        window.location.href = './profilClient.php';
+        window.location.href = 'profilClient.php';
         
     }
 });

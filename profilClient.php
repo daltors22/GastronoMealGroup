@@ -39,6 +39,7 @@
                 <!-- NEW TASK -->
                 
                 <div id="userInfo"></div>
+                <div id="userInfo2"></div>
                 <!-- Section Notifications -->
                 <div class="notifProfilClientButton"> 
                     <div class="notifProfilClient">
@@ -150,6 +151,7 @@
                 showProfilClient: false,
                 isLoggedIn: true,
                 isEditingNumber: false,
+                nbCommandes: 0,
             },
             methods: {
                 updateStreet() {
@@ -173,12 +175,32 @@
                     this.showProfilClient = true;
                 },
                 showMesAchats() {
-                    this.isMesAchatsVisible = true;
+                    console.log('achat click');
+                    console.log('button Achat :', commandes);
                     this.isMesPrefVisible = false;
+                    this.isMesAchatsVisible = true;
+                    if (commandes > 0) {
+                        this.isMesAchatsVisible = true;
+                        this.isMesPrefVisible = false;
+                    }
+                    if (commandes === 0) {
+                        this.isMesAchatsVisible = false;
+                        this.isMesPrefVisible = false;
+                    }
                 },
                 showMesPrefs() {
-                    this.isMesPrefVisible = true;
+                    console.log('pref click');
+                    console.log('button Pref', commandes);
                     this.isMesAchatsVisible = false;
+                    this.isMesPrefVisible = true;
+                    if (commandes > 0) {
+                        this.isMesPrefVisible = true;
+                        this.isMesAchatsVisible = false;
+                    }
+                    if (commandes === 0) {
+                        this.isMesPrefVisible = false;
+                        this.isMesAchatsVisible = false;
+                    }
                 },
             },
         });

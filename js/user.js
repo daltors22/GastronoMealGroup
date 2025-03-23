@@ -33,7 +33,8 @@ async function getUserById(id) {
 
         if (response.ok) {
             const user = await response.json();
-            console.log(user);
+            console.log('User:');
+            console.log(user.id);
             return user;
         } else {
             console.error(`Erreur lors de la récupération de l'utilisateur ${id}:`, response.status);
@@ -45,13 +46,12 @@ async function getUserById(id) {
 
 async function createUser(userData) {
     try {
-        const response = await fetch('http://localhost:8080/api/user', {
+        const response = await fetch('http://localhost:8080/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` // Inclut le token si nécessaire
             },
-            body: JSON.stringify(userData) // Convertit les données utilisateur en JSON
+            body: JSON.stringify(userData) // utilise directement l'objet passé en paramètre
         });
 
         if (response.ok) {
@@ -60,11 +60,16 @@ async function createUser(userData) {
             return createdUser;
         } else {
             console.error('Erreur lors de la création de l\'utilisateur:', response.status);
+            const errorMsg = await response.text();
+            console.error('Message erreur:', errorMsg);
         }
     } catch (error) {
         console.error('Erreur réseau:', error);
     }
 }
+
+
+
 
 // Exemple de données utilisateur à envoyer
 const newUser = {
@@ -154,11 +159,38 @@ async function displayUser() {
     }
 }
  
+let commandes = 0;
+// /mes-commandes
+async function getMesCommandes() {
+    console.log('Init function getMesCommandes');
+    try {
+        const response = await fetch('http://localhost:8080/api/mes-commandes', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}` // Le token stocké dans localStorage
+            }
+        });
 
+        if (response.ok) {
+            // Ici, l'endpoint renvoie le nombre de commandes (nbCommandes)
+            const nbCommandes = await response.json();
+            console.log('1ere Variables --> Nombre de commandes:', nbCommandes);
+            commandes = nbCommandes;
+            console.log('user.js --> nb commandes:', commandes);
+            return nbCommandes;
+        } else {
+            console.error(`Erreur lors de la récupération des commandes:`, response.status);
+        }
+    } catch (error) {
+        console.error('Erreur réseau:', error);
+    }
+}
 
 
 // Appel de la fonction après que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', () => {
+    const nbCommandes = getMesCommandes();
+    console.log("Nombre de commandes pour l'utilisateur connecté :", nbCommandes);
     displayUser(); // Affiche les infos de l'utilisateur connecté
 });
 
