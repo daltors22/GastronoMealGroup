@@ -45,7 +45,7 @@
         }
 
         .user-type-selection button.selected {
-            background-color: #FF7828;
+            background-color: grey;
             color: white;
             box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
@@ -53,6 +53,15 @@
         button:disabled {
             background-color: #ccc !important;
             cursor: not-allowed !important;
+        }
+        #button_register button{
+            border: none;
+            border-radius: 5px;
+            background-color: #FF7828;
+            color: white;
+        }
+        #button_register button:hover {
+            background-color: grey;
         }
     </style>
 </head>
@@ -67,12 +76,12 @@
 
             <div class="page">
                 <h2>Vous êtes ?</h2>
-                <div class="user-type-selection">
+                <div class="user-type-selection" id="button_register">
                     <button @click="typeUtilisateur='livreur'" :class="{selected: typeUtilisateur=='livreur'}">Livreur</button>
                     <button @click="typeUtilisateur='restaurant'" :class="{selected: typeUtilisateur=='restaurant'}">Restaurant</button>
                     <button @click="typeUtilisateur='client'" :class="{selected: typeUtilisateur=='client'}">Client</button>
                 </div>
-                <button @click="nextPage" :disabled="!typeUtilisateur" class="btnWhite ButtonNav">Suivant</button>
+                <button @click="nextPage" :disabled="!typeUtilisateur" class="btn">Suivant</button>
             </div>
 
             <div class="page">
@@ -139,9 +148,10 @@ new Vue({
         togglePasswordVisibility() {
             this.isPasswordVisible = !this.isPasswordVisible;
         },
-        showConfirmEmail() {
+        async showConfirmEmail() {
             console.log('click function /register');
-            createUser({
+
+            const createdUser = await createUser({
                 nom: this.nom,
                 prenom: this.prenom,
                 telephone: this.telephone,
@@ -149,14 +159,14 @@ new Vue({
                 email: this.email,
                 motDePasse: this.motDePasse
             });
-            if (createUser()) {
-                // uniquement si l'utilisateur est créé avec succès
+
+            if (createdUser) {
                 window.location.href = 'login.php';
             } else {
                 alert("Erreur lors de la création de l'utilisateur.");
             }
-            
-        }
+        },
+
     }
 });
 </script>
