@@ -23,7 +23,7 @@
     <div id="app" class="containerPrincipal">
         <!-- Section pour l'accueil -->
         <div class="container_1">
-        
+        <p id="okAdress"></p>
         <h1 id="prenomElement"></h1>
         
             <div style="display:flex; width:80%; justify-content:center; align-items:center; text-align:center">
@@ -35,7 +35,8 @@
             <!-- Popover pour saisir une adresse -->
             <div id="my-popover" popover>
                 <div class="popoverAdresse">
-                    <div class="optiPopover">
+                    <!-- PART 1 /ville -->
+                    <div :class="{ close: hideOptiPopover }" class="optiPopover">
                         <!-- Bouton pour fermer le popover -->
                         <a href="isLogin.php" class="close_btn">&times;</a>
                         <h4>Entrez votre adresse</h4>
@@ -46,12 +47,12 @@
 
                         <label>Code Postal</label>
                         <input type="text">
-                        <label>Numéro, rue, autres</label>
-                        <input type="text">
+                        <!--<label>Numéro, rue, autres</label>
+                        <input type="text">-->
                         <!-- Boutons pour valider ou annuler -->
                         <div class="buttonPopover">
-                            <a href="isLogin.php">
-                                <button class="btnWhite buttonNavig">Valider</button>
+                            <a href="#">
+                                <button @click="valideCity" class="btnWhite buttonNavig">Valider</button>
                             </a>
                             <a href="isLogin.php">
                                 <button class="btnBlack buttonNavig">Annuler</button>
@@ -64,7 +65,31 @@
                             </li>
                             </ul>
                         </div>
-                    </div>  
+                    </div>
+                    <!-- PART 2 /ville -->
+                    <div :class="{ active: showOptiPopover2 }" class="optiPopover2">
+                        <!-- Bouton pour fermer le popover -->
+                        <a href="isLogin.php" class="close_btn">&times;</a>
+                        <h4>Entrez votre adresse</h4>
+                        <!-- Champs pour entrer les détails de l'adresse -->
+                        <label>numéro de rue</label>
+                        <input id="numDeRue" type="text" placeholder="Ex : 0, 11, 22...">
+
+                        <label>nom de rue</label>
+                        <input id="nomDeRue" type="text" placeholder="Ex :rue de ..., impasse de l'essai...">
+
+                        <label style="color:grey;">details</label>
+                        <input id="details" type="text" placeholder="facultatif">
+                        
+                        <div class="buttonPopover">
+                            <a href="#">
+                                <button @click="valideRue" class="btnWhite buttonNavig">Valider</button>
+                            </a>
+                            <a href="isLogin.php">
+                                <button class="btnBlack buttonNavig">Annuler</button>
+                            </a>
+                        </div> 
+                    </div>   
                 </div> 
             </div> 
         </div>
@@ -144,18 +169,24 @@
                 buttonText: ('Livrer maintenant'), // Texte par défaut du bouton
                 isLoggedIn: true,
                 suggestions: [], // Pour stocker les villes proposées
-                valueSendCity: '',
+                valueSendCity: '', // Stock le nom de la ville selectionnée
+                valueSendPostal: '', // Stock le code postal de la ville selectionnée
+                valueSendAdresse: '', // Stock le numero de rue (input)
+                valueSendRue: '', // Stock l'adresse (nom de rue) (input)
+                valueSendDetail: '', // Sotck les details (input)
+                hideOptiPopover: false,
+                showOptiPopover2: false,
                 
             },
             methods: {
                 async searchVille(event) {
                     const value = event.target.value;
                     
-                    console.log("Saisie utilisateur :", value); // 👈
+                    console.log("Saisie utilisateur :", value);
 
                     if (value.length >= 2) {
                         try {
-                            console.log("Appel API déclenché"); // 👈
+                            console.log("Appel API déclenché");
 
                             const response = await fetch(`http://localhost:8080/api/ville/search?q=${encodeURIComponent(value)}`, {
                                 method: 'GET',
@@ -164,18 +195,18 @@
                                 }
                             });
 
-                            console.log("Réponse brute :", response); // 👈
+                            console.log("Réponse brute :", response);
 
                             if (response.ok) {
                                 const data = await response.json();
-                                console.log('Suggestions reçues :', data); // 👈
+                                console.log('Suggestions reçues :', data);
                                 this.suggestions = data;
     
                             } else {
-                                console.error('Erreur HTTP :', response.status); // 👈
+                                console.error('Erreur HTTP :', response.status);
                             }
                         } catch (error) {
-                            console.error('Erreur fetch :', error); // 👈
+                            console.error('Erreur fetch :', error);
                         }
                     }
                 },
@@ -186,6 +217,9 @@
 
                     const cpInput = document.querySelector('input[type="text"]:nth-of-type(2)');
                     cpInput.value = ville.codePostal;
+                    this.valueSendPostal = ville.codePostal;
+                    console.log('nom ville : ', this.valueSendCity.name);
+                    console.log('code postal ville: ', this.valueSendPostal);
 
                     this.suggestions = 0;
                 },
@@ -212,6 +246,48 @@
                         this.isButtonHide = false;
                     }
                 },
+                valideCity() {
+                    console.log('click');
+                    if ((this.valueSendPostal.length === 0) || (this.valueSendCity.lenght === 0)) {
+                        console.log('erreur il manque une info');
+                    }
+                    else {
+                        this.hideOptiPopover = true;
+                        this.showOptiPopover2 = true;
+                    }
+                },
+                valideRue() {
+                    console.log('click');
+
+                    this.valueSendRue = document.getElementById('nomDeRue').value;
+                    this.valueSendAdresse = document.getElementById('numDeRue').value;
+                    this.valueSendDetail = document.getElementById('details').value;
+
+                    if (!this.valueSendDetail || this.valueSendDetail.length === 0) {
+                        this.valueSendDetail = '';
+                    }
+
+                    console.log(this.valueSendAdresse);
+                    console.log(this.valueSendRue);
+                    console.log(this.valueSendDetail);
+
+                    const confirmation = confirm(
+                        `Vous confirmez que ces informations sont correctes :
+
+                📍 Vous êtes au : ${this.valueSendAdresse} ${this.valueSendRue}
+                Ville : ${this.valueSendCity.name} - ${this.valueSendPostal}
+                Détails : ${this.valueSendDetail}`
+                    );
+
+                    if (confirmation) {
+                        console.log("✅ Adresse validée !");
+                        // ➤ requête POST ou rediriger
+
+                    } else {
+                        console.log("❌ Annulé par l'utilisateur.");
+                    }
+                },
+
             },
             mounted() {
                 this.checkLoginStatus();

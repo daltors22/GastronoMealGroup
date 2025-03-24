@@ -403,6 +403,16 @@ footer ul {
     padding: 40px;
     gap: 10px;
 }
+.optiPopover2 {
+    justify-content: center;
+    align-items: center;
+    display: none;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 40px;
+    gap: 10px;
+}
 /* Empêche le scroll de la page */
 html:has(#my-popover:popover-open) {
     overflow: hidden;
@@ -1664,4 +1674,12 @@ textarea.form-control {
 }
 .list-city ul li:hover  {
     background-color: grey;
+}
+
+.optiPopover.close {
+    display: none;
+}
+
+.optiPopover2.active {
+    display: flex;
 }
