@@ -12,6 +12,7 @@
             overflow: hidden;
             width: 100%;
             position: relative;
+            align-items: center;
         }
         .content_register input {
             display: flex;
@@ -23,29 +24,56 @@
         .slider {
             display: flex;
             transition: transform 0.5s ease;
-            width: 300%;
+            width: 100%;
+            align-items: center;
         }
 
         .page {
             width: 100%;
+            max-width: 100%;
             flex-shrink: 0;
             padding: 100px;
             box-sizing: border-box;
+            align-items: center !important;
+        }
+        .page button {
+            display: flex;
+            align-items: center !important;
+            justify-content: center;
+            width: 100%;
+
+        }
+        .page form {
+            align-items: center;
+            justify-content: center;
+        }
+        .form-register{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-type-selection {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
             
         }
-
+    
         .user-type-selection button {
             padding: 10px 20px;
             border-radius: 50px;
             margin: 5px;
             cursor: pointer;
             border: none;
-            background-color: #eee;
+            background-color: blue;
             transition: 0.3s;
+            text-align: center;
         }
 
         .user-type-selection button.selected {
-            background-color: grey;
+            background-color: grey !important;
             color: white;
             box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
@@ -56,13 +84,36 @@
         }
         #button_register button{
             border: none;
-            border-radius: 5px;
-            background-color: #FF7828;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: ;
             color: white;
+            text-align: center !important;
+        }
+        #button_register button {
+            background-color: #FF7828;
         }
         #button_register button:hover {
             background-color: grey;
         }
+        .btn-suivant {
+            display:flex;
+            width: 150px !important;
+            border:none;
+            border-radius: 5px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .btn-suivant:enabled {
+            background-color: black;
+            color: white;
+        }
+        .btnNotifPC {
+            width: 50px !important;
+            height: auto;
+        }
+        
     </style>
 </head>
 <body>
@@ -77,38 +128,47 @@
             <div class="page">
                 <h2>Vous êtes ?</h2>
                 <div class="user-type-selection" id="button_register">
-                    <button @click="typeUtilisateur='livreur'" :class="{selected: typeUtilisateur=='livreur'}">Livreur</button>
-                    <button @click="typeUtilisateur='restaurant'" :class="{selected: typeUtilisateur=='restaurant'}">Restaurant</button>
-                    <button @click="typeUtilisateur='client'" :class="{selected: typeUtilisateur=='client'}">Client</button>
+                    <button @click="typeUtilisateur='livreur'" :class="{selected: typeUtilisateur=='livreur'}" id="livreur-btn">Livreur</button>
+                    <button @click="typeUtilisateur='restaurant'" :class="{selected: typeUtilisateur=='restaurant'}" id="restaurant-btn">Restaurant</button>
+                    <button @click="typeUtilisateur='client'" :class="{selected: typeUtilisateur=='client'}" id="client-btn">Client</button>
                 </div>
-                <button @click="nextPage" :disabled="!typeUtilisateur" class="btn">Suivant</button>
+                <br>
+                <p></p>
+                <br>
+                <button @click="nextPage" :disabled="!typeUtilisateur" class="btn-suivant">Suivant</button>
             </div>
 
             <div class="page">
                 <h2>Email et mot de passe</h2>
-                <form>
+                <form class="form-register">
                     <input type="email" v-model="email" placeholder="Votre email">
                     <input type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="motDePasse" placeholder="Mot de passe">
                     <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png'" @click="togglePasswordVisibility" class="eye-open">
                     <input type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="confirmMotDePasse" placeholder="Confirmer mot de passe">
                 </form>
-                <button @click="prevPage">Précédent</button>
-                <button @click="nextPage" :disabled="!email || !motDePasse || (motDePasse !== confirmMotDePasse)">Suivant</button>
+                <button @click="prevPage" class="btn-suivant">Précédent</button>
+                <br>
+                <p></p>
+                <br>
+                <button @click="nextPage" :disabled="!email || !motDePasse || (motDePasse !== confirmMotDePasse)" class="btn-suivant">Suivant</button>
             </div>
 
             <div class="page">
                 <h2>Vos informations personnelles</h2>
-                <form>
+                <form class="form-register">
                     <input type="text" v-model="nom" placeholder="Nom">
                     <input type="text" v-model="prenom" placeholder="Prénom">
                     <input type="tel" v-model="telephone" placeholder="Téléphone">
                     <div class="registerCGU">
-                        <input type="checkbox" id="toggle" v-model="conditionsAccepted">
-                        <label for="toggle">Lu et accepté <a href="#">Termes et Conditions</a></label>
+                        <input class="btnNotifPC" type="checkbox" id="toggle" v-model="conditionsAccepted">
+                        <label class="toggle" for="toggle">Lu et accepté <a href="#">Termes et Conditions</a></label>
                     </div>
                 </form>
-                <button @click="prevPage">Précédent</button>
-                <button @click="showConfirmEmail" :disabled="!nom || !prenom || !telephone || !conditionsAccepted">S'inscrire</button>
+                <button @click="prevPage" class="btn-suivant">Précédent</button>
+                <br>
+                <p></p>
+                <br>
+                <button @click="showConfirmEmail" :disabled="!nom || !prenom || !telephone || !conditionsAccepted" class="btn-suivant">S'inscrire</button>
             </div>
 
         </div>
@@ -116,7 +176,6 @@
 </div>
 
 <?php require_once('footer.php'); ?>
-
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 <script src="./js/user.js"></script>
 <script>

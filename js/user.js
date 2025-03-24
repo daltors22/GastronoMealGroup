@@ -174,9 +174,6 @@ async function createUser(userData) {
     }
 }
 
-
-
-
 // Exemple de données utilisateur à envoyer
 const newUser = {
     nom: "Dupont",
@@ -194,7 +191,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // <div id="userInfo"></div>
-
-const ecouteButtons = document.getElementById('').addEventListener('click', () => {
-    console.log('');
-})

@@ -41,7 +41,7 @@
                         <h4>Entrez votre adresse</h4>
                         <!-- Champs pour entrer les détails de l'adresse -->
                         <label>Ville</label>
-                        <input type="text">
+                        <input type="text" @click="modifyDefaultAdress">
                         <label>Code Postal</label>
                         <input type="text">
                         <label>Numéro, rue, autres</label>
@@ -137,7 +137,11 @@
                 
             },
             methods: {
-                
+                modifyDefaultAdress(){ // Quand on rentre dans input
+                //if ( une lettre est ajouter ) {
+                    // lancer le GET /api/ville/search?q=nom_de_la_ville ou début etc... "autocompletion"
+
+                },
                 // Change l'option sélectionnée dans le dropdown
                 setDeliveryOption(option) {
                     this.buttonText = option; // Change le texte du bouton

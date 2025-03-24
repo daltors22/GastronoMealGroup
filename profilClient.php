@@ -152,6 +152,7 @@
                 isLoggedIn: true,
                 isEditingNumber: false,
                 nbCommandes: 0,
+
             },
             methods: {
                 updateStreet() {
