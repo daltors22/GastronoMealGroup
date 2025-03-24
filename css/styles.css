@@ -1647,3 +1647,21 @@ textarea.form-control {
     cursor: pointer;
 }
 
+
+/* ############### ADRESSE  ################# */
+.list-city {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 300px !important;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+.list-city ul, .list-city ul li  {
+    list-style: none;
+    cursor: pointer;
+}
+.list-city ul li:hover  {
+    background-color: grey;
+}

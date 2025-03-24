@@ -7,7 +7,7 @@
     <!-- Description de la page -->
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers le fichier CSS principal -->
-    <link rel="stylesheet" href="css/styles.css?v=2.0">
+    <link rel="stylesheet" href="css/styles.css?v=2.1">
     <!-- Favicon -->
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <!-- Lien vers un autre fichier CSS spécifique pour le header -->
@@ -41,7 +41,9 @@
                         <h4>Entrez votre adresse</h4>
                         <!-- Champs pour entrer les détails de l'adresse -->
                         <label>Ville</label>
-                        <input type="text" @click="modifyDefaultAdress">
+
+                        <input id="villeID" type="text" @input="searchVille" placeholder="Ex : Lille, Paris, Lyon...">
+
                         <label>Code Postal</label>
                         <input type="text">
                         <label>Numéro, rue, autres</label>
@@ -55,6 +57,13 @@
                                 <button class="btnBlack buttonNavig">Annuler</button>
                             </a>
                         </div> 
+                        <div class="list-city">
+                            <ul v-if="suggestions.length">
+                            <li v-for="ville in suggestions" :key="ville.idVille" @click="sendCity(ville)">
+                            {{ ville.name }} ({{ ville.codePostal }})
+                            </li>
+                            </ul>
+                        </div>
                     </div>  
                 </div> 
             </div> 
@@ -134,9 +143,52 @@
                 isButtonHide: false, // Gère l'état du bouton
                 buttonText: ('Livrer maintenant'), // Texte par défaut du bouton
                 isLoggedIn: true,
+                suggestions: [], // Pour stocker les villes proposées
+                valueSendCity: '',
                 
             },
             methods: {
+                async searchVille(event) {
+                    const value = event.target.value;
+                    
+                    console.log("Saisie utilisateur :", value); // 👈
+
+                    if (value.length >= 2) {
+                        try {
+                            console.log("Appel API déclenché"); // 👈
+
+                            const response = await fetch(`http://localhost:8080/api/ville/search?q=${encodeURIComponent(value)}`, {
+                                method: 'GET',
+                                headers: {
+                                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                                }
+                            });
+
+                            console.log("Réponse brute :", response); // 👈
+
+                            if (response.ok) {
+                                const data = await response.json();
+                                console.log('Suggestions reçues :', data); // 👈
+                                this.suggestions = data;
+    
+                            } else {
+                                console.error('Erreur HTTP :', response.status); // 👈
+                            }
+                        } catch (error) {
+                            console.error('Erreur fetch :', error); // 👈
+                        }
+                    }
+                },
+                sendCity(ville) {
+                    console.log('Ville sélectionnée :', ville);
+                    document.getElementById("villeID").value = ville.name;
+                    this.valueSendCity = ville;
+
+                    const cpInput = document.querySelector('input[type="text"]:nth-of-type(2)');
+                    cpInput.value = ville.codePostal;
+
+                    this.suggestions = 0;
+                },
                 modifyDefaultAdress(){ // Quand on rentre dans input
                 //if ( une lettre est ajouter ) {
                     // lancer le GET /api/ville/search?q=nom_de_la_ville ou début etc... "autocompletion"
