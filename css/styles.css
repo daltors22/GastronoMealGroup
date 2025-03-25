@@ -128,7 +128,8 @@ footer ul {
 
 .LivFoodPro {
     display: flex;
-    width: 90%;
+    width: 900px;
+   
     flex-direction: row;
     flex: 0;
     gap: 50px;
