@@ -17,7 +17,6 @@
             <!-- Texte indiquant les droits réservés et l'année actuelle -->
             <li><p>© 2024. Tous droits réservés.</p></li>
             <!-- Logo de l'entreprise ou favicon -->
-            <li><img class="#" src="images/G-meal-2.ico" alt="" width="50px" height="auto"></li>
         </ul>
       </div>
       
@@ -28,7 +27,7 @@
             <!-- Lien vers une page pour contacter l'entreprise -->
             <li><a href="#"><p>Nous contacter</p></a></li>
             <!-- Lien de retour vers la page d'accueil -->
-            <li><a href="home.php"><p>HOME PAGE</p></a></li>
+            <li><a href="index.php"><p>HOME PAGE</p></a></li>
             <li><a href="manage_cookies.php">Gérer les cookies</a></li>
         </ul>
       </div>

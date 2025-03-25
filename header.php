@@ -11,8 +11,8 @@
 
             <!-- Liens principaux vers le menu et la page de contact -->
             <div class="lien">
-                <a href="index.php">Menu</a>
-                <a href="contact.php">Contact</a>
+                <a href="catalogue.php">Catalogue</a>
+                <a href="index.php">Acceuil</a>
             </div>
 
             <!-- Boutons de navigation : Connexion et Inscription -->
