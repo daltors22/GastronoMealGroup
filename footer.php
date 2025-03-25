@@ -17,6 +17,9 @@
             <!-- Texte indiquant les droits réservés et l'année actuelle -->
             <li><p>© 2024. Tous droits réservés.</p></li>
             <!-- Logo de l'entreprise ou favicon -->
+            <div class="imgLogoNav">
+            <img src="images/logo-shuken.jpg" alt="logo" href="home.html"/>
+            </div>
         </ul>
       </div>
       
