@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers les fichiers CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=6.0">
+    <link rel="stylesheet" href="css/styles.css?v=6.1">
     <!-- Feuille de style et script pour la bibliothèque Leaflet (cartographie interactive) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
@@ -121,9 +121,9 @@
             </div>
         </div> 
     </div>
-    <div class="container_1" style="background-color: white !important;">
+    <div class="container_1">
     <section class="fake-reviews-bloc-kd98r">
-  <h2 class="fake-reviews-title-kd98r">A PROPOS DE NOUS</h2>
+  <h2 class="fake-reviews-title-kd98r" style="color: white !important;">A PROPOS DE NOUS</h2>
   <div class="fake-reviews-wrapper-kd98r">
     <div class="fake-review-card-kd98r">
       <p class="fake-review-text-kd98r">“Service incroyable, rapide et super efficace. Je recommande à 100% !”</p>
