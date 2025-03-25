@@ -3,7 +3,7 @@
     <nav id="headerMobile" class="tp">
         <!-- Logo de la navigation, avec un lien vers la page d'accueil -->
         <div class="imgLogoNav">
-            <img src="images/G-meal-3.png" alt="logo" href="home.html"/>
+            <img src="images/logo-shuken.jpg" alt="logo" href="home.html"/>
         </div>
 
         <!-- Conteneur des liens de navigation et des boutons -->

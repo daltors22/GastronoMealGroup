@@ -7,111 +7,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers les fichiers CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=5.5">
+    <link rel="stylesheet" href="css/styles.css?v=6.0">
     <!-- Feuille de style et script pour la bibliothèque Leaflet (cartographie interactive) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <!-- Favicon de la page -->
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon">
+    <script src="./js/carousel-script-zzxmplq.js"></script>
 </head>
 <body>
     <!-- Inclusion du header avec PHP -->
     <?php require_once("header.php"); ?>
-     <!-- Bandeau de cookies -->
-     <?php if (!isset($_COOKIE['cookies_accepted'])): ?>
-    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; text-align: center; z-index: 1000;">
-        <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. Vous pouvez accepter ou refuser les cookies.</p>
-        <form method="POST" action="accept_cookies.php" style="display: inline;">
-            <button type="submit" name="accept" value="true" style="background: green; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Accepter</button>
-        </form>
-        <form method="POST" action="accept_cookies.php" style="display: inline;">
-            <button type="submit" name="accept" value="false" style="background: red; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Refuser</button>
-        </form>
-    </div>
-    <?php endif; ?>
+     
     <div id="app" class="containerPrincipal">
         <!-- Container 2 : Formulaire pour trouver un restaurant -->
         <div class="container_2">
-            <div class="superpoImage">
-                <!-- Section pour saisir l'adresse de livraison -->
-                <div class="foundAdress">
-                    <img src="images/localisateur.png" alt="icone localisation" class="iconeLocal" width="20px" height="20px">
-                    <label for="addLivraison"></label>
-                    <input type="text" id="addLiv" name="addLivraison" placeholder="Saisissez l'adresse de livraison.">
-                </div>
-
-                <!-- Section pour choisir le moment de la livraison -->
-                <div class="whenLivraison">
-                    <div class="btn-group" role="group">
-                        <!-- Bouton dropdown pour choisir le moment -->
-                        <button @click="toggleMenu" type="button" class="btn-dropdown" :class="{ close: isButtonHide }">   
-                            <img src="images/temps.png" alt="time liv" width="35px" height="35px"> {{ buttonText }}
-                            <img src="images/chevron-bas.png" alt="chevron bas" width="20px" height="20px">
-                        </button>
-                        <!-- Liste déroulante (affichée selon "isDropdownVisible") -->
-                        <ul :class="{ active: isDropdownVisible }" class="dropdown-menu" ref="dropdownMenu">
-                            <li><a @click.prevent="setDeliveryOption('Livrer maintenant')" class="dropdown-item" href="#">Livrer maintenant</a></li>
-                            <li><a @click.prevent="setDeliveryOption('Livrer plus tard')" class="dropdown-item" href="#">Livrer plus tard</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Bouton pour rechercher un restaurant -->
-                <button class="foundRetaurantBtn">Trouver un restaurant</button>
-            </div>
+           
         </div>
     </div>
-
+    <div class="container_3">
+    <div class="container_3">
+          <h1>Découvrez notre collection</h1> 
+    </div>
+    <div class="carrousel-zzxmplq">
+        <div class="carrousel-track-zzxmplq">
+        <div class="carrousel-slide-zzxmplq">
+            <div class="carrousel-card-zzxmplq">
+            <img src="images/vins-shuken.jpg" alt="Image 1">
+            <p>Texte 1</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="images/vins-shuken.jpg" alt="Image 2">
+            <p>Texte 2</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="images/vins-shuken.jpg" alt="Image 3">
+            <p>Texte 3</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="images/vins-shuken.jpg" alt="Image 4">
+            <p>Texte 4</p>
+            </div>
+        </div>
+        <div class="carrousel-slide-zzxmplq">
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 5">
+            <p>Texte 5</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 6">
+            <p>Texte 6</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 7">
+            <p>Texte 7</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 8">
+            <p>Texte 8</p>
+            </div>
+        </div>
+        <div class="carrousel-slide-zzxmplq">
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 9">
+            <p>Texte 9</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 10">
+            <p>Texte 10</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 11">
+            <p>Texte 11</p>
+            </div>
+            <div class="carrousel-card-zzxmplq">
+            <img src="https://via.placeholder.com/150" alt="Image 12">
+            <p>Texte 12</p>
+            </div>
+        </div>
+        </div>
+        <button class="carrousel-btn-left-zzxmplq">&#10094;</button>
+        <button class="carrousel-btn-right-zzxmplq">&#10095;</button>
+    </div>
+    </div>
     <!-- Container 1 : Section promotionnelle pour différents services -->
     <div class="container_1">
         <div class="LivFoodPro">
             <!-- Section pour proposer un restaurant -->
-            <div class="foodpro">
-                <img src="images/foodpro.png" alt="foodpro">
-                <h3>Envie de partager votre talent ?</h3>
-                <a href="#">Ajouter votre restaurant</a>
-            </div>
-            <!-- Section pour proposer des plats à réserver -->
-            <div class="platliv">
-                <img src="images/platliv.png" alt="platliv">   
-                <h3>Laissez les réserver chez vous</h3>
-                <a href="#"></a>
+            <div class="foodpro" style="border-radius: 10px !important;">
+                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
             </div>
             <!-- Section pour devenir livreur -->
-            <div class="livreur">
-                <img src="images/livreur.png" alt="livreur">
-                <h3>Devenir livreur chez G-Meal</h3>
-                <a href="#">Devenez livreur-partenaire</a>
+            <div class="livreur" style="border-radius: 10px !important;">
+                <img src="images/boutique-shuken.webp" alt="livreur" style="border-radius: 10px !important;">
+            </div>
+        </div> 
+        <button class="btn buttonWhite" style="background-color: pink !important; color:black; font-size:20px;">Voir le catalogue</button>
+    </div>
+
+    <div class="container_1" style="background-color: white !important;">
+        <div class="LivFoodPro">
+            <!-- Section pour proposer un restaurant -->
+            <div class="foodpro" style="border-radius: 10px !important;">
+                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
+            </div>
+            <!-- Section pour devenir livreur -->
+            <div class="livreur" style="border-radius: 10px !important;">
+                <img src="images/boutique-shuken.webp" alt="livreur" style="border-radius: 10px !important;">
+            </div>
+            <!-- Section pour proposer un restaurant -->
+            <div class="foodpro" style="border-radius: 10px !important;">
+                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
             </div>
         </div> 
     </div>
+    <div class="container_1" style="background-color: white !important;">
+    <section class="fake-reviews-bloc-kd98r">
+  <h2 class="fake-reviews-title-kd98r">A PROPOS DE NOUS</h2>
+  <div class="fake-reviews-wrapper-kd98r">
+    <div class="fake-review-card-kd98r">
+      <p class="fake-review-text-kd98r">“Service incroyable, rapide et super efficace. Je recommande à 100% !”</p>
+      <p class="fake-review-author-kd98r">— Claire D.</p>
+    </div>
+    <div class="fake-review-card-kd98r">
+      <p class="fake-review-text-kd98r">“Une expérience vraiment agréable du début à la fin.”</p>
+      <p class="fake-review-author-kd98r">— Marc T.</p>
+    </div>
+    <div class="fake-review-card-kd98r">
+      <p class="fake-review-text-kd98r">“J’avais des doutes mais ils ont tout simplement été parfaits.”</p>
+      <p class="fake-review-author-kd98r">— Amina L.</p>
+    </div>
+    <div class="fake-review-card-kd98r">
+      <p class="fake-review-text-kd98r">“Un service client à l’écoute et réactif, top !”</p>
+      <p class="fake-review-author-kd98r">— Hugo F.</p>
+    </div>
+    <div class="fake-review-card-kd98r">
+      <p class="fake-review-text-kd98r">“Je referai appel à eux sans hésitation.”</p>
+      <p class="fake-review-author-kd98r">— Sophie G.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Container 3 : Carte interactive et tableau de résultats -->
-    <div class="container3">
-        <div id="map">
-            <!-- La carte sera générée par le script "scripts.js" -->
-            <script src="./js/scripts.js"></script>
-        </div>
-        <!-- Section pour afficher des informations sur les restaurants -->
-        <div class="foundCity">
-            <!-- Affiche des informations sur le restaurant sélectionné -->
-            <div v-if="selectedRestaurant === King Kebab">
-                {{ restaurant.name }}
-            </div>
-            <table>
-                <tbody>
-                    <th>{{ texte }}</th>
-                    <tr> 
-                        <td></td>
-                    </tr>
-                    <tr>        
-                        <td>Numero</td>
-                    </tr>
-                    <tr>
-                        <td>adresse</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <!-- Inclusion du footer avec PHP -->
