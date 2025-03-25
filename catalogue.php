@@ -100,7 +100,7 @@
                 <img src="images/boutique-shuken.webp" alt="livreur" style="border-radius: 10px !important;">
             </div>
         </div> 
-        <button class="btn buttonWhite" style="background-color: pink !important; color:black; font-size:20px;">Voir le catalogue</button>
+        <a href="catalogue.php"><button  class="btn buttonWhite" style="background-color: pink !important; color:black; font-size:20px;">Voir le catalogue</button></a>
     </div>
 
     <div class="container_1" style="background-color: white !important;">
