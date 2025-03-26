@@ -90,9 +90,7 @@
   <!-- Header or navigation bar -->
   <header>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="catalogue.html">Catalogue</a>
-      <a href="about.html">About</a>
+      <a href="index.php">Home</a>
     </nav>
 
     <!-- Cart Button (Always visible) -->
