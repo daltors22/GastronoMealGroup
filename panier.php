@@ -9,7 +9,7 @@
     /* Basic styles for the cart button and modal */
     #cart-container {
       position: fixed;
-      top: 60px;
+      top: 100px;
       right: 20px;
     }
 
@@ -17,10 +17,14 @@
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
-      background-color: #333;
-      color: #fff;
+      background-color: #1adc78;
+      color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 10%;
+    }
+    #cart-button img {
+      width: 30px;
+      height: 30px;
     }
 
     .cart-modal {
@@ -119,7 +123,7 @@
     <!-- Cart Button (Always visible) -->
     <div id="cart-container">
       <button id="cart-button" onclick="toggleCart()">
-        Cart <span id="cart-item-count">0</span>
+        <img src="https://cdn-icons-png.flaticon.com/128/3523/3523885.png" alt="cart"> <span id="cart-item-count">0</span>
       </button>
     </div>
   </header>
