@@ -22,7 +22,7 @@
     <!-- Conteneur principal -->
     <div id="app" class="containerPrincipal">
         <!-- Section pour l'accueil -->
-        <div class="container_1">
+        <div id="container-bonjour" class="container_1">
         <p id="okAdress"></p>
         <h1 id="prenomElement"></h1>
         
@@ -178,6 +178,7 @@
                 showOptiPopover2: false,
                 valueSendId: '',
                 valueSendIdUser: '',
+                validateAdresse: false,
             },
             methods: {
                 async searchVille(event) {
@@ -202,7 +203,7 @@
                                 const data = await response.json();
                                 console.log('Suggestions reçues :', data);
                                 this.suggestions = data;
-    
+
                             } else {
                                 console.error('Erreur HTTP :', response.status);
                             }
@@ -226,20 +227,22 @@
                                 "rue": this.valueSendRue,
                                 "ville": {
                                     "idVille": this.valueSendId
-                                },
-                                "user": { 
-                                    "id": user.id 
                                 }
                             })
                         });
                         
                         if (response.ok) {
                             const data = await response.json();
-                            // logique
-                            
+                            console.log('Réponse JSON :', data);
+                            this.validateAdresse = true;
+                            if (this.validateAdresse = true) {
+                                window.location.href = 'profilClient.php';
+                            }
                         } else {
-                            console.error('Erreur HTTP : ', response.status);
+                            const err = await response.text();
+                            console.error('Erreur HTTP : ', response.status, err);
                         }
+
                     } catch (error) {
                         console.error('Erreur fetch :');
                     }
@@ -318,7 +321,7 @@
                         console.log("✅ Adresse validée !");
                         // ➤ requête POST ou rediriger
                         this.saveAdress();
-
+                        
                     } else {
                         console.log("❌ Annulé par l'utilisateur.");
                     }

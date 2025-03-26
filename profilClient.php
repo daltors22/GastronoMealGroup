@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GastronoMeal</title>
     <meta name="description" content="A brief description of your page.">
-    <link rel="stylesheet" href="css/styles.css?v=5.3">
+    <link rel="stylesheet" href="css/styles.css?v=5.4">
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <link rel="stylesheet" href="css/header2.css?v=1.6"/>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
@@ -18,28 +18,24 @@
             <div class="containerProfil">
                 
                 <!-- Section Adresse -->
-                <div class="containerAdresse">
+                <!--<div class="containerAdresse">
                     <h3><img src="images/information.png" alt="icone informations">&nbsp;&nbsp;Votre adresse</h3>
                     <p>{{ textStreet }}</p>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
-                </div>
+                </div>-->
                 <!--     NEW TASK      -->
                 <div class="containerAdresseTravail">
-                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse de travail</h3>
-                    <p> {{ textStreet }}</p>
+                    <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Vos informations personnelles</h3>
+                    <div id="userInfo"></div>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
                 <div class="containerAdresseDomicile">
                     <h3><img src="images/information.png" alt="infos icone">&nbsp;&nbsp; Votre adresse par défaut</h3>
-                    <p> {{ textStreet }}</p>
-                    <p> {{ textStreet }}</p>
-                    <p> {{ villeId }}</p>
+                    <div id="userInfo2"></div>
                     <button class="btnAdresse" @click="modifyTextStreet">Modifier</button>
                 </div>
                 <!-- NEW TASK -->
-                
-                <div id="userInfo"></div>
-                <div id="userInfo2"></div>
+            
                 <!-- Section Notifications -->
                 <div class="notifProfilClientButton"> 
                     <div class="notifProfilClient">
@@ -152,6 +148,9 @@
                 isLoggedIn: true,
                 isEditingNumber: false,
                 nbCommandes: 0,
+                textVille: '',
+                textCp: '',
+                textRue: '',
 
             },
             methods: {

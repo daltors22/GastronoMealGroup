@@ -123,6 +123,7 @@
                             // Traitement en cas de succès
                             
                             localStorage.setItem('token', data.token);
+                            
                             this.isLoggedIn = true;
                             window.location.href = 'isLogin.php'; 
                         }

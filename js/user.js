@@ -1,4 +1,3 @@
-
 async function getAllUsers() {
     try {
         const response = await fetch('http://localhost:8080/api/user', {
@@ -43,6 +42,63 @@ async function getUserById(id) {
         console.error('Erreur réseau:', error);
     }
 }
+
+verifView = false;
+
+async function getAdresse() {
+    console.log('init getAdresse');
+
+    const userId = getUserIdFromToken();
+    if (!userId) {
+        console.warn("Utilisateur non connecté");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/adresse`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+
+        const adresses = await response.json();
+        console.log('Adresses récupérées:', adresses);
+
+        // 🔍 On filtre par l'ID utilisateur connecté
+        const adresse = adresses.find(a => a.user?.id == userId);
+
+        if (adresse) {
+            const contentBonjour = document.getElementById('container-bonjour');
+            const inputAdresse = `${adresse.adresse} ${adresse.rue} ${adresse.ville.name} - ${adresse.ville.codePostal}`;
+            // Si l'input a un ID :
+
+            // En JS :
+            document.querySelector('#addLiv').value = inputAdresse;
+
+            contentBonjour.className = "content-1-off";
+
+            const userInfo2Element = document.querySelector('#userInfo2');
+            if (userInfo2Element) {
+                userInfo2Element.innerHTML = `
+                    <p>Ville: ${adresse.ville.name} - ${adresse.ville.codePostal}</p>
+                    <p>Rue: ${adresse.adresse} ${adresse.rue}</p>
+                    <p>Détail: ${adresse.detail}</p>
+                `;
+            } else {
+                console.warn("Élément #userInfo2 introuvable dans le DOM.");
+            }
+        } else {
+            console.warn("Aucune adresse trouvée pour l'utilisateur connecté.");
+        }
+
+    } catch (error) {
+        console.error('Erreur réseau:', error);
+    }
+}
+
+
 
 
 async function deleteUser(id) {
@@ -108,7 +164,6 @@ async function displayUser() {
                 <p>Nom: ${user.nom}</p>
                 <p>Prénom: ${user.prenom}</p>
                 <p>Email: ${user.email}</p>
-                <p>Type: ${user.typeUtilisateur}</p>
                 <p>Telephone: ${user.telephone}</p>
             `;
         }
@@ -189,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nbCommandes = getMesCommandes();
     console.log("Nombre de commandes pour l'utilisateur connecté :", nbCommandes);
     displayUser(); // Affiche les infos de l'utilisateur connecté
+    getAdresse();
 });
 
 // <div id="userInfo"></div>
