@@ -246,7 +246,7 @@ footer ul {
 
 .foundAdress input:focus {
     outline: none;
-    border-color: #FF7828;
+    border-color: #4b053e;
 }
 
 .whenLivraison {
@@ -285,7 +285,7 @@ footer ul {
 }
 
 .btn-dropdown:hover {
-    background-color: #FF7828;
+    background-color: #4c044a;
     color: #FFFFFF;
 }
 
@@ -306,7 +306,7 @@ footer ul {
 }
 
 .dropdown-item:hover {
-    background-color: #FF7828;
+    background-color: #42033a;
     color: #FFFFFF;
 }
 
@@ -743,7 +743,7 @@ input[type="text"], input[type="mail"], input[type="int"] {
 
 /*.content_register button.active {
     display: block;
-    background-color: #FF7828;
+    background-color: #6b0937;
     pointer-events: all;
 }*/
 
@@ -754,7 +754,7 @@ input[type="text"], input[type="mail"], input[type="int"] {
     pointer-events: none;
     border-radius: 10px;
     border: none;
-    background-color: #828282;
+    background-color: #6b0937;
     color: white;
     width: 100%;
     padding: 10px;
@@ -977,7 +977,7 @@ input[type="checkbox"]::after {
 }
 
 input[type="checkbox"]:checked {
-    background-color: #FF7828;
+    background-color: #4a0534;
     
 }
 
@@ -1023,7 +1023,7 @@ input[type="checkbox"]:checked::after {
 }
 .mesAchatsDiv {
     display: none;
-    background-color: #FF7828;
+    background-color: #6e0360;
     
 }
 
@@ -1487,7 +1487,7 @@ nav{
 }
 
 .Menu2Mobile:hover, .Menu3Mobile:hover, .Menu3Mobile a:hover, .Menu2Mobile a:hover {
-    background-color: #FF7828;
+    background-color: #560042;
     color: #FFFFFF;
 }
 
@@ -1521,7 +1521,7 @@ nav{
 
 .container_mail h1 {
     text-align: center; 
-    color: #FF7828;
+    color: #5a053c;
     margin-bottom: 30px; 
 }
 
@@ -1541,7 +1541,7 @@ nav{
 }
 
 .form-control:focus {
-    border-color: #FF7828;
+    border-color: #67014b;
     outline: none; 
 }
 

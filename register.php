@@ -128,9 +128,8 @@
             <div class="page">
                 <h2>Vous êtes ?</h2>
                 <div class="user-type-selection" id="button_register">
-                    <button @click="typeUtilisateur='livreur'" :class="{selected: typeUtilisateur=='livreur'}" id="livreur-btn">Livreur</button>
-                    <button @click="typeUtilisateur='restaurant'" :class="{selected: typeUtilisateur=='restaurant'}" id="restaurant-btn">Restaurant</button>
-                    <button @click="typeUtilisateur='client'" :class="{selected: typeUtilisateur=='client'}" id="client-btn">Client</button>
+                    <button style = "background-color:#6b0937;" @click="typeUtilisateur='livreur'" :class="{selected: typeUtilisateur=='livreur'}" id="livreur-btn">Entreprise</button>
+                    <button style = "background-color:#6b0937;" @click="typeUtilisateur='client'" :class="{selected: typeUtilisateur=='client'}" id="client-btn">Client</button>
                 </div>
                 <br>
                 <p></p>

@@ -13,6 +13,7 @@
             <div class="lien">
                 <a href="catalogue.php">Catalogue</a>
                 <a href="index.php">Acceuil</a>
+                <a href="panier.php">Panier</a>
             </div>
 
             <!-- Boutons de navigation : Connexion et Inscription -->
@@ -23,6 +24,7 @@
                 <a href="register.php">
                     <button class="btnBlack buttonNavig">Inscription</button>
                 </a>
+
             </div>
 
             <!-- Icône pour ouvrir le menu mobile -->

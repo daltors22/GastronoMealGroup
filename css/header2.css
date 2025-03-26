@@ -24,7 +24,7 @@ nav{
 }
 
 .btnBlack2{
-    background-color: #FF7828;
+    background-color: #750470;
     color: white;
     width: 90px !important;
     height: 30px;
@@ -121,7 +121,7 @@ nav{
 }
 
 .Menu2Mobile:hover, .Menu3Mobile:hover, .Menu3Mobile a:hover, .Menu2Mobile a:hover, .Menu4Mobile:hover, .Menu4Mobile a:hover {
-    background-color: #FF7828;
+    background-color: hsl(311, 93%, 23%);
     color: #FFFFFF;
 }
 

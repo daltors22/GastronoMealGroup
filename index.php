@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>GastronoMeal</title>
+    <title>Cite du Vin</title>
     <!-- Configuration pour un affichage responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers les fichiers CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=6.1">
+    <link rel="stylesheet" href="css/styles.css?v=6.4">
     <!-- Feuille de style et script pour la bibliothèque Leaflet (cartographie interactive) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
@@ -33,55 +33,55 @@
         <div class="carrousel-track-zzxmplq">
         <div class="carrousel-slide-zzxmplq">
             <div class="carrousel-card-zzxmplq">
-            <img src="images/vins-shuken.jpg" alt="Image 1">
+            <img src="images/b1.png" alt="Image 1">
             <p>Texte 1</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="images/vins-shuken.jpg" alt="Image 2">
+            <img src="images/b2.jpg" alt="Image 2">
             <p>Texte 2</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="images/vins-shuken.jpg" alt="Image 3">
+            <img src="images/b3.png" alt="Image 3">
             <p>Texte 3</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="images/vins-shuken.jpg" alt="Image 4">
+            <img src="images/b4.png" alt="Image 4">
             <p>Texte 4</p>
             </div>
         </div>
         <div class="carrousel-slide-zzxmplq">
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 5">
+            <img src="images/b5.png" alt="Image 5">
             <p>Texte 5</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 6">
+            <img src="images/b6.png" alt="Image 6">
             <p>Texte 6</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 7">
+            <img src="images/b7.png" alt="Image 7">
             <p>Texte 7</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 8">
+            <img src="images/b8.png" alt="Image 8">
             <p>Texte 8</p>
             </div>
         </div>
         <div class="carrousel-slide-zzxmplq">
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 9">
+            <img src="images/b9.png" alt="Image 9">
             <p>Texte 9</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 10">
+            <img src="images/b10.png" alt="Image 10">
             <p>Texte 10</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 11">
+            <img src="images/b11.png" alt="Image 11">
             <p>Texte 11</p>
             </div>
             <div class="carrousel-card-zzxmplq">
-            <img src="https://via.placeholder.com/150" alt="Image 12">
+            <img src="images/b12.png" alt="Image 12">
             <p>Texte 12</p>
             </div>
         </div>
@@ -95,7 +95,7 @@
         <div class="LivFoodPro">
             <!-- Section pour proposer un restaurant -->
             <div class="foodpro" style="border-radius: 10px !important;">
-                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
+                <img src="images/shuken1.png" alt="foodpro" style="border-radius: 10px !important;">
             </div>
             <!-- Section pour devenir livreur -->
             <div class="livreur" style="border-radius: 10px !important;">
@@ -109,15 +109,15 @@
         <div class="LivFoodPro">
             <!-- Section pour proposer un restaurant -->
             <div class="foodpro" style="border-radius: 10px !important;">
-                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
+                <img src="images/shuken3.png" alt="foodpro" style="border-radius: 10px !important;">
             </div>
             <!-- Section pour devenir livreur -->
             <div class="livreur" style="border-radius: 10px !important;">
-                <img src="images/boutique-shuken.webp" alt="livreur" style="border-radius: 10px !important;">
+                <img src="images/shuken5." alt="livreur" style="border-radius: 10px !important;">
             </div>
             <!-- Section pour proposer un restaurant -->
             <div class="foodpro" style="border-radius: 10px !important;">
-                <img src="images/vins-shuken.jpg" alt="foodpro" style="border-radius: 10px !important;">
+                <img src="images/shuken4.png" alt="foodpro" style="border-radius: 10px !important;">
             </div>
         </div> 
     </div>
