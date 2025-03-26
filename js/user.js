@@ -114,6 +114,7 @@ async function displayUser() {
         }
 
         const prenomElement = document.querySelector('#prenomElement');
+        console.log("Construction prénom...", prenomElement.value);
         if (prenomElement) {
             prenomElement.innerHTML = `
                 <p>Bonjour, ${user.prenom}</p>

@@ -176,7 +176,8 @@
                 valueSendDetail: '', // Sotck les details (input)
                 hideOptiPopover: false,
                 showOptiPopover2: false,
-                
+                valueSendId: '',
+                valueSendIdUser: '',
             },
             methods: {
                 async searchVille(event) {
@@ -210,16 +211,50 @@
                         }
                     }
                 },
+                async saveAdress() {
+                    console.log('lancement saveAdress()..');
+                    try {
+                        const response = await fetch(`http://localhost:8080/api/adresse`, { // voir pour le endpoint /!\
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                "adresse": this.valueSendAdresse,
+                                "detail": this.valueSendDetail,
+                                "rue": this.valueSendRue,
+                                "ville": {
+                                    "idVille": this.valueSendId
+                                },
+                                "user": { 
+                                    "id": user.id 
+                                }
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            // logique
+                            
+                        } else {
+                            console.error('Erreur HTTP : ', response.status);
+                        }
+                    } catch (error) {
+                        console.error('Erreur fetch :');
+                    }
+                },
                 sendCity(ville) {
                     console.log('Ville sélectionnée :', ville);
                     document.getElementById("villeID").value = ville.name;
                     this.valueSendCity = ville;
-
+                    this.valueSendId = ville.idVille;
                     const cpInput = document.querySelector('input[type="text"]:nth-of-type(2)');
                     cpInput.value = ville.codePostal;
                     this.valueSendPostal = ville.codePostal;
                     console.log('nom ville : ', this.valueSendCity.name);
                     console.log('code postal ville: ', this.valueSendPostal);
+                    console.log('id de la ville : ', this.valueSendId);
 
                     this.suggestions = 0;
                 },
@@ -282,6 +317,7 @@
                     if (confirmation) {
                         console.log("✅ Adresse validée !");
                         // ➤ requête POST ou rediriger
+                        this.saveAdress();
 
                     } else {
                         console.log("❌ Annulé par l'utilisateur.");
@@ -291,6 +327,13 @@
             },
             mounted() {
                 this.checkLoginStatus();
+                const token = localStorage.getItem('token');
+                if (token) {
+                    const decoded = jwt_decode(token);
+                    this.valueSendIdUser = decoded.sub; 
+                    // ou decoded.id selon ton token
+                    console.log("User ID trouvé dans le token :", this.valueSendIdUser);
+                }
                 // Ajoute un gestionnaire d'événements pour détecter les clics externes
                 document.addEventListener('click', this.handleClickOutside);
                 
