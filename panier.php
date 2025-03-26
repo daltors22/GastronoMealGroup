@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catalogue</title>
+  <link rel="stylesheet" href="css/styles.css?v=6.4">
   <style>
     /* Basic styles for the cart button and modal */
     #cart-container {
@@ -86,6 +87,8 @@
   </style>
 </head>
 <body>
+  <!-- Inclusion du header avec PHP -->
+  <?php require_once("header.php"); ?>
 
   <!-- Header or navigation bar -->
   <header>
@@ -378,6 +381,7 @@
     updateCartCount();
     displayWines(); // Display wines when the page loads
   </script>
-
+<!-- Inclusion du footer avec PHP -->
+<?php require_once('footer.php'); ?>
 </body>
 </html>
