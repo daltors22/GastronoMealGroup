@@ -26,10 +26,10 @@ async function createUser(userData) {
 
 
 // Exemple de données utilisateur à envoyer
-const newUser = {
-    nom: "Dupont",
-    prenom: "Jean",
-    telephone: "0102030405",
-    typeUtilisateur: "client",
-    email: "jean.dupont@example.com"
-};
+//const newUser = {
+//    nom: "Dupont",
+//    prenom: "Jean",
+//    telephone: "0102030405",
+//    typeUtilisateur: "client",
+//    email: "jean.dupont@example.com"
+//};
