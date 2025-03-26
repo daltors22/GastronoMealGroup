@@ -84,6 +84,25 @@
       border: none;
       border-radius: 5px;
     }
+    #products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product {
+      width: 25%;
+      box-sizing: border-box;
+    }
+
+    /* Responsive : mobile = 1 par ligne */
+    @media (max-width: 700px) {
+      .product {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
