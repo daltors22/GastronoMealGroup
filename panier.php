@@ -9,7 +9,7 @@
     /* Basic styles for the cart button and modal */
     #cart-container {
       position: fixed;
-      top: 20px;
+      top: 60px;
       right: 20px;
     }
 
@@ -26,11 +26,11 @@
     .cart-modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0%;
+      left: 0%;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
     }
@@ -41,6 +41,7 @@
       border-radius: 10px;
       max-width: 400px;
       width: 100%;
+      height: auto;
     }
 
     .add-to-cart {
@@ -135,7 +136,7 @@
       <div id="cart-items">
         <p>Your cart is empty</p> <!-- Default message when empty -->
       </div>
-      <button onclick="closeCart()">Close Cart</button>
+      <button onclick="closeCart()" class="clear-cart" style="background-color: grey;">Close Cart</button>
       <button class="clear-cart" onclick="clearCart()">Clear All</button> <!-- Clear All Button -->
     </div>
   </div>
@@ -340,7 +341,7 @@
     // Toggle cart visibility
     function toggleCart() {
       const cartModal = document.getElementById('cart-modal');
-      cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+      cartModal.style.display = cartModal.style.display === 'flex' ? 'none' : 'flex';
 
       // If cart is empty, display message
       const cartItemsContainer = document.getElementById('cart-items');
