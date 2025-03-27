@@ -1670,12 +1670,29 @@ textarea.form-control {
     justify-content: center;
     overflow-y: auto;
 }
-.list-city ul, .list-city ul li  {
+.list-city2 {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100px !important;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1000;
+    position: absolute;
+    left: 45%;
+    top: 75%;
+}
+.list-city2:hover {
+    background-color: white;
+}
+.list-city ul, .list-city ul li, .list-city2 ul, .list-city2 ul li  {
     list-style: none;
     cursor: pointer;
 }
-.list-city ul li:hover  {
-    background-color: grey;
+.list-city ul li:hover, .list-city2 ul li:hover  {
+    background-color: rgb(227, 206, 206);
+    border-radius: 5px;
 }
 
 .optiPopover.close {
@@ -1689,4 +1706,22 @@ textarea.form-control {
 
 .content-1-off {
     display: none;
+}
+
+.search-bar-adresse {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    top: 71.9%;
+    left: 45%;
+    width: 200px;
+    height: 25px;
+    z-index: 1000;
+    
+}
+
+.search-bar-adresse input {
+    border: 2px solid black;
 }

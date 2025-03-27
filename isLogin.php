@@ -7,7 +7,7 @@
     <!-- Description de la page -->
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers le fichier CSS principal -->
-    <link rel="stylesheet" href="css/styles.css?v=6.0">
+    <link rel="stylesheet" href="css/styles.css?v=6.2">
     <!-- Favicon -->
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <!-- Lien vers un autre fichier CSS spécifique pour le header -->
@@ -128,14 +128,24 @@
                 <button class="foundRetaurantBtn">Trouver un restaurant</button>
             </div>
         </div>
-    </div>
-
-    <!-- Conteneur vide pour future expansion -->
-    <div class="container3">
-        <div id="map">
-            <!-- La carte sera générée par le script "scripts.js" -->
+        <!-- Conteneur vide pour future expansion -->
+        <div class="container3">
+            <div id="search-bar-adresse" class="search-bar-adresse">
+                <label></label>
+                <input id="villeID2" type="text" @input="searchVille" placeholder="Ex : Lille, Paris, Lyon...">
+            </div>
+            <div class="content-1-off" id="cityID2">
+                <ul v-if="suggestions.length">
+                <li v-for="ville in suggestions" :key="ville.idVille" @click="sendCity2(ville)">
+                {{ ville.name }} ({{ ville.codePostal }})
+                </li>
+                </ul>
+                </div>
+            <div id="map">
+                <!-- La carte sera générée par le script "scripts.js" -->
+            </div>
+            <script src="./js/scripts.js"></script>
         </div>
-        <script src="./js/scripts.js"></script>
     </div>
 
     <!-- Inclusion du fichier de footer via PHP -->
@@ -169,10 +179,11 @@
             methods: {
                 async searchVille(event) {
                     const value = event.target.value;
-                    
                     console.log("Saisie utilisateur :", value);
 
                     if (value.length >= 2) {
+                        const ecouteCity2 = document.getElementById('cityID2');
+                        ecouteCity2.className = "list-city2";
                         try {
                             console.log("Appel API déclenché");
 
@@ -235,7 +246,7 @@
                 },
                 sendCity(ville) {
                     console.log('Ville sélectionnée :', ville);
-                    document.getElementById("villeID").value = ville.name;
+                    document.querySelectorAll("#villeID").value = ville.name;
                     this.valueSendCity = ville;
                     this.valueSendId = ville.idVille;
                     const cpInput = document.querySelector('input[type="text"]:nth-of-type(2)');
@@ -246,6 +257,14 @@
                     console.log('id de la ville : ', this.valueSendId);
 
                     this.suggestions = 0;
+                },
+                sendCity2(ville) {
+                    console.log('fonction ville 2 : ok');
+                    const cpInput2 = document.getElementById('villeID2');
+                    cpInput2.value = ville.name;
+                    const ecouteCity2 = document.getElementById('cityID2');
+                        ecouteCity2.className = "content-1-off";
+
                 },
                 modifyDefaultAdress(){ // Quand on rentre dans input
                 //if ( une lettre est ajouter ) {
