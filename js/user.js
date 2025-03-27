@@ -43,7 +43,6 @@ async function getUserById(id) {
     }
 }
 
-verifView = false;
 
 async function getAdresse() {
     console.log('init getAdresse');
@@ -51,7 +50,7 @@ async function getAdresse() {
     const userId = getUserIdFromToken();
     if (!userId) {
         console.warn("Utilisateur non connecté");
-        return;
+        return null;
     }
 
     try {
@@ -66,19 +65,9 @@ async function getAdresse() {
         const adresses = await response.json();
         console.log('Adresses récupérées:', adresses);
 
-        // 🔍 On filtre par l'ID utilisateur connecté
         const adresse = adresses.find(a => a.user?.id == userId);
 
         if (adresse) {
-            const contentBonjour = document.getElementById('container-bonjour');
-            const inputAdresse = `${adresse.adresse} ${adresse.rue} ${adresse.ville.name} - ${adresse.ville.codePostal}`;
-            // Si l'input a un ID :
-
-            // En JS :
-            document.querySelector('#addLiv').value = inputAdresse;
-
-            contentBonjour.className = "content-1-off";
-
             const userInfo2Element = document.querySelector('#userInfo2');
             if (userInfo2Element) {
                 userInfo2Element.innerHTML = `
@@ -89,14 +78,19 @@ async function getAdresse() {
             } else {
                 console.warn("Élément #userInfo2 introuvable dans le DOM.");
             }
+
+            return adresse; 
         } else {
             console.warn("Aucune adresse trouvée pour l'utilisateur connecté.");
+            return null;
         }
 
     } catch (error) {
         console.error('Erreur réseau:', error);
+        return null;
     }
 }
+
 
 
 
@@ -230,6 +224,20 @@ async function createUser(userData) {
     }
 }
 
+async function dataAdresse() {
+    const adresse = await getAdresse();
+    console.log('test0: adresse : ', adresse);
+    console.log('Start dataAdresse(): ');
+    const contentBonjour = document.getElementById('container-bonjour');
+    console.log('test1');
+    if (adresse) {
+        console.log('test2');
+        contentBonjour.className = "content-1-off";
+    } else {
+        console.warn('error function getAdresse()');
+    }
+}
+
 // Exemple de données utilisateur à envoyer
 const newUser = {
     nom: "Dupont",
@@ -245,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Nombre de commandes pour l'utilisateur connecté :", nbCommandes);
     displayUser(); // Affiche les infos de l'utilisateur connecté
     getAdresse();
+    dataAdresse();
 });
 
 // <div id="userInfo"></div>
