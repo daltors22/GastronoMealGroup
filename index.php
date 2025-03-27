@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="css/styles.css?v=5.5">
     <!-- Feuille de style et script pour la bibliothèque Leaflet (cartographie interactive) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
     <!-- Favicon de la page -->
     <link rel="icon" href="../G-meal-2.ico" type="image/x-icon">
 </head>
@@ -77,8 +80,8 @@
     <div class="container3">
         <div id="map">
             <!-- La carte sera générée par le script "scripts.js" -->
-            <script src="./js/scripts.js"></script>
         </div>
+        <script src="./js/scripts.js"></script>
         <!-- Section pour afficher des informations sur les restaurants -->
         <div class="foundCity">
             <!-- Affiche des informations sur le restaurant sélectionné -->
@@ -107,8 +110,6 @@
 
     <!-- Ajout de Vue.js -->
     <!-- Lien en commentaire pour la version de production -->
-    <!-- POST DEV POUR PROD <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app', // Cible l'élément contenant l'id "app"

@@ -229,10 +229,12 @@ async function dataAdresse() {
     console.log('test0: adresse : ', adresse);
     console.log('Start dataAdresse(): ');
     const contentBonjour = document.getElementById('container-bonjour');
+    inputAdresse = ` ${adresse.adresse} ${adresse.rue} ${adresse.ville.name}-${adresse.ville.codePostal} `;
     console.log('test1');
     if (adresse) {
         console.log('test2');
         contentBonjour.className = "content-1-off";
+        document.querySelector('#addLiv').value = inputAdresse; // voir pour ajotuer detail
     } else {
         console.warn('error function getAdresse()');
     }

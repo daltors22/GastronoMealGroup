@@ -7,12 +7,15 @@
     <!-- Description de la page -->
     <meta name="description" content="A brief description of your page.">
     <!-- Lien vers le fichier CSS principal -->
-    <link rel="stylesheet" href="css/styles.css?v=2.1">
+    <link rel="stylesheet" href="css/styles.css?v=6.0">
     <!-- Favicon -->
     <link rel="icon" href="GastronoMealGroup/images/G-meal-2.ico">
     <!-- Lien vers un autre fichier CSS spécifique pour le header -->
     <link rel="stylesheet" href="css/header2.css?v=1.5"/>
+    <!-- Feuille de style et script pour la bibliothèque Leaflet (cartographie interactive) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
 </head>
 <body>
@@ -127,39 +130,22 @@
         </div>
     </div>
 
-    <!-- Section promotionnelle -->
-    <div class="container_1">
-        <div class="LivFoodPro">
-            <!-- Proposition d'ajouter un restaurant -->
-            <div class="foodpro">
-                <img src="images/foodpro.png" alt="foodpro">
-                <h3>Envie de partager votre talent ?</h3>
-                <a href="#">Ajouter votre restaurant</a>
-            </div>
-            <!-- Proposition pour les réservations -->
-            <div class="platliv">
-                <img src="images/platliv.png" alt="platliv">   
-                <h3>Laissez les réserver chez vous</h3>
-                <a href="#"></a>
-            </div>
-            <!-- Proposition pour devenir livreur -->
-            <div class="livreur">
-                <img src="images/livreur.png" alt="livreur">
-                <h3>Devenir livreur chez G-Meal</h3>
-                <a href="#">Devenez livreur-partenaire</a>
-            </div>
-        </div> 
-    </div>
-
     <!-- Conteneur vide pour future expansion -->
-    <div class="container3"></div>
+    <div class="container3">
+        <div id="map">
+            <!-- La carte sera générée par le script "scripts.js" -->
+        </div>
+        <script src="./js/scripts.js"></script>
+    </div>
 
     <!-- Inclusion du fichier de footer via PHP -->
     <?php require_once('footer.php'); ?>
     
     <!-- Ajout de Vue.js -->
     <script src="./js/validateToken.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="./js/user.js"></script>
     <script>
         new Vue({
             el: '#app',
@@ -347,6 +333,5 @@
             },
         });
     </script>
-    <script src="./js/user.js"></script>
 </body>
 </html>
