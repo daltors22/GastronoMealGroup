@@ -1725,3 +1725,149 @@ textarea.form-control {
 .search-bar-adresse input {
     border: 2px solid black;
 }
+
+/* RESTAURANT */
+
+.headerRestaurant {
+    
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+}
+
+#iconCarouselContainer-abx {
+    width: 100%;
+    overflow: hidden;
+    background: none;
+    padding: 10px 0;
+  }
+  
+  #iconCarouselTrack-abx {
+    display: flex;
+    gap: 20px;
+    animation: scrollIcons-abx 30s linear infinite;
+    align-items: center;
+  }
+  
+  .iconCarouselItem-abx img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: brightness(100%);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .iconCarouselItem-abx img:hover {
+    opacity: 1;
+  }
+  
+  @keyframes scrollIcons-abx {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+.content-buttons {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    gap: 10px !important;
+}
+
+.btn-restaurants {
+    width: auto;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    background-color: #eae8e8;
+    color: rgb(55, 55, 55);
+    cursor: pointer;
+}
+
+.btn-restaurants:hover {
+    background-color: #FF7828;
+    color: white;
+}
+
+.content-restaurants {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-restaurants-double {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-restaurant {
+   width: 50%;
+}
+
+.card-restaurant div {
+    width: 100%;
+    height: auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-restaurant img {
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+}
+
+.title-restaurants {
+
+}
+
+@media screen and (max-width: 1020px) {
+    .content-restaurants-double {
+        flex-direction: column;
+    }
+    .card-restaurant {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card-restaurant img {
+        width: 300px;
+    }
+    
+}
+
+@media screen and (max-width: 330px) {
+    .card-restaurant img {
+        width: 200px;
+    }
+    
+}

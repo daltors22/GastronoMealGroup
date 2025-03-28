@@ -10,7 +10,7 @@ async function getAllUsers() {
 
         if (response.ok) {
             const users = await response.json();
-            console.log(users);
+            //console.log(users);
             return users;
         } else {
             console.error('Erreur lors de la récupération des utilisateurs:', response.status);
@@ -32,8 +32,8 @@ async function getUserById(id) {
 
         if (response.ok) {
             const user = await response.json();
-            console.log('User:');
-            console.log(user.id);
+            //console.log('User:');
+            //console.log(user.id);
             return user;
         } else {
             console.error(`Erreur lors de la récupération de l'utilisateur ${id}:`, response.status);
@@ -78,7 +78,6 @@ async function getAdresse() {
             } else {
                 console.warn("Élément #userInfo2 introuvable dans le DOM.");
             }
-
             return adresse; 
         } else {
             console.warn("Aucune adresse trouvée pour l'utilisateur connecté.");
@@ -105,7 +104,7 @@ async function deleteUser(id) {
         });
 
         if (response.ok) {
-            console.log(`Utilisateur avec ID ${id} supprimé avec succès.`);
+            //console.log(`Utilisateur avec ID ${id} supprimé avec succès.`);
         } else {
             console.error(`Erreur lors de la suppression de l'utilisateur ${id}:`, response.status);
         }
@@ -123,7 +122,7 @@ function getUserIdFromToken() {
 
     try {
         const decodedToken = jwt_decode(token);
-        console.log("Token décodé :", decodedToken);
+        //console.log("Token décodé :", decodedToken);
 
         // Récupérer l'ID utilisateur depuis "sub"
         const userId = decodedToken.sub;
@@ -144,7 +143,7 @@ function getUserIdFromToken() {
 async function displayUser() {
     const userId = getUserIdFromToken(); // Récupérer l'ID utilisateur depuis le token
     if (!userId) {
-        console.log("Utilisateur non authentifié");
+        //console.log("Utilisateur non authentifié");
         return;
     }
 
@@ -163,7 +162,7 @@ async function displayUser() {
         }
 
         const prenomElement = document.querySelector('#prenomElement');
-        console.log("Construction prénom...", prenomElement.value);
+        //console.log("Construction prénom...", prenomElement.value);
         if (prenomElement) {
             prenomElement.innerHTML = `
                 <p>Bonjour, ${user.prenom}</p>
@@ -175,7 +174,7 @@ async function displayUser() {
 let commandes = 0;
 // /mes-commandes
 async function getMesCommandes() {
-    console.log('Init function getMesCommandes');
+    //console.log('Init function getMesCommandes');
     try {
         const response = await fetch('http://localhost:8080/api/mes-commandes', {
             method: 'GET',
@@ -187,9 +186,9 @@ async function getMesCommandes() {
         if (response.ok) {
             // Ici, l'endpoint renvoie le nombre de commandes (nbCommandes)
             const nbCommandes = await response.json();
-            console.log('1ere Variables --> Nombre de commandes:', nbCommandes);
+            //console.log('1ere Variables --> Nombre de commandes:', nbCommandes);
             commandes = nbCommandes;
-            console.log('user.js --> nb commandes:', commandes);
+            //console.log('user.js --> nb commandes:', commandes);
             return nbCommandes;
         } else {
             console.error(`Erreur lors de la récupération des commandes:`, response.status);
@@ -210,7 +209,7 @@ async function createUser(userData) {
 
         if (response.ok) {
             const createdUser = await response.json();
-            console.log('Utilisateur créé:', createdUser);
+            //console.log('Utilisateur créé:', createdUser);
             return createdUser;
         } else {
             console.error('Erreur lors de la création de l\'utilisateur:', response.status);
@@ -226,13 +225,13 @@ async function createUser(userData) {
 
 async function dataAdresse() {
     const adresse = await getAdresse();
-    console.log('test0: adresse : ', adresse);
-    console.log('Start dataAdresse(): ');
+    //console.log('test0: adresse : ', adresse);
+    //console.log('Start dataAdresse(): ');
     const contentBonjour = document.getElementById('container-bonjour');
     inputAdresse = ` ${adresse.adresse} ${adresse.rue} ${adresse.ville.name}-${adresse.ville.codePostal} `;
-    console.log('test1');
+    //console.log('test1');
     if (adresse) {
-        console.log('test2');
+        //console.log('test2');
         contentBonjour.className = "content-1-off";
         document.querySelector('#addLiv').value = inputAdresse; // voir pour ajotuer detail
     } else {
@@ -252,7 +251,7 @@ const newUser = {
 // Appel de la fonction après que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', () => {
     const nbCommandes = getMesCommandes();
-    console.log("Nombre de commandes pour l'utilisateur connecté :", nbCommandes);
+    //console.log("Nombre de commandes pour l'utilisateur connecté :", nbCommandes);
     displayUser(); // Affiche les infos de l'utilisateur connecté
     getAdresse();
     dataAdresse();

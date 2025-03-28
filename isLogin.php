@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <!-- Bouton pour lancer la recherche de restaurant -->
-                <button class="foundRetaurantBtn">Trouver un restaurant</button>
+                <a href="restaurant.php"><button class="foundRetaurantBtn">Trouver un restaurant</button></a>
             </div>
         </div>
         <!-- Conteneur vide pour future expansion -->
