@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css?v=6.8" />
+    <link rel="stylesheet" href="css/styles.css?v=7.0" />
     <link rel="stylesheet" href="css/header2.css" />
 
     <!-- Dependencies CDN -->
@@ -94,6 +94,20 @@
                     </div>
                 </div>
             </div>
+            <div class="content-restaurants-simple">
+                <div>
+                    <img src="images/burger.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/pizza-restaurant.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/burger-frite.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/hotdog.jpg" alt="im">
+                </div>
+            </div>
             <div class="content-restaurants-double">
                 <!-- <div class="title-restaurant"></div>-->
                 <div class="card-restaurant">
@@ -110,6 +124,23 @@
                         <p>4.3⭐(898+)·23 min</p>
                     </div>
                 </div>
+            </div>
+            <div class="content-restaurants-simple">
+                <div>
+                    <img src="images/burger.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/pizza-restaurant.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/burger-frite.jpg" alt="im">
+                </div>
+                <div>
+                    <img src="images/hotdog.jpg" alt="im">
+                </div>
+            </div>
+            <div class="content-restaurant-simple" style="padding: 20px;">
+                <button class="btn-plus-restaurant">Afficher plus</button>
             </div>
         </div>
     </div>

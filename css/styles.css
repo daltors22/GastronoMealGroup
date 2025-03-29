@@ -1850,6 +1850,37 @@ textarea.form-control {
 
 }
 
+.content-restaurants-simple {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-restaurants-simple div {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 50px !important;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content-restaurants-simple div img {
+    width: 350px;
+    height: 300px;
+    border-radius: 50px !important;
+}
+
 @media screen and (max-width: 1020px) {
     .content-restaurants-double {
         flex-direction: column;
@@ -1857,11 +1888,21 @@ textarea.form-control {
     .card-restaurant {
         width: 100%;
     }
+    .content-restaurants-simple {
+        flex-direction: column;
+    }
+    .content-restaurants-simple div {
+        width: 100%;
+    } 
 }
 
 @media screen and (max-width: 500px) {
     .card-restaurant img {
         width: 300px;
+    }
+    .content-restaurants-simple div img {
+        width: 200px;
+        height: 200px;
     }
     
 }
@@ -1879,4 +1920,26 @@ textarea.form-control {
   
 .invalid-mdp {
 color: red !important;
+}
+
+.btn-plus-restaurant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #FF7828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-plus-restaurant:hover {
+    background-color: #94461a;
 }
