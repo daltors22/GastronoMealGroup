@@ -64,7 +64,7 @@ async function logout() {
 
         if (response.ok) {
             // Déconnexion réussie
-            alert('Déconnexion réussie.');
+            //alert('Déconnexion réussie.');
             console.log('Déconnexion réussie.');
             localStorage.removeItem('token'); // Supprime le token du stockage local
             window.location.href = 'index.php'; // Redirige vers la page de connexion

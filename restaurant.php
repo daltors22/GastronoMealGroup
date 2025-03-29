@@ -52,6 +52,20 @@
                 <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/taco-icon.svg" alt="icon 10" />Tacos</div>
                 <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/chocolate-icon.svg" alt="icon 11" />Sucre</div>
                 <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/dessert-ice-cream-icon.svg" alt="icon 12" />Glaces</div>
+
+                <!-- Groupe 2 (identique, pour loop fluide) -->
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/burger-icon.svg" alt="icon 1" />Burgers</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/burger-fries-icon.svg" alt="icon 2" />Fasfood</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/hot-dog-icon.svg" alt="icon 3" />Américaine</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/fruits-vegetables/salad-vegetable-icon.svg" alt="icon 4" />Salades</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/chopsticks-icon.svg" alt="icon 5" />Sushis</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/popcorn-icon.svg" alt="icon 6" />Desserts</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/household-and-furniture/cups-icon.svg" alt="icon 7" />Cafés</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/food-dish-icon.svg" alt="icon 8" />Réserver</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/pickle-jar-icon.svg" alt="icon 9" />Epicé</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/taco-icon.svg" alt="icon 10" />Tacos</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/chocolate-icon.svg" alt="icon 11" />Sucre</div>
+                <div class="iconCarouselItem-abx"><img src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/dessert-ice-cream-icon.svg" alt="icon 12" />Glaces</div>
             </div>
         </div>
         <div class="content-buttons">

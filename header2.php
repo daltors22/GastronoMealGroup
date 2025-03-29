@@ -81,9 +81,9 @@
                     // Vérifie si l'utilisateur clique en dehors du menu
                     if (!menuMobileClosed & !menuMobileClosed.contains(event.target)) {
                         this.isMenuMobileShow = false; // Ferme le menu mobile
-                        console.log('ferme'); // Log pour débogage
+                        //console.log('ferme'); // Log pour débogage
                     }
-                    console.log('ouvert'); // Log si le menu reste ouvert
+                    //console.log('ouvert'); // Log si le menu reste ouvert
                 },
             },
 

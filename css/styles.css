@@ -1745,6 +1745,7 @@ textarea.form-control {
     overflow: hidden;
     background: none;
     padding: 10px 0;
+    display: flex;
   }
   
   #iconCarouselTrack-abx {
@@ -1870,4 +1871,12 @@ textarea.form-control {
         width: 200px;
     }
     
+}
+
+.valid-mdp {
+    color: green !important;
+  }
+  
+.invalid-mdp {
+color: red !important;
 }

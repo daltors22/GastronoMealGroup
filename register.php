@@ -142,9 +142,25 @@
                 <h2>Email et mot de passe</h2>
                 <form class="form-register">
                     <input type="email" v-model="email" placeholder="Votre email">
-                    <input type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="motDePasse" placeholder="Mot de passe">
+                    <input @input="searchMdp" type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="motDePasse" placeholder="Mot de passe">
                     <img :src="isPasswordVisible ? 'images/oeil.png' : 'images/oeil-2.png'" @click="togglePasswordVisibility" class="eye-open">
-                    <input type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="confirmMotDePasse" placeholder="Confirmer mot de passe">
+                    <input @input="searchMdp" type="password" :type="isPasswordVisible ? 'password' : 'text'" v-model="confirmMotDePasse" placeholder="Confirmer mot de passe">
+                    <p style="color:red;" id="mdpErreur"></p>
+                    <p style="color:grey;">
+                    Votre mote de passe doit contenir au moins:
+                    </p> 
+                    <p id="p-mdp8" style="color:grey;">
+                        8 caractères
+                    </p> 
+                    <p id="p-mdpM" style="color:grey;">
+                        une majuscule
+                    </p>
+                    <p id="p-mdpm" style="color:grey;"> 
+                        une minuscule et 
+                    </p>
+                    <p id="p-mdp0" style="color:grey;">
+                        un chiffre.
+                    </p>
                 </form>
                 <button @click="prevPage" class="btn-suivant">Précédent</button>
                 <br>
@@ -192,18 +208,9 @@ new Vue({
         telephone: '',
         conditionsAccepted: false,
         isPasswordVisible: true,
+        mdpValueUser: '',
     },
     methods: {
-        nextPage() {
-            if (this.currentPage < 2) {
-                this.currentPage++;
-            }
-        },
-        prevPage() {
-            if (this.currentPage > 0) {
-                this.currentPage--;
-            }
-        },
         togglePasswordVisibility() {
             this.isPasswordVisible = !this.isPasswordVisible;
         },
@@ -224,6 +231,87 @@ new Vue({
             } else {
                 alert("Erreur lors de la création de l'utilisateur.");
             }
+        },
+        nextPage() {
+            //if ((this.motDePasse.length || this.confirmMotDePasse.length) < 8) {
+            //    alert('Le mot de passe doit contenir au moins 8 caractères.');
+            //}
+            if (this.currentPage < 2) {
+                this.currentPage++;
+            }
+            if (this.currentPage == 2) {
+                const erreurEl = document.getElementById('mdpErreur');
+                if (this.motDePasse.length < 8) {
+                    erreurEl.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
+                    erreurEl.style.display = 'block';
+                    this.motDePasse = '';
+                    this.confirmMotDePasse = '';
+                    this.currentPage--;
+                }
+            }
+        },
+        prevPage() {
+            if (this.currentPage > 0) {
+                this.currentPage--;
+            }
+        },
+        // securMdp() {
+        //     for (let i = 0; i < this.motDePasse.length; i++) {
+        //         if (this.motDePasse[i] === this.motDePasse[i].toUpperCase()) {
+        //             console.log(this.motDePasse[i]);
+        //             this.logValue = true;
+        //         }
+        //         if (this.motDePasse[i] === this.motDePasse[i].toLowerCase()) {
+        //             console.log(this.motDePasse[i]);
+        //             this.logValue = true;
+        //         }
+        //         if (this.motDePasse[i] === this.motDePasse[i].match(/[0-9]/)) {
+        //             console.log(this.motDePasse[i]);
+        //             this.logValue = true;
+        //         }
+        //     }
+        // },
+        searchMdp(event) {
+                    
+                    const pMdpm = document.getElementById('p-mdpm');
+                    const pMdp8 = document.getElementById('p-mdp8');
+                    const pMdpM = document.getElementById('p-mdpM');
+                    const pMdp0 = document.getElementById('p-mdp0');
+                    const value = event.target.value;
+                    console.log("Saisie utilisateur :", value);
+                    const regexm = new RegExp('(?=.*[a-z])');
+                    const regexM = new RegExp('(?=.*[A-Z])');
+                    const regex8 = new RegExp('.{8,}');
+                    const regex0 = new RegExp('(?=.*[0-9])');
+                    if (regexm.test(value)) {
+                        pMdpm.style.color = '#28a745';
+    
+                    } else {
+                        pMdpm.style.color = 'red';
+                        
+                    }
+                    if (regexM.test(value)) {
+                        pMdpM.style.color = 'rgb(19, 147, 45)';
+                        
+                    } else {
+                        pMdpM.style.color = 'red';
+                        
+                    }
+                    if (regex8.test(value)) {
+                        pMdp8.style.color = 'rgb(19, 147, 45)';
+                        
+                    } else {
+                        pMdp8.style.color = 'red';
+                        
+                    }
+                    if (regex0.test(value)) {
+                        pMdp0.style.color = 'rgb(19, 147, 45)';
+                        
+                    } else {
+                        pMdp0.style.color = 'red';
+                        
+                    }
+                
         },
 
     }
