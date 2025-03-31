@@ -43,7 +43,7 @@
                         <p>Souhaitez-vous recevoir des notifications ?</p>
                     </div>
                     <div class="buttonNotifProfilClient">
-                        <input type="checkbox" class="btnNotifPC">
+                        <input @click="sendNotif" type="checkbox" id="checkNotif" class="btnNotifPC" checked />
                     </div>
                 </div>
 
@@ -84,22 +84,6 @@
                             <button class="buttonMesachats">Voir</button>
                         </div>  
                     </div>
-                    <div class="mesAchats2">
-                        <img class="imgMesAchats" src="#" alt="Restaurant 2" width="100" height="auto">
-                        <div class="textMesAchats">
-                            <h3>Nom restaurant</h3>
-                            <p>- nb article - 0.00eur</p>
-                            <button class="buttonMesachats">Voir</button>
-                        </div>  
-                    </div>
-                    <div class="mesAchats3">
-                        <img class="imgMesAchats" src="#" alt="Restaurant 3" width="100" height="auto">
-                        <div class="textMesAchats">
-                            <h3>Nom restaurant</h3>
-                            <p>- nb article - 0.00eur</p>
-                            <button class="buttonMesachats">Voir</button>
-                        </div>  
-                    </div>
                 </div>
             </div>
 
@@ -107,20 +91,6 @@
                 <div :class="{ active: isMesPrefVisible }" class="mesPrefDiv">
                     <div class="mesPref1">
                         <img class="imgMesPref" src="#" alt="Restaurant 1" width="100" height="auto">
-                        <div class="textMesPref">
-                            <h3>Nom restaurant</h3>
-                            <p>- nb article - 0.00eur</p>
-                        </div>  
-                    </div>
-                    <div class="mesPref2">
-                        <img class="imgMesPref" src="#" alt="Restaurant 2" width="100" height="auto">
-                        <div class="textMesPref">
-                            <h3>Nom restaurant</h3>
-                            <p>- nb article - 0.00eur</p>
-                        </div>  
-                    </div>
-                    <div class="mesPref3">
-                        <img class="imgMesPref" src="#" alt="Restaurant 3" width="100" height="auto">
                         <div class="textMesPref">
                             <h3>Nom restaurant</h3>
                             <p>- nb article - 0.00eur</p>
@@ -151,9 +121,81 @@
                 textVille: '',
                 textCp: '',
                 textRue: '',
+                notifications: [],
+                checkStatus: false,
 
             },
+            mounted() {
+                this.getNotification();
+            },
             methods: {
+                async getNotification() {
+                    console.log('launch getNotification');
+                    try {
+                        const response = await fetch('http://localhost:8080/api/notification', {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                            }
+                        });
+
+                        const notification = await response.json();
+                        this.notifications = notification;
+                        console.log(' -S- Notifications récupérée:', notifications);
+                        console.log('Notification récupérée:', notification);
+
+                        const checkNotif = document.getElementById('checkNotif');
+
+                        if (notification && notification.activeNotif !== undefined) {
+                            checkNotif.checked = notification.activeNotif;
+                        }
+
+                        return notification;
+                    } catch (error) {
+                        console.error('Erreur réseau:', error);
+                        return null;
+                    }
+                },
+
+                async setNotification(active) {
+                    console.log('launch setNotification');
+
+                    const user = jwt_decode(localStorage.getItem('token')); // si tu stockes l'ID là
+                    const isChecked = document.getElementById('checkNotif').checked; // true ou false
+                    const notifPayload = {
+                        message: active ? 'Activation des notifications' : 'Désactivation des notifications',
+                        dateEnvoi: new Date(),
+                        statusLecture: false,
+                        userId: this.notifications.userId,
+                        activeNotif: isChecked
+                    };
+                    console.log('notifPayload:', notifPayload);
+                    try {
+                        const response = await fetch('http://localhost:8080/api/notification', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                            },
+                            body: JSON.stringify(notifPayload)
+                        });
+
+                        const result = await response.json();
+                        console.log('Notification enregistrée :', result);
+                        return result;
+                    } catch (error) {
+                        console.error('Erreur réseau:', error);
+                        return null;
+                    }
+                },
+                async sendNotif() {
+                    console.log('sendNotif');
+                    const isChecked = document.getElementById('checkNotif').checked;
+                    console.log('checkNotif:', isChecked);
+                    await this.setNotification(isChecked);
+                },
+
                 updateStreet() {
                     // Action de mise à jour de l'adresse
                     event.preventDefault();

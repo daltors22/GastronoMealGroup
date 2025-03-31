@@ -255,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayUser(); // Affiche les infos de l'utilisateur connecté
     getAdresse();
     dataAdresse();
+    getNotification()
 });
 
 // <div id="userInfo"></div>
