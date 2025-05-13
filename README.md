@@ -1,17 +1,18 @@
 # GastronoMeal 
 
-**GastronoMeal** est une application web Node.js/EJS de commande de repas permettant aux utilisateurs de découvrir des restaurants, consulter leurs menus et plats, et passer commande via un panier interactif.
+**GastronoMeal** est une application web de commande de repas permettant aux utilisateurs de découvrir des restaurants, consulter leurs menus et plats, et passer commande via un panier interactif.
 
 ---
 
 ##  Technologies utilisées
 
-- **Node.js** / **Express** — Backend serveur
+- **Node.js** / **Express** — serveur
 - **EJS** — Moteur de templates HTML
 - **Bootstrap 5** — Framework CSS responsive
 - **JavaScript (DOM)** — Interactivité côté client
 - **LocalStorage** — Gestion temporaire du panier
 - **JSON local** — Simulation de base de données
+- **API REST** - API GastronoMeal en SpringBoot "API REST"
 
 ---
 
@@ -25,7 +26,7 @@
 │   ├── data/         → Fichiers JSON de données restaurants
 │   └── images/       → Assets graphiques
 ├── views/            → Fichiers EJS pour les pages (restaurant, panier, etc.)
-├── server.js         → Point d’entrée du serveur Express
+├── server.js         → serveur -node server.js-
 └── package.json      → Dépendances et configuration
 ```
 
