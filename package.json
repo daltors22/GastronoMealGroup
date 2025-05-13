@@ -1,0 +1,15 @@
+{
+    "name": "gastrono-meal",
+    "version": "1.0.0",
+    "description": "Projet GastronoMeal avec Express + EJS",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "ejs": "^3.1.9"
+    }
+  }
+  

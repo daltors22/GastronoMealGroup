@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    border-top: 0.3px solid rgb(182, 178, 178) !important;
+}
+
+header {
+    border-bottom: 0.3px solid rgb(182, 178, 178) !important;
+}
+
+.card-body {
+    overflow-x: hidden;
+}
+
+.btn-success, .btn-primary {
+    background-color: #FF7828 !important;
+    border: none !important;
+}
+
+.btn-outline-primary, .btn-outline-success {
+    border: 1px solid #FF7828 !important;
+    color: rgb(92, 91, 91) !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-success:hover {
+    background-color: #eec6af !important;
+    border: 1px solid white !important;
+    color: black !important;
+}
+
+.btn-success:hover, .btn-primary:hover {
+    background-color: #b35620 !important;
+    color: white !important;
+}
+
+.none-type {
+    display: none;
+}
+
+#logo-profil {
+    cursor: pointer;
+}

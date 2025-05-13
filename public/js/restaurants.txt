@@ -1,0 +1,178 @@
+function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const badge = document.getElementById("cart-count");
+    if (badge) badge.textContent = totalItems;
+}
+// === Chargement JSON ===
+fetch('/data/restaurants_full.json')
+  .then(res => res.json())
+  .then(data => {
+    window.allRestaurants = data;
+    renderAllSections(data);
+    applyFilters();
+  })
+  .catch(err => console.error("Erreur de chargement du JSON :", err));
+
+// === Carrousels ===
+function renderAllSections(data) {
+  renderCarousel(data.slice(0, 10), document.getElementById("restaurant-carousel"));
+  renderCarousel(data.slice(10, 20), document.getElementById("menu-carousel"), "menu");
+  renderCarousel(data.slice(20, 30), document.getElementById("dish-carousel"), "dish");
+}
+
+function renderCarousel(group, container, type = "restaurant") {
+  container.innerHTML = "";
+  group.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card shadow-sm";
+    card.style.minWidth = "300px";
+    card.dataset.id = item.id;
+    card.dataset.type = type;
+    card.innerHTML = `
+      <img src="${item.image}" class="card-img-top" alt="${item.name}">
+      <div class="card-body">
+        <h5 class="card-title">${item.name}</h5>
+        <p class="card-text">${item.city} - ${item.cuisine} - ${item.price}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// === Résultats filtrés ===
+const resultsContainer = document.getElementById("results-container");
+let isGridView = false;
+
+function renderResults(list) {
+  resultsContainer.innerHTML = "";
+  if (list.length === 0) {
+    resultsContainer.innerHTML = "<p class='text-center text-muted'>Aucun restaurant trouvé.</p>";
+    return;
+  }
+
+  list.forEach(item => {
+    const div = document.createElement("div");
+    div.className = isGridView ? "col-md-4 mb-4" : "col-md-6 mb-4";
+    div.innerHTML = `
+      <div class="card h-100 shadow-sm" data-id="${item.id}" data-type="restaurant">
+        <div class="row g-0">
+          <div class="col-4">
+            <img src="${item.image}" class="img-fluid rounded-start" alt="${item.name}">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h5 class="card-title">${item.name}</h5>
+              <p class="card-text">${item.description}</p>
+              <p class="text-muted small">${item.city} | ${item.cuisine} | ${item.price} | ${item.diet}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    resultsContainer.appendChild(div);
+  });
+}
+
+// === Filtres ===
+const searchInput = document.getElementById("searchInput");
+const cityFilter = document.getElementById("cityFilter");
+const priceFilter = document.getElementById("priceFilter");
+const dietFilter = document.getElementById("dietFilter");
+const cuisineFilter = document.getElementById("cuisineFilter");
+const resetButton = document.getElementById("resetFilters");
+const toggleButton = document.getElementById("toggleView");
+
+function applyFilters() {
+  const q = searchInput.value.toLowerCase();
+  const city = cityFilter.value;
+  const price = priceFilter.value;
+  const diet = dietFilter.value;
+  const cuisine = cuisineFilter.value;
+
+  const filtered = window.allRestaurants.filter(r =>
+    (!q || r.name.toLowerCase().includes(q)) &&
+    (!city || r.city === city) &&
+    (!price || r.price === price) &&
+    (!diet || r.diet === diet) &&
+    (!cuisine || r.cuisine === cuisine)
+  );
+
+  renderResults(filtered);
+}
+
+[searchInput, cityFilter, priceFilter, dietFilter, cuisineFilter].forEach(el =>
+  el.addEventListener("input", applyFilters)
+);
+
+resetButton.addEventListener("click", () => {
+  searchInput.value = "";
+  cityFilter.value = "";
+  priceFilter.value = "";
+  dietFilter.value = "";
+  cuisineFilter.value = "";
+  applyFilters();
+});
+
+toggleButton.addEventListener("click", () => {
+  isGridView = !isGridView;
+  toggleButton.textContent = isGridView ? "Afficher en liste" : "Afficher en carte";
+  applyFilters();
+});
+
+// === Détail dynamique ===
+document.addEventListener("click", e => {
+  const card = e.target.closest(".card");
+  if (card && card.dataset.id) {
+    const id = card.dataset.id;
+    const selected = window.allRestaurants.find(r => r.id === id);
+    if (selected) showDetails(selected);
+  }
+});
+
+function showDetails(restaurant) {
+  document.getElementById("details-section").style.display = "block";
+  document.getElementById("detail-title").textContent = restaurant.name;
+  document.getElementById("detail-description").textContent = restaurant.description;
+
+  const menuList = document.getElementById("detail-menus");
+  menuList.innerHTML = "";
+  restaurant.menus.forEach(menu => {
+    const li = document.createElement("li");
+    li.className = "list-group-item";
+    li.textContent = `${menu.name} - ${menu.price}€ (${menu.items.join(", ")})`;
+    menuList.appendChild(li);
+  });
+
+  const dishRow = document.getElementById("detail-dishes");
+  dishRow.innerHTML = "";
+  restaurant.dishes.forEach(dish => {
+    const col = document.createElement("div");
+    col.className = "col-md-4 mb-3";
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${dish.image}" class="card-img-top" alt="${dish.name}">
+        <div class="card-body">
+          <h5 class="card-title">${dish.name}</h5>
+          <p class="card-text">${dish.description}</p>
+          <p class="text-muted">${dish.price}€ - ${dish.diet}</p>
+          <button class="btn btn-primary" onclick='addToCart(${JSON.stringify(dish)})'>Ajouter au panier</button>
+        </div>
+      </div>
+    `;
+    dishRow.appendChild(col);
+  });
+}
+
+// === Panier simple ===
+function addToCart(item) {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${item.name} ajouté au panier !`);
+  updateCartBadge();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartBadge();
+});

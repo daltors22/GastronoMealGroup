@@ -1,0 +1,502 @@
+[
+  {
+    "name": "Française Fastfood 1",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "standard",
+    "cuisine": "française",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 2",
+    "city": "Marseille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Marseille proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Mexicaine Fastfood 3",
+    "city": "Marseille",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "standard",
+    "cuisine": "mexicaine",
+    "description": "Un délicieux endroit fastfood à Marseille proposant une cuisine mexicaine.",
+    "image": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+  },
+  {
+    "name": "Japonaise Fastfood 4",
+    "city": "Marseille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit fastfood à Marseille proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Végétarienne Fastfood 5",
+    "city": "Marseille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "standard",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit fastfood à Marseille proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg"
+  },
+  {
+    "name": "Asiatique Fastfood 6",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "asiatique",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine asiatique.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 7",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Japonaise Fastfood 8",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 9",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Asiatique Fastfood 10",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "asiatique",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine asiatique.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 11",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Italienne Fastfood 12",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "standard",
+    "cuisine": "italienne",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine italienne.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Asiatique Restaurant 13",
+    "city": "Lille",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "standard",
+    "cuisine": "asiatique",
+    "description": "Un délicieux endroit restaurant à Lille proposant une cuisine asiatique.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Japonaise Restaurant 14",
+    "city": "Marseille",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit restaurant à Marseille proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Japonaise Restaurant 15",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Japonaise Restaurant 16",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Mexicaine Restaurant 17",
+    "city": "Marseille",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "mexicaine",
+    "description": "Un délicieux endroit restaurant à Marseille proposant une cuisine mexicaine.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 18",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+  },
+  {
+    "name": "Italienne Fastfood 19",
+    "city": "Bordeaux",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "italienne",
+    "description": "Un délicieux endroit fastfood à Bordeaux proposant une cuisine italienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 20",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 21",
+    "city": "Marseille",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Marseille proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+  },
+  {
+    "name": "Végétarienne Fastfood 22",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg"
+  },
+  {
+    "name": "Italienne Fastfood 23",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "italienne",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine italienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Française Fastfood 24",
+    "city": "Bordeaux",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "française",
+    "description": "Un délicieux endroit fastfood à Bordeaux proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 25",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Française Restaurant 26",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "française",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+  },
+  {
+    "name": "Italienne Fastfood 27",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "italienne",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine italienne.",
+    "image": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+  },
+  {
+    "name": "Mexicaine Fastfood 28",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "standard",
+    "cuisine": "mexicaine",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine mexicaine.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Française Fastfood 29",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "standard",
+    "cuisine": "française",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 30",
+    "city": "Lille",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "standard",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Lille proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 31",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Asiatique Restaurant 32",
+    "city": "Lyon",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "asiatique",
+    "description": "Un délicieux endroit restaurant à Lyon proposant une cuisine asiatique.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Française Restaurant 33",
+    "city": "Lille",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "française",
+    "description": "Un délicieux endroit restaurant à Lille proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Végétarienne Fastfood 34",
+    "city": "Marseille",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegan",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit fastfood à Marseille proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 35",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegan",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+  },
+  {
+    "name": "Végétarienne Fastfood 36",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 37",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "standard",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 38",
+    "city": "Marseille",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Marseille proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Asiatique Restaurant 39",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "asiatique",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine asiatique.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Mexicaine Restaurant 40",
+    "city": "Lyon",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegan",
+    "cuisine": "mexicaine",
+    "description": "Un délicieux endroit restaurant à Lyon proposant une cuisine mexicaine.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Fastfood 41",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/txsupu1511815755.jpg"
+  },
+  {
+    "name": "Végétarienne Fastfood 42",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "vegetarien",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 43",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "vegan",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 44",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€€€",
+    "diet": "standard",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"
+  },
+  {
+    "name": "Française Fastfood 45",
+    "city": "Lyon",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "française",
+    "description": "Un délicieux endroit fastfood à Lyon proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Japonaise Restaurant 46",
+    "city": "Bordeaux",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "standard",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit restaurant à Bordeaux proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/utxqpt1511639216.jpg"
+  },
+  {
+    "name": "Indienne Restaurant 47",
+    "city": "Paris",
+    "type": "restaurant",
+    "price": "€",
+    "diet": "vegan",
+    "cuisine": "indienne",
+    "description": "Un délicieux endroit restaurant à Paris proposant une cuisine indienne.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Végétarienne Restaurant 48",
+    "city": "Lyon",
+    "type": "restaurant",
+    "price": "€€",
+    "diet": "vegetarien",
+    "cuisine": "végétarienne",
+    "description": "Un délicieux endroit restaurant à Lyon proposant une cuisine végétarienne.",
+    "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+  },
+  {
+    "name": "Française Fastfood 49",
+    "city": "Lille",
+    "type": "fastfood",
+    "price": "€€€",
+    "diet": "vegan",
+    "cuisine": "française",
+    "description": "Un délicieux endroit fastfood à Lille proposant une cuisine française.",
+    "image": "https://www.themealdb.com/images/media/meals/xxtsvx1511814083.jpg"
+  },
+  {
+    "name": "Japonaise Fastfood 50",
+    "city": "Paris",
+    "type": "fastfood",
+    "price": "€",
+    "diet": "vegetarien",
+    "cuisine": "japonaise",
+    "description": "Un délicieux endroit fastfood à Paris proposant une cuisine japonaise.",
+    "image": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"
+  }
+]

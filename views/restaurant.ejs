@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>GastronoMeal - Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card img {
+      object-fit: cover;
+      height: 200px;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .scrolling-wrapper {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .scrolling-wrapper .card {
+      min-width: 300px;
+      margin-right: 1rem;
+    }
+    #details-section {
+      display: none;
+    }
+    .card[data-id] {
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .card[data-id]:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      
+  </style>
+</head>
+
+<body class="bg-light">
+  <%- include('partials/nav') %>
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4">Trouvez votre prochain plat !</h1>
+
+    <!-- Filtres -->
+    <div class="container mt-4 mb-5">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Rechercher un resto" id="searchInput">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="cityFilter">
+            <option value="">Ville</option>
+            <option value="Paris">Paris</option>
+            <option value="Lyon">Lyon</option>
+            <option value="Marseille">Marseille</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="priceFilter">
+            <option value="">Prix</option>
+            <option value="€">€</option>
+            <option value="€€">€€</option>
+            <option value="€€€">€€€</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" id="dietFilter">
+            <option value="">Régime</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarien">Végétarien</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="cuisineFilter">
+            <option value="">Cuisine</option>
+            <option value="française">Française</option>
+            <option value="italienne">Italienne</option>
+            <option value="asiatique">Asiatique</option>
+          </select>
+        </div>
+        <div class="col-md-12 text-end">
+          <button class="btn btn-outline-secondary" id="resetFilters">Réinitialiser les filtres</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <button id="toggleView" class="btn btn-outline-primary">Afficher en carte</button>
+    </div>
+    <!-- Détail dynamique -->
+    <div class="row mt-5" id="details-section">
+        <div class="col-12">
+          <div class="card shadow">
+            <div class="card-header">
+              <h4 id="detail-title"></h4>
+            </div>
+            <div class="card-body">
+              <p id="detail-description"></p>
+              <h5>Menus</h5>
+              <ul id="detail-menus" class="list-group mb-3"></ul>
+              <h5>Plats</h5>
+              <div id="detail-dishes" class="row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Résultats dynamiques -->
+    <div class="row" id="results-container"></div>
+
+  </div>
+    <div class="container my-5">
+      <h2 class="mb-3">Restaurants populaires</h2>
+      <div class="scrolling-wrapper row flex-row flex-nowrap overflow-auto" id="restaurant-carousel"></div>
+
+      <h2 class="mt-5 mb-3">Menus du jour</h2>
+      <div class="scrolling-wrapper row flex-row flex-nowrap overflow-auto" id="menu-carousel"></div>
+
+      <h2 class="mt-5 mb-3">Plats recommandés</h2>
+      <div class="scrolling-wrapper row flex-row flex-nowrap overflow-auto" id="dish-carousel"></div>
+    </div>
+
+  <%- include('partials/footer') %>
+  <script type="module" src="/js/restaurants.js"></script>
+  <script type="module" src="/js/panier.js"></script>
+  <script type="module" src="/js/scripts.js"></script>
+  <div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;"></div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil Client - GastronoMeal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light">
+  <%- include('partials/nav') %>
+
+  <div id="app" class="container py-5">
+      <p id="logout" class="text-secondary" style="cursor: pointer;">se déconnecter <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+      </svg></p>
+    <!-- Notifications -->
+    <div class="card shadow-sm mb-5">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title mb-2">Notifications</h5>
+          <p class="mb-0">Souhaitez-vous recevoir des notifications ?</p>
+        </div>
+        <div>
+          <input type="checkbox" id="checkNotif" class="form-check-input" @click="sendNotif" checked>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Infos Perso -->
+      <div class="col-md-6 mb-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title mb-4">
+              <img src="images/information.png" alt="info" width="30" class="me-2"> Vos informations personnelles
+            </h3>
+            <div id="userInfo"></div>
+            <button class="btn btn-warning mt-3" id="modify-infos-user">Modifier</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adresse -->
+      <div class="col-md-6 mb-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title mb-4">
+              <img src="images/information.png" alt="info" width="30" class="me-2">Adresse(s)
+            </h3>
+            <div id="userInfo2">
+                <div class="d-flex flex-column">
+                    <p>{{ adresseAffichee }} - <span class="text-secondary">Adresse par défaut</span></p>
+                </div>
+            </div>
+            <button class="btn btn-warning mt-3" @click="modifyTextStreet">Modifier</button>
+            <button class="btn btn-outline-primary mt-3">ajouter une adresse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Formulaire Modification -->
+    <div class="card shadow-sm p-4 mb-5 justify-content-center align-items-center" :class="{ 'd-flex': showProfilClient, 'd-none': !showProfilClient }">
+        <div v-if="istextButtonModifyStreet" class="card d-flex flex-column justify-content-center align-items-center p-5" style="width: 90%;height:80vh; position: fixed; z-index:1000; left:50; top:15vh;">
+        <div class="card-body p-5" style="width: 70%;">
+            <h5>Modifier votre adresse</h5>
+          <!-- <input v-model="textStreet" class="form-control mb-3" placeholder="Nouvelle adresse"> -->
+          <p>numéro de rue</p>
+          <input class="form-control mb-3" type="number" placeholder="">
+          <p>type de rue + nom</p>
+          <input class="form-control mb-3" type="text" placeholder="ex: Allée des pommes, Rue blanche..">
+          <p>ville</p>
+          <input class="form-control mb-3" type="text" placeholder="">
+          <hr>
+          <div>
+            <button @click.prevent="updateAdresse" class="btn btn-success me-2">Valider</button>
+            <button @click.prevent="hideModifier" class="btn btn-secondary">Annuler</button>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Préférences / Achats -->
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-outline-primary me-2" @click="showMesAchats">Mes achats</button>
+      <button class="btn btn-outline-primary" @click="showMesPrefs">Mes préférences</button>
+    </div>
+
+    <div class="row">
+      <div class="col-12" v-if="isMesAchatsVisible">
+        <div id="liste-commandes"></div>
+      </div>
+      
+
+      <div class="col-12" v-if="isMesPrefVisible">
+        <div class="card shadow-sm p-3">
+          <div class="d-flex align-items-center">
+            <img src="#" alt="Préférence" width="100" height="auto" class="me-3">
+            <div>
+              <h5>Nom restaurant</h5>
+              <p>- nb article - 0.00€</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <%- include('partials/footer') %>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script type="module" src="/js/scripts.js"></script>
+  <script type="module" src="/js/panier.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        isMesAchatsVisible: false,
+        isMesPrefVisible: false,
+        textStreet: '',
+        adresseAffichee: '12 rue Exemple, 75001 Paris',
+        istextButtonModifyStreet: false,
+        showProfilClient: false,
+        notifications: [],
+      },
+      mounted() {
+        this.getNotification();
+      },
+      methods: {
+        async updateAdresse() {
+          try {
+            const response = await fetch('http://localhost:8080/api/adresse', {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ nouvelleAdresse: this.textStreet })
+            });
+            if (response.ok) {
+              this.adresseAffichee = this.textStreet;
+              this.hideModifier();
+            }
+          } catch (error) {
+            console.error("Erreur mise à jour adresse :", error);
+          }
+        },
+        getNotification() {
+          fetch('http://localhost:8080/api/notification', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => res.json())
+          .then(notification => {
+            this.notifications = notification;
+            if (notification && notification.activeNotif !== undefined) {
+              document.getElementById('checkNotif').checked = notification.activeNotif;
+            }
+          })
+          .catch(error => console.error('Erreur réseau:', error));
+        },
+        async setNotification(active) {
+          const notifPayload = {
+            message: active ? 'Activation des notifications' : 'Désactivation des notifications',
+            dateEnvoi: new Date(),
+            statusLecture: false,
+            userId: this.notifications.userId,
+            activeNotif: active
+          };
+          try {
+            await fetch('http://localhost:8080/api/notification', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(notifPayload)
+            });
+          } catch (error) {
+            console.error('Erreur lors de la sauvegarde:', error);
+          }
+        },
+        // getCommande
+        async getCommandes(){
+          //console.log("ok");
+          const id = localStorage.getItem('id');
+          try {
+              const response = await fetch(`http://localhost:8080/api/mes-commandes?userId=${id}`, {
+                  method: 'GET',
+                  headers:{'Content-Type':'application/json'}
+              });
+
+              if(!response.ok){
+                  throw new Error("Erreur HTTP"); // important pour pas recharger response
+              }
+
+              const data = await response.json();
+              //console.log(data);
+
+              const container = document.getElementById("liste-commandes");
+              container.innerHTML = "";
+
+              if (!data.length) {
+              container.innerHTML = "<p class='text-muted'>Aucune commande pour l'instant.</p>";
+              return;
+              }
+
+              data.forEach(c => {
+                  const card = document.createElement("div");
+                  card.className = "card shadow-sm p-3 mb-3";
+
+                  card.innerHTML = `
+                      <div class="d-flex align-items-center">
+                      <img src="/images/platliv.png" alt="Commande" width="100" height="auto" class="me-3">
+                      <div>
+                          <h5>Commande #${c.idCommande}</h5>
+                          <p>${new Date(c.dateCommande).toLocaleString()} - Statut : ${c.statusCommande}</p>
+                          <p>${c.poids} kg - ${c.frais.toFixed(2)} € - ${c.distance} km</p>
+                          <p>Livraison : ${c.dateLivraison ? new Date(c.dateLivraison).toLocaleString() : 'Non livrée'}</p>
+                      </div>
+                      </div>
+                  `;
+                  container.appendChild(card);
+              });
+              return data;
+          } catch (error) {
+              console.error(error);
+          }
+        },
+        sendNotif() {
+          const isChecked = document.getElementById('checkNotif').checked;
+          this.setNotification(isChecked);
+        },
+        hideModifier() {
+          this.istextButtonModifyStreet = false;
+          this.showProfilClient = false;
+        },
+        modifyTextStreet() {
+          this.istextButtonModifyStreet = true;
+          this.showProfilClient = true;
+        },
+        showMesAchats() {
+          this.isMesAchatsVisible = true;
+          this.isMesPrefVisible = false;
+          this.getCommandes();
+        },
+        showMesPrefs() {
+          this.isMesAchatsVisible = false;
+          this.isMesPrefVisible = true;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
